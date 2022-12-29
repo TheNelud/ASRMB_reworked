@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
 }
-.sidebar .logo-details i
+.sidebar .logo-details img
 {
    font-size: 30px;
    color: #fff;
@@ -99,7 +99,7 @@
 {
     display: block;
 }
-.sidebar .nav-links li i
+.sidebar .nav-links li img
 {
     height: 50px;
     min-width: 78px;
@@ -290,8 +290,8 @@
 }
 .home-section .home-content .bx-menu 
 {
-    color: #ffffff;
-    font-size: 35px;
+    filter: invert(100%);    
+    height: 35px;
 }
 .home-section .home-content .bx-menu
 {

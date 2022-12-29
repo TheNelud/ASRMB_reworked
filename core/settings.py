@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-c-ek)hj3l(rqei0v$dxss*k4!79aux-itb&e=%qiit)bat*2t8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["matbalans.ru", "localhost", "127.0.0.1", "10.11.236.110"]
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'asrmb_main',
+    'asrmb_raports',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -101,6 +102,9 @@ DATABASES = {
     }
 }
 
+
+DATABASE_ROUTERS = ('asrmb_raports.db_router.Raport_db_router',
+                    )
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

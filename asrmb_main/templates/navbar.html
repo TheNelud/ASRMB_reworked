@@ -1,31 +1,25 @@
 {% load static%}
 
-<section class="home-section">
-    <div class="home-content">
-        <i class='bx bx-menu'></i>
 
-        <a class="text" href="#">Определение компонентного состава</a>
-        <a class="text" href="#">Расчет технологических потерь</a>
-        <a class="text" href="#">Расчет массы</a>
-        <a class="text" href="#">Коэффициенты сверживаемости</a>
-        <a class="text" href="#">Потери газового конденсата через неплотности</a>
+<div class="home-content">
+    <img src="{% static 'images/menu.png' %}"  class='bx bx-menu'>
+    {% comment %} <img src="{% static 'images/user.png' %}" alt="profile"> {% endcomment %}
 
-        <div class='dropdown'>
-            <a href="#" class="text dropbtn">Отчеты</a>
-            <div class="dropdown-content">
-                <a href="#">Суточный рапорт УКПГ</a>
-                <a href="#">Ежемесячный эксплуатационный рапорт</a>
-                <a href="#">Материальный баланс МЭГ</a>
-                <a href="#">Суточный рапорт Киринского ГКМ</a>
-            </div>
+    <a class="text" href="#">Определение компонентного состава</a>
+    <a class="text" href="#">Расчет технологических потерь</a>
+    <a class="text" href="#">Расчет массы</a>
+    <a class="text" href="#">Коэффициенты сверживаемости</a>
+    <a class="text" href="#">Потери газового конденсата через неплотности</a>
+
+    <div class='dropdown'>
+        <a href="#" class="text dropbtn">Отчеты</a>
+        <div class="dropdown-content">
+            <a href="{% url 'sar'%}">Суточный рапорт УКПГ</a>
+            <a href="#">Ежемесячный эксплуатационный рапорт</a>
+            <a href="#">Материальный баланс МЭГ</a>
+            <a href="#">Суточный рапорт Киринского ГКМ</a>
         </div>
-        
     </div>
-    <div class="home-content" style='background: #fff'>
-        qweqweqwr
-        qwerqw
-        qwrqwrqw
-    {% block content %}
-    {% endblock %}
-    <div>
-</section>
+    
+</div>
+    
