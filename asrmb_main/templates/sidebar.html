@@ -1,0 +1,28 @@
+{%load static%}
+<div class="sidebar"> <!--Можно будет убрать close и допменю будет в баре -->
+    <div class="logo-details">
+        <img  class='logo_site' src="{% static 'images/logo.png' %}"/>
+        <span class="logo_name">AСМБР</span>
+    </div>
+    {%block sidebar%}
+
+    {%endblock%}
+        
+    <div class="profile-details">
+        <div class="profile-content">
+            <img src="{% static 'images/user.png' %}" alt="profile">
+        </div>
+        <div class="name-job">
+            <div class="profile_name">Чувак</div>
+            <div class="job">Инженер-клац</div>
+        </div>
+        <img class="logout" src="{% static 'images/log-out.png' %}" alt="profile">
+        {% comment %} <i class='bx bx-log-out'></i>  {% endcomment %}
+    </div>
+
+</div>
+
+
+
+
+

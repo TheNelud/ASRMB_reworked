@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>АСРМБ</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/sidebar.css'  %}" type="text/css">
+
+</head>
+<body>
+    
+    {% include 'sidebar.html'%}
+    {% include 'navbar.html'%}
+
+    <script type="text/javascript" src="{% static 'js/jquery-3.6.3.js'%}" ></script> 
+    <script type="text/javascript" src="{% static 'js/sidebar.js'%}" ></script>
+</body>
+</html>
