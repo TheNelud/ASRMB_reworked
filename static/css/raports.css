@@ -1,0 +1,39 @@
+table {
+    caption-side: bottom;
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+.tableRaportsSar{
+    position: absolute;
+    top: 70px;
+    left: 350px;
+    width: 900px;
+}
+
+.objCellsar {
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: grey;
+    border-image: initial;
+    text-align: center;
+}
+
+
+
+@media print {
+    
+    .print{
+        margin: 0 0 0 20px;
+
+    } 
+
+    #block_conteiner_graphs{
+        margin-top: 300px;
+    }
+    
+}
