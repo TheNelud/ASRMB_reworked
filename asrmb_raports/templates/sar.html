@@ -24,6 +24,17 @@
 
     </li>
     <li>
+        <a href="{% url 'sar_edit' %}">
+            <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>
+            <span class="link_name" style="color:#000;">Редактировать</span>
+        </a>
+        <ul class="sub-menu blank">
+            <li><a class="link_name" href="{% url 'sar_edit' %}">Редактировать</a></li>
+        </ul>
+    </li>
+
+
+    <li>
         <a onclick="printEl()" href="#">
             {% comment %} <i class='bx bx-grid-alt'></i> {% endcomment %}
             <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M19 7h-1V2H6v5H5c-1.654 0-3 1.346-3 3v7c0 1.103.897 2 2 2h2v3h12v-3h2c1.103 0 2-.897 2-2v-7c0-1.654-1.346-3-3-3zM8 4h8v3H8V4zm8 16H8v-4h8v4zm4-3h-2v-3H6v3H4v-7c0-.551.449-1 1-1h14c.552 0 1 .449 1 1v7z"></path><path d="M14 10h4v2h-4z"></path></svg>

@@ -1,0 +1,38 @@
+{%extends 'base.html' %}
+
+{% block sidebar%}
+{%load static%}
+<ul class="nav-links" style="padding: 300px 0 150px 0;">
+    <li>
+        <a href="#">
+            <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg>
+            <form class="link_name" method="post" action="{% url 'filter_date_sar' %}" class="js-product-update-form">
+                {% csrf_token %}
+                <input type="date" class='form-control'  name='date_update' max={{max_date_now}} >
+                <input class="btn btn-primary" type="submit" value='Выбрать'>
+            </form>
+        
+                    
+            <form class="sub-menu blank" method="post" action="{% url 'filter_date_sar' %}" class="js-product-update-form">
+                {% csrf_token %}
+                <input type="date" class='form-control'  name='date_update' max={{max_date_now}} >
+                <input class="btn btn-primary" type="submit" value='Выбрать'>
+            </form>
+           
+        </a>
+        <li>
+            <a href="{% url 'sar' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg><span class="link_name" style="color:#000;">Назад</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="{% url 'sar' %}">Назад</a></li>
+            </ul>
+        </li>
+
+    </li>
+</ul>
+{%endblock%}
+
+{%block content%}
+
+{%endblock%}
