@@ -5,6 +5,9 @@ table {
     text-indent: initial;
     border-spacing: 2px;
     border-color: grey;
+    border-collapse: collapse;
+    border: 1px solid purple;
+    
 }
 
 .tableRaportsSar{
@@ -21,6 +24,7 @@ table {
     border-color: grey;
     border-image: initial;
     text-align: center;
+    /* border-collapse: collapse; */
 }
 
 

@@ -10,6 +10,7 @@ urlpatterns = [
         
     url(r'^sar/$', views.sar, name='sar'),
     url(r'^sar/filter/$', views.filter_date_sar, name="filter_date_sar"),
-    url(r'^sar/edit/$', views.sar_edit, name="sar_edit"),
+    url(r'^sar/sar_edit/$', views.sar_edit, name="sar_edit"),
+    url(r'^sar/sar_edit/filter/$', views.filter_date_sar_edit, name="filter_date_sar_edit"),
 
 ]
