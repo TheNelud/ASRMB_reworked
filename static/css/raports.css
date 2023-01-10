@@ -29,15 +29,3 @@ table {
 
 
 
-@media print {
-    
-    .print{
-        margin: 0 0 0 20px;
-
-    } 
-
-    #block_conteiner_graphs{
-        margin-top: 300px;
-    }
-    
-}

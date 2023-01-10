@@ -1,7 +1,9 @@
-function printEl(){
-    var body = $('body').html(),
-        element = $('.print');
-    $('body').html(element);
-    window.print();
-    $('body').html(body);
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    w=window.open();
+    w.document.write(printContents);
+    w.print();
+    w.close();
 }
+
+
