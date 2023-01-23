@@ -19,7 +19,9 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('asrmb_main/',include('asrmb_main.urls')),
 
-    path('asrmb_raports/', include('asrmb_raports.urls')),
+    
+    path('',include('asrmb_main.urls')),
+
+    # path('asrmb_raports/', include('asrmb_raports.urls')),
 ]

@@ -1,5 +1,5 @@
 
-{%extends 'base.html' %}
+{%extends 'asrmb_main/base.html' %}
 
 {% block sidebar%}
 {%load static%}
@@ -7,22 +7,22 @@
     <li>
         <a href="#">
             <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg>
-            <form id='checkDateSar' class="link_name" method="post" action="{% url 'filter_date_sar' %}" class="js-product-update-form">
+             <form id='checkDateSar' class="link_name" method="post" action="#" class="js-product-update-form">
                 {% csrf_token %}
-                <input type="date" class='form-control'  name='date_update' max={{max_date_now}} onchange="document.getElementById('checkDateSar').submit()" >
-            </form>
+                <input type="date" class='form-control' value={{ just_day|date:"Y-m-d" }} name='date_create' max={{max_date_now}} onchange="document.getElementById('checkDateSar').submit()" >
+            </form> 
         
                     
-            <form class="sub-menu blank" method="post" action="{% url 'filter_date_sar' %}" class="js-product-update-form">
+            <form id='checkDateSar' class="sub-menu blank" method="post" action="#" class="js-product-update-form">
                 {% csrf_token %}
-                <input type="date" class='form-control'  name='date_update' max={{max_date_now}} onchange="document.getElementById('checkDateSar').submit()" >
+                <input type="date" class='form-control' value={{ just_day|date:"Y-m-d" }} name='date_create' max={{max_date_now}} onchange="document.getElementById('checkDateSar').submit()" >
             </form>
            
         </a>
 
     </li>
     <li>
-        <a href="{% url 'sar_edit' %}">
+        <a href="{% url 'sar_edit' url_ser_day %}">
             <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>
             <span class="link_name" style="color:#000;">Редактировать</span>
         </a>

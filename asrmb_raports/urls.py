@@ -1,16 +1,19 @@
 from . import views
-from django.conf.urls import url
-from .views import *
 from django.urls import path
 
 
 
-
 urlpatterns = [
-        
-    url(r'^sar/$', views.sar, name='sar'),
-    url(r'^sar/filter/$', views.filter_date_sar, name="filter_date_sar"),
-    url(r'^sar/sar_edit/$', views.sar_edit, name="sar_edit"),
-    url(r'^sar/sar_edit/filter/$', views.filter_date_sar_edit, name="filter_date_sar_edit"),
+
+    path('sar/', views.sar, name='sar'),
+    path('sar/edit/<slug:date_sar>', views.sar_edit, name='sar_edit'),
+
+    path('mar/', views.mar, name='mar'),
+    path('mar/edit/<slug:date_mar>', views.mar_edit, name='mar_edit'),
+
+    path('mag/', views.mag, name='mag'),
+
+
+
 
 ]

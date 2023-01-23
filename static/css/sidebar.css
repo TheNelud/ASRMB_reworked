@@ -6,6 +6,9 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+body{
+    overflow-x: hidden;
+}
 .sidebar
 {
     position: fixed;
@@ -152,6 +155,17 @@ input[type=date]{
     border-radius: 10px;
     transition: 180ms box-shadow ease-in-out;
 }
+input[type=month]{
+    
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid var(--input-border);
+    border-radius: 10px;
+    transition: 180ms box-shadow ease-in-out;
+    
+}
+
 input[type=date]:focus{
     border-color: hsl(
     var(--input-focus-h),

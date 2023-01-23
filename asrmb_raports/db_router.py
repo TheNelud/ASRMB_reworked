@@ -2,11 +2,12 @@ from .models import *
 
 
 ROUTED_MODELS_RAPORTS= [Ser_per_day,Ser_per_month,
+                        Mer_per_month,
+                        Sen_equip,Balance
                         ]
 
 
 class Raport_db_router(object):
-    
     def db_for_read(self, model, **hints):
         if model in ROUTED_MODELS_RAPORTS:
             return 'raport'

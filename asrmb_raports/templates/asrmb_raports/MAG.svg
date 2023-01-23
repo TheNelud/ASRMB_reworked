@@ -1,5 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:v='http://schemas.microsoft.com/visio/2003/SVGExtensions/' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' width='2832.378pt' height='2453.6692pt' viewBox='0 0 2832.378 2453.6692'>
+﻿<!--width='2832.378pt' height='2453.6692pt'-->
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg class="mag_svg"  xml:space='preserve'  viewBox='485 785 2000 1000'>
  <v:documentProperties>
   <v:userDefs>
    <v:ud v:nameU='msvNoAutoConnect' v:val='1'/>
@@ -476,7 +478,7 @@
      </g>
      <path d='M0,0 L172.558044434,0 L172.558044434,0 L172.558044434,189.627853394 ' stroke='#0070C0' stroke-width='3' stroke-linecap='round' fill='none'/>
     </g>
-    <g transform='matrix(1,0,0,1,640.23755,1086.7422)' v:mID='55'>
+    <a id="items_tech_r27" href="#okno_r27"><g transform='matrix(1,0,0,1,640.23755,1086.7422)' v:mID='55'>
      <title>Sheet.55</title>
      <g transform='matrix(1,0,0,1,50.526722,47.011723)' v:mID='56'>
       <title>Circle.40</title>
@@ -862,8 +864,8 @@
        <path d='M0,2.80629921 C0,3.550290585 0.29586482,4.26457119 0.821946025,4.790652752 L0.821946025,4.790652752 C1.348027468,5.316733837 2.062307835,5.612598419 2.80629921,5.612598419 L2.80629921,5.612598419 C3.550290585,5.612598419 4.26457119,5.316733837 4.790652752,4.790652752 L4.790652752,4.790652752 C5.316733837,4.26457119 5.612598419,3.550290585 5.612598419,2.80629921 L5.612598419,2.80629921 C5.612598419,2.062307835 5.316733837,1.348027468 4.790652752,0.821946025 L4.790652752,0.821946025 C4.26457119,0.29586482 3.550290585,0 2.80629921,0 L2.80629921,0 C2.062307835,0 1.348027468,0.29586482 0.821946025,0.821946025 L0.821946025,0.821946025 C0.29586482,1.348027468 0,2.062307835 0,2.80629921 Z' stroke='#000000' stroke-width='1.25' stroke-linecap='round' fill='none'/>
       </g>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,633.71594,1283.1234)' v:mID='101'>
+    </g></a>
+    <a id="items_tech_r25" href="#okno_r25"><g transform='matrix(1,0,0,1,633.71594,1283.1234)' v:mID='101'>
      <title>Sheet.101</title>
      <g transform='matrix(-0,1,1,0,44.510647,-9.536743E-07)' v:mID='102'>
       <title>Sheet.102</title>
@@ -1002,8 +1004,8 @@
       </userDefs>
       <path d='M0,0 L24.124326706,0 L24.124326706,0 L24.124326706,24.124326706 L24.124326706,24.124326706 L0,24.124326706 L0,24.124326706 L0,0 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='url(#PATTERN0)'/>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,520.1799,1234.9343)' v:mID='116'>
+    </g></a>
+    <a id="items_tech_r22" href="#okno_r22"><g transform='matrix(1,0,0,1,520.1799,1234.9343)' v:mID='116'>
      <title>Sheet.116</title>
      <g transform='matrix(-0,1,1,0,44.510647,-9.536743E-07)' v:mID='117'>
       <title>Sheet.117</title>
@@ -1142,8 +1144,8 @@
       </userDefs>
       <path d='M0,0 L24.124326706,0 L24.124326706,0 L24.124326706,24.124326706 L24.124326706,24.124326706 L0,24.124326706 L0,24.124326706 L0,0 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='url(#PATTERN0)'/>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,766.551,1283.2422)' v:mID='131'>
+    </g></a>
+    <a id="items_tech_r23" href="#okno_r23"><g transform='matrix(1,0,0,1,766.551,1283.2422)' v:mID='131'>
      <title>Sheet.131</title>
      <g transform='matrix(-0,1,1,0,44.510647,-9.536743E-07)' v:mID='132'>
       <title>Sheet.132</title>
@@ -1282,8 +1284,8 @@
       </userDefs>
       <path d='M0,0 L24.124326706,0 L24.124326706,0 L24.124326706,24.124326706 L24.124326706,24.124326706 L0,24.124326706 L0,24.124326706 L0,0 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='url(#PATTERN0)'/>
      </g>
-    </g>
-    <g transform='matrix(0,1,-1,-0,554.3459,1097.4541)' v:mID='146'>
+    </g></a>
+    <a id="items_tech_r20" href="#okno_r20"><g transform='matrix(0,1,-1,-0,554.3459,1097.4541)' v:mID='146'>
      <title>Sheet.146</title>
      <g transform='matrix(-0,1,1,0,44.510647,-9.536743E-07)' v:mID='147'>
       <title>Sheet.147</title>
@@ -1369,7 +1371,7 @@
        <path d='M1.950236201,0 L13.780500412,0 L13.780500412,0 L13.780500412,0 L13.780500412,0 L13.780501366,0 L13.780501366,0 C14.297529221,-0.000008315 14.793912888,0.205591381 15.15951252,0.571179509 L15.15951252,0.571179509 C15.525113106,0.936767578 15.730728149,1.433145046 15.730736732,1.95017302 L15.730736732,1.95017302 C15.730736732,1.950194478 15.730736732,1.950215816 15.730736732,1.950237155 L15.730736732,1.950237155 L15.730736732,1.950236201 L15.730736732,1.950236201 L15.730736732,1.950236201 L15.730736732,1.950236201 L15.730736732,1.950236559 L15.730736732,1.950236559 C15.730745316,2.467264652 15.525144577,2.963648558 15.159556389,3.329248428 L15.159556389,3.329248428 C14.793968201,3.694848299 14.297591209,3.900464058 13.780563354,3.900472403 L13.780563354,3.900472403 C13.780542374,3.900472403 13.780521393,3.900472403 13.780501366,3.900472403 L13.780501366,3.900472403 L13.780500412,3.900472403 L13.780500412,3.900472403 L13.780500412,3.900472403 L13.780500412,3.900472403 L1.950236201,3.900472403 L1.950236201,3.900472403 L1.950236201,3.900472403 L1.950236201,3.900472403 L1.95023632,3.900472164 L1.95023632,3.900472164 C1.433208346,3.900480747 0.936824262,3.694881439 0.571224272,3.329293489 L0.571224272,3.329293489 C0.205624372,2.96370554 0.000008516,2.467328072 0.000000067,1.950300336 L0.000000067,1.950300336 C0.000000067,1.950278878 0,1.95025754 0.000000067,1.950236082 L0.000000067,1.950236082 L0,1.950236201 L0,1.950236201 L0,1.950236201 L0,1.950236201 L0.000000067,1.95023632 L0.000000067,1.95023632 C-0.000008449,1.433208346 0.205590993,0.936824262 0.571178794,0.571224272 L0.571178794,0.571224272 C0.936766863,0.205624372 1.433144093,0.000008516 1.950171947,0.000000067 L1.950171947,0.000000067 C1.950193405,0.000000067 1.950214863,0 1.95023632,0.000000067 L1.95023632,0.000000067 L1.950236201,0 L1.950236201,0 L1.950236201,0 Z' stroke='#000000' stroke-width='1' stroke-linecap='round' fill='#FFFF00'  fill-rule='evenodd'/>
       </g>
      </g>
-     <g transform='matrix(1,0,0,1,0,44.21027)' v:mID='156'>
+     <a id="items_tech_r20" href="#"><g transform='matrix(1,0,0,1,0,44.21027)' v:mID='156'>
       <title>Sheet.156</title>
       <g transform='matrix(1,0,0,1,2.1850395,4.9472084)' v:mID='157'>
        <title>Circle.40</title>
@@ -1396,7 +1398,7 @@
        </userDefs>
        <path d='M1.950236201,0 L13.780500412,0 L13.780500412,0 L13.780500412,0 L13.780500412,0 L13.780501366,0 L13.780501366,0 C14.297529221,-0.000008315 14.793912888,0.205591381 15.15951252,0.571179509 L15.15951252,0.571179509 C15.525113106,0.936767578 15.730728149,1.433145046 15.730736732,1.95017302 L15.730736732,1.95017302 C15.730736732,1.950194478 15.730736732,1.950215816 15.730736732,1.950237155 L15.730736732,1.950237155 L15.730736732,1.950236201 L15.730736732,1.950236201 L15.730736732,1.950236201 L15.730736732,1.950236201 L15.730736732,1.950236559 L15.730736732,1.950236559 C15.730745316,2.467264652 15.525144577,2.963648558 15.159556389,3.329248428 L15.159556389,3.329248428 C14.793968201,3.694848299 14.297591209,3.900464058 13.780563354,3.900472403 L13.780563354,3.900472403 C13.780542374,3.900472403 13.780521393,3.900472403 13.780501366,3.900472403 L13.780501366,3.900472403 L13.780500412,3.900472403 L13.780500412,3.900472403 L13.780500412,3.900472403 L13.780500412,3.900472403 L1.950236201,3.900472403 L1.950236201,3.900472403 L1.950236201,3.900472403 L1.950236201,3.900472403 L1.95023632,3.900472164 L1.95023632,3.900472164 C1.433208346,3.900480747 0.936824262,3.694881439 0.571224272,3.329293489 L0.571224272,3.329293489 C0.205624372,2.96370554 0.000008516,2.467328072 0.000000067,1.950300336 L0.000000067,1.950300336 C0.000000067,1.950278878 0,1.95025754 0.000000067,1.950236082 L0.000000067,1.950236082 L0,1.950236201 L0,1.950236201 L0,1.950236201 L0,1.950236201 L0.000000067,1.95023632 L0.000000067,1.95023632 C-0.000008449,1.433208346 0.205590993,0.936824262 0.571178794,0.571224272 L0.571178794,0.571224272 C0.936766863,0.205624372 1.433144093,0.000008516 1.950171947,0.000000067 L1.950171947,0.000000067 C1.950193405,0.000000067 1.950214863,0 1.95023632,0.000000067 L1.95023632,0.000000067 L1.950236201,0 L1.950236201,0 L1.950236201,0 Z' stroke='#000000' stroke-width='1' stroke-linecap='round' fill='#FFFF00'  fill-rule='evenodd'/>
       </g>
-     </g>
+     </g></a>
      <g transform='matrix(1,0,0,1,14.881889,14.683466)' v:mID='159'>
       <title>Rounded Rectangle.1603</title>
       <userDefs>
@@ -1422,8 +1424,8 @@
       </userDefs>
       <path d='M0,0 L24.124326706,0 L24.124326706,0 L24.124326706,24.124326706 L24.124326706,24.124326706 L0,24.124326706 L0,24.124326706 L0,0 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='url(#PATTERN0)'/>
      </g>
-    </g>
-    <g transform='matrix(-1,0,0,-1,585.6771,1016.51654)' v:mID='161'>
+    </g></a>
+    <a id="items_tech_r21" href="#okno_r21"><g transform='matrix(-1,0,0,-1,585.6771,1016.51654)' v:mID='161'>
      <title>Sheet.161</title>
      <g transform='matrix(-0,1,1,0,44.510647,-9.536743E-07)' v:mID='162'>
       <title>Sheet.162</title>
@@ -1562,8 +1564,8 @@
       </userDefs>
       <path d='M0,0 L24.124326706,0 L24.124326706,0 L24.124326706,24.124326706 L24.124326706,24.124326706 L0,24.124326706 L0,24.124326706 L0,0 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='url(#PATTERN0)'/>
      </g>
-    </g>
-    <g transform='matrix(-1,0,0,-1,707.5669,971.31244)' v:mID='176'>
+    </g></a>
+    <a id="items_tech_r26" href="#okno_r26"><g transform='matrix(-1,0,0,-1,707.5669,971.31244)' v:mID='176'>
      <title>Sheet.176</title>
      <g transform='matrix(-0,1,1,0,44.510647,-9.536743E-07)' v:mID='177'>
       <title>Sheet.177</title>
@@ -1702,8 +1704,8 @@
       </userDefs>
       <path d='M0,0 L24.124326706,0 L24.124326706,0 L24.124326706,24.124326706 L24.124326706,24.124326706 L0,24.124326706 L0,24.124326706 L0,0 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='url(#PATTERN0)'/>
      </g>
-    </g>
-    <g transform='matrix(-1,0,0,-1,843.43585,971.31244)' v:mID='191'>
+    </g></a>
+    <a id="items_tech_r24" href="#okno_r24"><g transform='matrix(-1,0,0,-1,843.43585,971.31244)' v:mID='191'>
      <title>Sheet.191</title>
      <g transform='matrix(-0,1,1,0,44.510647,-9.536743E-07)' v:mID='192'>
       <title>Sheet.192</title>
@@ -1842,7 +1844,7 @@
       </userDefs>
       <path d='M0,0 L24.124326706,0 L24.124326706,0 L24.124326706,24.124326706 L24.124326706,24.124326706 L0,24.124326706 L0,24.124326706 L0,0 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='url(#PATTERN0)'/>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(1,0,0,1,1828.8688,1251.7345)' v:mID='206'>
      <title>Sheet.206</title>
      <g transform='matrix(1,0,0,-1,2.267717,39.849556)' v:mID='207'>
@@ -2597,10 +2599,10 @@
       <text x='5.119779' y='7.2000003' class='TextStyle11' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,12.056692)'>3</text>
      </g>
     </g>
-    <g transform='matrix(1,0,0,1,1374.6542,1356.622)' v:mID='276'>
-     <title>Sheet.276</title>
+    <a id="items_tech_r2" href="#okno_r2"><g transform='matrix(1,0,0,1,1374.6542,1356.622)' v:mID='276'>
+     <title>Расходомер №2 на выходе Поз.3 ЦПГ</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='277'>
-      <title>On-page reference</title>
+      <title>Расходомер №2 на выходе Поз.3 ЦПГ</title>
       <userDefs>
        <ud nameU='visVersion' val='12'/>
        <ud nameU='msvThemeColors' val='36'/>
@@ -2661,11 +2663,11 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1374.6542,1394.6063)' v:mID='280'>
-     <title>Sheet.280</title>
+    </g></a>
+    <a id="items_tech_r1" href="#okno_r1"><g transform='matrix(1,0,0,1,1374.6542,1394.6063)' v:mID='280'>
+     <title>Расходомер №1 на выходе Поз.3 ЦПГ</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='281'>
-      <title>On-page reference</title>
+      <title>Расходомер №1 на выходе Поз.3 ЦПГ</title>
       <userDefs>
        <ud nameU='visVersion' val='12'/>
        <ud nameU='msvThemeColors' val='36'/>
@@ -2726,11 +2728,11 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1374.6542,1318.6743)' v:mID='284'>
-     <title>Sheet.284</title>
+    </g></a>
+    <a id="items_tech_r3" href="#okno_r3"><g transform='matrix(1,0,0,1,1374.6542,1318.6743)' v:mID='284'>
+     <title>Расходомер №3 на выходе Поз.3 ЦПГ</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='285'>
-      <title>On-page reference</title>
+      <title>Расходомер №3 на выходе Поз.3 ЦПГ</title>
       <userDefs>
        <ud nameU='visVersion' val='12'/>
        <ud nameU='msvThemeColors' val='36'/>
@@ -2791,8 +2793,8 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1374.6542,1261.451)' v:mID='288'>
+    </g></a>
+    <a id="items_tech_r4" href="#okno_r4"><g transform='matrix(1,0,0,1,1374.6542,1261.451)' v:mID='288'>
      <title>Sheet.288</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='289'>
       <title>On-page reference</title>
@@ -2856,8 +2858,8 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1374.6542,1223.6732)' v:mID='292'>
+    </g></a>
+    <a id="items_tech_r5" href="#okno_r5"><g transform='matrix(1,0,0,1,1374.6542,1223.6732)' v:mID='292'>
      <title>Sheet.292</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='293'>
       <title>On-page reference</title>
@@ -2921,8 +2923,8 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1374.6542,1185.1625)' v:mID='296'>
+    </g></a>
+    <a id="items_tech_r6" href="#okno_r6"><g transform='matrix(1,0,0,1,1374.6542,1185.1625)' v:mID='296'>
      <title>Sheet.296</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='297'>
       <title>On-page reference</title>
@@ -2986,7 +2988,7 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(1,0,0,1,1387.8262,1273.7208)' v:mID='300'>
      <title>Sheet.300</title>
      <g transform='matrix(1,0,0,1,8.503937,-8.503937)' v:mID='300'>
@@ -3156,7 +3158,7 @@
       </g>
      </g>
     </g>
-    <g transform='matrix(1,0,0,1,1681.704,957.3688)' v:mID='321'>
+    <a id="items_tech_dy_rt_16" href="#okno_dy_rt_16"><g transform='matrix(1,0,0,1,1681.704,957.3688)' v:mID='321'>
      <title>Sheet.321</title>
      <g transform='matrix(-0,-1,1,0,0,34.52423)' v:mID='322'>
       <title>Column.2583</title>
@@ -3186,8 +3188,8 @@
        <text x='51.165527' y='10.8' class='TextStyle5' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,20.201801)'>60Е-3</text>
       </g>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1530.3573,1002.9773)' v:mID='323'>
+    </g></a>
+    <a id="items_tech_dy_rt_13" href="#okno_dy_rt_13"><g transform='matrix(1,0,0,1,1530.3573,1002.9773)' v:mID='323'>
      <title>Sheet.323</title>
      <g transform='matrix(-0,-1,1,0,0,34.52423)' v:mID='324'>
       <title>Column.2583</title>
@@ -3217,8 +3219,8 @@
        <text x='43.12793' y='10.8' class='TextStyle5' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,20.201801)'>60Е-1/1</text>
       </g>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1530.3573,957.3688)' v:mID='325'>
+    </g></a>
+    <a id="items_tech_dy_rt_14" href="#okno_dy_rt_14"><g transform='matrix(1,0,0,1,1530.3573,957.3688)' v:mID='325'>
      <title>Sheet.325</title>
      <g transform='matrix(-0,-1,1,0,0,34.52423)' v:mID='326'>
       <title>Column.2583</title>
@@ -3248,8 +3250,8 @@
        <text x='43.12793' y='10.8' class='TextStyle5' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,20.201801)'>60Е-1/2</text>
       </g>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1530.3573,911.76025)' v:mID='327'>
+    </g></a>
+    <a id="items_tech_dy_rt_15" href="#okno_dy_rt_15"><g transform='matrix(1,0,0,1,1530.3573,911.76025)' v:mID='327'>
      <title>Sheet.327</title>
      <g transform='matrix(-0,-1,1,0,0,34.52423)' v:mID='328'>
       <title>Column.2583</title>
@@ -3279,7 +3281,7 @@
        <text x='43.12793' y='10.8' class='TextStyle5' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,20.201801)'>60Е-1/3</text>
       </g>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(1,0,0,1,1828.8688,1380.0732)' v:mID='329'>
      <title>Sheet.329</title>
      <g transform='matrix(1,0,0,-1,2.267717,39.849556)' v:mID='330'>
@@ -3539,7 +3541,7 @@
       <text x='43.13672' y='10.8' class='TextStyle5' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,20.201801)'>30Т-1/2</text>
      </g>
     </g>
-    <g transform='matrix(1,0,0,1,1607.3339,1415.2113)' v:mID='350'>
+    <a id="items_tech_r7" href="#okno_r7"><g transform='matrix(1,0,0,1,1607.3339,1415.2113)' v:mID='350'>
      <title>Sheet.350</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='351'>
       <title>On-page reference</title>
@@ -3603,8 +3605,8 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
-    <g transform='matrix(1,0,0,1,1607.3339,1160.3734)' v:mID='354'>
+    </g></a>
+    <a id="items_tech_r9" href="#okno_r9"><g transform='matrix(1,0,0,1,1607.3339,1160.3734)' v:mID='354'>
      <title>Sheet.354</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='355'>
       <title>On-page reference</title>
@@ -3668,8 +3670,8 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
-    <g transform='matrix(-1,0,0,-1,1686.7039,1357.7152)' v:mID='358'>
+    </g></a>
+    <a id="items_tech_r11" href="#okno_r11"><g transform='matrix(-1,0,0,-1,1686.7039,1357.7152)' v:mID='358'>
      <title>Sheet.358</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='359'>
       <title>On-page reference</title>
@@ -3733,7 +3735,7 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(-1,0,0,1,1738.168,1330.3702)' v:mID='362'>
      <title>Sheet.362</title>
      <g transform='matrix(1,0,0,1,9.369532,14.291887)' v:mID='363'>
@@ -3765,7 +3767,7 @@
       <path d='M0,3.578338146 C0,4.52700901 0.377259672,5.437794209 1.048071027,6.108605385 L1.048071027,6.108605385 C1.718882203,6.779417038 2.629667997,7.156676292 3.578338146,7.156676292 L3.578338146,7.156676292 C4.52700901,7.156676292 5.437794209,6.779417038 6.108605385,6.108605385 L6.108605385,6.108605385 C6.779417038,5.437794209 7.156676292,4.52700901 7.156676292,3.578338146 L7.156676292,3.578338146 C7.156676292,2.629667997 6.779417038,1.718882203 6.108605385,1.048071027 L6.108605385,1.048071027 C5.437794209,0.377259672 4.52700901,0 3.578338146,0 L3.578338146,0 C2.629667997,0 1.718882203,0.377259672 1.048071027,1.048071027 L1.048071027,1.048071027 C0.377259672,1.718882203 0,2.629667997 0,3.578338146 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='#FFFFFF'  fill-rule='evenodd'/>
      </g>
     </g>
-    <g transform='matrix(-1,0,0,-1,1686.7039,1230.2886)' v:mID='367'>
+    <a id="items_tech_r12" href="#okno_r12"><g transform='matrix(-1,0,0,-1,1686.7039,1230.2886)' v:mID='367'>
      <title>Sheet.367</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='368'>
       <title>On-page reference</title>
@@ -3829,7 +3831,7 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(-1,0,0,1,1738.168,1202.9437)' v:mID='371'>
      <title>Sheet.371</title>
      <g transform='matrix(1,0,0,1,9.369532,14.291887)' v:mID='372'>
@@ -3861,7 +3863,7 @@
       <path d='M0,3.578338146 C0,4.52700901 0.377259672,5.437794209 1.048071027,6.108605385 L1.048071027,6.108605385 C1.718882203,6.779417038 2.629667997,7.156676292 3.578338146,7.156676292 L3.578338146,7.156676292 C4.52700901,7.156676292 5.437794209,6.779417038 6.108605385,6.108605385 L6.108605385,6.108605385 C6.779417038,5.437794209 7.156676292,4.52700901 7.156676292,3.578338146 L7.156676292,3.578338146 C7.156676292,2.629667997 6.779417038,1.718882203 6.108605385,1.048071027 L6.108605385,1.048071027 C5.437794209,0.377259672 4.52700901,0 3.578338146,0 L3.578338146,0 C2.629667997,0 1.718882203,0.377259672 1.048071027,1.048071027 L1.048071027,1.048071027 C0.377259672,1.718882203 0,2.629667997 0,3.578338146 Z' stroke='#000000' stroke-width='1.5' stroke-linecap='round' fill='#FFFFFF'  fill-rule='evenodd'/>
      </g>
     </g>
-    <g transform='matrix(1,0,0,1,1607.3339,1287.6523)' v:mID='376'>
+    <a id="items_tech_r8" href="#okno_r8"><g transform='matrix(1,0,0,1,1607.3339,1287.6523)' v:mID='376'>
      <title>Sheet.376</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='377'>
       <title>On-page reference</title>
@@ -3925,7 +3927,7 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(1,0,0,1,1692.3732,1411.4204)' v:mID='380'>
      <title>Tube bundle 1.1450</title>
      <userDefs>
@@ -3980,7 +3982,7 @@
       <text x='43.13672' y='10.8' class='TextStyle5' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,20.201801)'>30Т-1/1</text>
      </g>
     </g>
-    <g transform='matrix(-1,0,0,-1,1686.7039,1485.789)' v:mID='381'>
+    <a id="items_tech_r10" href="#okno_r10"><g transform='matrix(-1,0,0,-1,1686.7039,1485.789)' v:mID='381'>
      <title>Sheet.381</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='382'>
       <title>On-page reference</title>
@@ -4044,7 +4046,7 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(-1,0,0,1,1738.168,1458.4441)' v:mID='385'>
      <title>Sheet.385</title>
      <g transform='matrix(1,0,0,1,9.369532,14.291887)' v:mID='386'>
@@ -4910,7 +4912,7 @@
      </g>
      <path d='M0,0 L-249.612426758,0 L-249.612426758,0 L-249.612426758,447.669006348 ' stroke='#CC3399' stroke-width='1.5' stroke-linecap='round' fill='none'/>
     </g>
-    <g transform='matrix(-1,0,0,-1,1263.7648,914.2316)' v:mID='497'>
+    <a id="items_tech_r18" href="#okno_r18"><g transform='matrix(-1,0,0,-1,1263.7648,914.2316)' v:mID='497'>
      <title>Sheet.497</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='498'>
       <title>On-page reference</title>
@@ -4974,7 +4976,7 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(1,0,0,1,965.74243,1029.4858)' v:mID='501'>
      <title>Sheet.501</title>
      <g transform='matrix(1,0,0,1,8.503937,-8.503937)' v:mID='501'>
@@ -5229,7 +5231,7 @@
       <text x='6.5507345' y='8.4' class='TextStyle10' fill='#000000' opacity='1' transform='matrix(1,0,0,-1,0,11.64882)'>рМЭГ на площадку ФС</text>
      </g>
     </g>
-    <g transform='matrix(1,0,0,1,1164.1113,1015.8097)' v:mID='533'>
+    <a id="items_tech_r19" href="#okno_r19"><g transform='matrix(1,0,0,1,1164.1113,1015.8097)' v:mID='533'>
      <title>Sheet.533</title>
      <g transform='matrix(1,0,0,1,11.839188,14.173228)' v:mID='534'>
       <title>Sheet.534</title>
@@ -5302,7 +5304,7 @@
        <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
       </g>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(1,0,0,1,1152.1726,774.4103)' v:mID='539'>
      <title>Rectangle.3602</title>
      <userDefs>
@@ -5336,7 +5338,7 @@
       <text x='6.537538' y='8.4' class='TextStyle10' fill='#88CCFF' opacity='1' transform='matrix(1,0,0,-1,0,20.499212)'>Поз.19</text>
      </g>
     </g>
-    <g transform='matrix(-1,0,0,-1,1263.7648,861.66846)' v:mID='542'>
+    <a id="items_tech_r17" href="#okno_r17"><g transform='matrix(-1,0,0,-1,1263.7648,861.66846)' v:mID='542'>
      <title>Sheet.542</title>
      <g transform='matrix(1,0,0,1,0,0)' v:mID='543'>
       <title>On-page reference</title>
@@ -5400,7 +5402,7 @@
       </g>
       <path d='M0,0 L15.88188839,0 ' stroke='#000000' stroke-width='1.5' fill='none'/>
      </g>
-    </g>
+    </g></a>
     <g transform='matrix(1,0,0,1,1122.0677,1341.7906)' v:mID='546'>
      <title>Tube bundle 1.3498</title>
      <userDefs>

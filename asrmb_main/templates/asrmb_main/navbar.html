@@ -1,0 +1,31 @@
+{% load static%}
+
+
+<div class="home-content">
+    
+    <svg class='bx bx-menu' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+
+    <div class="dropdown">
+        <a href="#" class="text dropbtn">Расчет потерь газа</a>
+        <div class="dropdown-content">
+            <a href="#">Определение компонентного состава</a>
+            <a href="#">Расчет технологических потерь</a>
+            <a href="#">Расчет массы</a>
+            <a href="#">Коэффициенты сверживаемости</a>
+            <a href="#">Потери газового конденсата через неплотности</a>
+        </div>
+    </div>
+
+    <a class="text" href="#">Суточный рапорт Киринского ГКМ</a>
+    <div class='dropdown'>
+        <a href="#" class="text dropbtn">Отчеты</a>
+        <div class="dropdown-content">
+            <a href="{% url 'sar'%}">Суточный рапорт УКПГ</a>
+            <a href="{% url 'mar'%}">Ежемесячный эксплуатационный рапорт</a>
+            <a href="{% url 'mag'%}">Материальный баланс МЭГ</a>
+
+        </div>
+    </div>
+    
+</div>
+    

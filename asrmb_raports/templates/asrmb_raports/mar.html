@@ -1,0 +1,259 @@
+{%extends 'asrmb_main/base.html' %}
+
+{% block sidebar%}
+{%load static%}
+<ul class="nav-links" style="padding: 300px 0 150px 0;">
+    <li>
+        <a href="#">
+            <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg>
+            <form id='checkDateMar' class="link_name" method="post" action="#" class="js-product-update-form">
+                {% csrf_token %}
+                <input type="month" class='form-control'  name='date_create'  onchange="document.getElementById('checkDateMar').submit()" max={{max_date_now}}>
+            </form>
+        
+                    
+            <form class="sub-menu blank" method="post" action="#" class="js-product-update-form">
+                {% csrf_token %}
+                <input type="month" class='form-control'  name='date_create'  onchange="document.getElementById('checkDateMar').submit()" max={{max_date_now}}>
+            </form>
+           
+        </a>
+
+    </li>
+    <li>
+        <a href="{% url 'mar_edit' url_mer_day %}">
+            <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>
+            <span class="link_name" style="color:#000;">Редактировать</span>
+        </a>
+        <ul class="sub-menu blank">
+            <li><a class="link_name" href="{% url 'mar_edit' url_mer_day %}">Редактировать</a></li>
+        </ul>
+    </li>
+
+
+    <li>
+        <a onclick="printDiv('print')" href="#">
+            {% comment %} <i class='bx bx-grid-alt'></i> {% endcomment %}
+            <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M19 7h-1V2H6v5H5c-1.654 0-3 1.346-3 3v7c0 1.103.897 2 2 2h2v3h12v-3h2c1.103 0 2-.897 2-2v-7c0-1.654-1.346-3-3-3zM8 4h8v3H8V4zm8 16H8v-4h8v4zm4-3h-2v-3H6v3H4v-7c0-.551.449-1 1-1h14c.552 0 1 .449 1 1v7z"></path><path d="M14 10h4v2h-4z"></path></svg>
+            <span class="link_name" style="color:#000;">Распечатать</span>
+        </a>
+        <ul class="sub-menu blank">
+            <li><a class="link_name" onclick="printDiv('print')" href="#">Распечатать</a></li>
+        </ul>
+    </li>
+
+</ul>
+{%endblock%}
+
+
+{%block content%}
+
+<div class="tableRaportsSar print" id='print'>
+        
+    <table id="product-table" style="width: 95%">
+        <thead>
+            {% comment %} {%for items_month in itemss_month  %}{{items_month.date_update|date:"d.m.Y"|default:"-"}}{%endfor%} {% endcomment %}
+            <tr>
+                <th colspan="3" style="text-align: center">Ежемесячный эксплутационный рапорт по добыче, переработке газа и газового конденсата<br>
+                    по Киринскому газоконденсатному месторождению<br>
+                    за {{delta_day}}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="objCellsar">Наименование</th>
+                <th class="objCellsar">Еденица<br>измерения</th>
+                <th class="objCellsar">факт</th>
+            </tr>
+
+
+            <tr>
+                <th class="objCellsar" colspan="3">Газ горючий природный</th>
+            </tr>
+
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left; ">1. Добыча (извлечение) из недр Киринского ГКМ на земную поверхность</td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_1|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">в т.ч. Технологические потери при Добыче Газа горючего природного</td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_2|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">справочно: - нормотивные технологические потери (утверженный норматив тех.потерь на<br>2021г - 0,0608%)</td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_3|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">2. Газ горючий природный, подаваемый в магистральный газопровод переданный ПАО
+                    <br>"Газпром"
+                </td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_4|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">в том числе: Газ горючий природный (Газ стабилизации) в составе Газа горючего природного,<br>
+                    подаваемого в магистральный газопровод
+                </td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_5|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">справочно: - технологические потери Газа горючего природного (Газа стабилизации) при<br>
+                    Переработке
+                </td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_6|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">2.1 замерено на Узле Коммерческого Учета газа на выходе с УКПГ БТК Киринского ГКМ</td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_7|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">2.2 замерено на узле технологических измерений УПТИГ УКПГ БТК Киринского ГКМ</td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_8|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">2.3 Технологические потери Газа горючего природного, подаваемого в магистральный<br>
+                    гозопровод    
+                </td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_9|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">3 Покупка Газа горючего природного, подаваемого в магистральный трубопровод у ПАО<br>
+                    "Газпром" по договору от 23.07.2013 № ГДШсн-2012, в том числе:
+                </td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_10|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">3.1 из ресурсов, добытых ООО "Газпром доча шельф Южно-Сахалинск" на Киринском <br> ГКМ</td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_11|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">3.2 из ресурсов, полученных обратным ходом из МГ "БТК Киринского ГКМ - ГКС Сахалин"</td>
+                <td class="objCellsar front-rap">тыс.м3</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_12|default:"-"}}{%endfor%}</td>
+            </tr>
+{% comment %} TEST {% endcomment %}
+
+
+            <tr>
+                <th class="objCellsar" colspan="3">Конденсат газовый</th>
+            </tr>
+
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">1 Добыча (извлечение) из недр Киринского ГКМ</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_13|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">в т.ч. Технологические при Добыче Конденсата газового нестабильного</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_14|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">справочно: - нормотивные технологические потери (утверженный норматив тех.потерь на<br>2021г - 0,0608%)</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_15|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">2. Конденсат газовый нестабильный, переданный в Переработку</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_16|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">справочно: Возврат в Переработку Конденсата газового нестабильного</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_17|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">3. Остаток Конденсата газового нестабильного, переданного в переработку на начало месяца,в<br> том числе: </td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_18|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">3.1 технологический</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_19|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">3.2 товарный</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_20|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">4. Переработано Конденсата газового нестабильного</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_21|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">в т.ч. Технологические потери Конденсата газового нестабильного на этапе Переработки<br>(стабилицазии)</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_22|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">в т.ч. Переход конденсата в другой вид продукции(Газ стабилизации в МГ)</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_23|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">5. Конденсат газовый стабильный переданный ПАО "Газпром", масса нетто</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_24|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">справочно: масса брутто</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_25|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">5.1 Конденсат газовый стабильный, замеренный на Узле коммерческого учета конденсата<br> газового стабильного , масса нетто</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_26|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">справочно: масса брутто</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_27|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">5.2 Технологические потери Конденсата газового стабильного на этапе Переработки<br>(стабилизации)</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_28|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">5.3 Возврат в Переработку Конденсата газового стабильного</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_29|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">6. Остаток Конденсата газового нестабильного, переданного в переработку на конец месяц, в <br> том числе:</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_30|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">6.1 технологический</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_31|default:"-"}}{%endfor%}</td>
+            </tr>
+            <tr>
+                <td class="objCellsar front-rap" style="text-align: left">6.2 товарный</td>
+                <td class="objCellsar front-rap">тонн</td>
+                <td class="objCellsar front-rap">{%for items_month in itemss_month  %}{{items_month.mer_32|default:"-"}}{%endfor%}</td>
+            </tr>
+           
+                        
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

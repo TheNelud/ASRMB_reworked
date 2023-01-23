@@ -1,10 +1,647 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{%extends 'asrmb_main/base.html' %}
+{% load static %}
+
+
+{% block sidebar %}
+<ul class="nav-links" style="padding: 300px 0 150px 0;">
+    <li>
+        <a href="#">
+            <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg>
+            <form id='checkDateMag' class="link_name" method="post" action="#" class="js-product-update-form">
+                {% csrf_token %}
+                <input type="date" class='form-control' value={{ just_day|date:"Y-m-d" }} name='date_create'  onchange="document.getElementById('checkDateMag').submit()" max={{max_date_now}}>
+            </form>
+
+
+            <form class="sub-menu blank" method="post" action="#" class="js-product-update-form">
+                {% csrf_token %}
+                <input type="date" class='form-control' value={{ just_day|date:"Y-m-d" }} name='date_create'  onchange="document.getElementById('checkDateMag').submit()" max={{max_date_now}}>
+            </form>
+
+        </a>
+
+    </li>
+
+    <li>
+        <a href="#okno_table_mag">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M4 21h15.893c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zm0-2v-5h4v5H4zM14 7v5h-4V7h4zM8 7v5H4V7h4zm2 12v-5h4v5h-4zm6 0v-5h3.894v5H16zm3.893-7H16V7h3.893v5z"></path></svg>
+            <span class="link_name" style="color:#000;">Таблица расчета материального баланса</span>
+        </a>
+
+        <ul class="sub-menu blank">
+            <li><a class="link_name" href="#okno_table_mag">Таблица расчета материального баланса</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#okno_table_tech">
+            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M4 21h15.893c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zm0-2v-5h4v5H4zM14 7v5h-4V7h4zM8 7v5H4V7h4zm2 12v-5h4v5h-4zm6 0v-5h3.894v5H16zm3.893-7H16V7h3.893v5z"></path></svg>
+            <span class="link_name" style="color:#000;">Датчиковое оборудование на схеме</span>
+
+        </a>
+    </li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="tableRaportsMag print" id='print'>
+        <div>
+        <div id="okno_r1">
+            <a href="#" class="close_okno">x</a><br>
+            Расходомер 1: {%for items_tech in itemss_tech%}{{items_tech.r1|floatformat:3|default:"-"}}{%endfor%} кг/ч
+
+        </div>
+
+        <div id="okno_r2">
+            <a href="#" class="close_okno">x</a><br>
+            Расходомер 2: {%for items_tech in itemss_tech%}{{items_tech.r2|floatformat:3|default:"-"}}{%endfor%} кг/ч
+
+        </div>
+        <div id="okno_r3">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 3: {%for items_tech in itemss_tech%}{{items_tech.r3|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r4">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 4: {%for items_tech in itemss_tech%}{{items_tech.r4|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r5">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 5: {%for items_tech in itemss_tech%}{{items_tech.r5|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r6">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 6: {%for items_tech in itemss_tech%}{{items_tech.r6|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r7">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 7: {%for items_tech in itemss_tech%}{{items_tech.r7|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r8">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 8: {%for items_tech in itemss_tech%}{{items_tech.r8|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r9">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 9: {%for items_tech in itemss_tech%}{{items_tech.r9|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r10">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 10: {%for items_tech in itemss_tech%}{{items_tech.r10|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r11">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 11: {%for items_tech in itemss_tech%}{{items_tech.r11|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r12">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 12: {%for items_tech in itemss_tech%}{{items_tech.r12|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_dy_rt_13">
+            <a href="#" class="close_okno">x</a><br>
+            Емкость 13: Датчик уровня {%for items_tech in itemss_tech%}{{items_tech.dy13|floatformat:3|default:"-"}}{%endfor%} мм<br>
+            Расчетный тег {%for items_tech in itemss_tech%}{{items_tech.rt13|floatformat:3|default:"-"}}{%endfor%} м3
+
+        </div>
+        <div id="okno_dy_rt_14">
+            <a href="#" class="close_okno">x</a><br>
+            Емкость 14: {%for items_tech in itemss_tech%}{{items_tech.dy14|floatformat:3|default:"-"}}{%endfor%} мм<br>
+            Расчетный тег {%for items_tech in itemss_tech%}{{items_tech.rt14|floatformat:3|default:"-"}}{%endfor%} м3
+        </div>
+        <div id="okno_dy_rt_15">
+            <a href="#" class="close_okno">x</a><br>
+            Емкость 15: {%for items_tech in itemss_tech%}{{items_tech.dy15|floatformat:3|default:"-"}}{%endfor%} мм<br>
+            Расчетный тег {%for items_tech in itemss_tech%}{{items_tech.rt15|floatformat:3|default:"-"}}{%endfor%} м3
+        </div>
+        <div id="okno_dy_rt_16">
+            <a href="#" class="close_okno">x</a><br>
+           Емкость 16: {%for items_tech in itemss_tech%}{{items_tech.dy16|floatformat:3|default:"-"}}{%endfor%} мм<br>
+            Расчетный тег {%for items_tech in itemss_tech%}{{items_tech.rt16|floatformat:3|default:"-"}}{%endfor%} м3
+        </div>
+        <div id="okno_r17">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 17: {%for items_tech in itemss_tech%}{{items_tech.r17|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r18">
+            <a href="#" class="close_okno">x</a><br>
+           Расходомер 18: {%for items_tech in itemss_tech%}{{items_tech.r18|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r19">
+            <a href="#" class="close_okno">x</a><br>
+          Скважина (фонтанная арматура) 19: {%for items_tech in itemss_tech%}{{items_tech.r19|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r20">
+            <a href="#" class="close_okno">x</a><br>
+           Скважина (фонтанная арматура) 20 : {%for items_tech in itemss_tech%}{{items_tech.r20|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+
+        <div id="okno_r21">
+            <a href="#" class="close_okno">x</a><br>
+           Скважина (фонтанная арматура) 21 : {%for items_tech in itemss_tech%}{{items_tech.r21|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div><div id="okno_r22">
+            <a href="#" class="close_okno">x</a><br>
+           Скважина (фонтанная арматура) 22: {%for items_tech in itemss_tech%}{{items_tech.r22|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r23">
+            <a href="#" class="close_okno">x</a><br>
+           Скважина (фонтанная арматура) 23: {%for items_tech in itemss_tech%}{{items_tech.r23|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r24">
+            <a href="#" class="close_okno">x</a><br>
+           Скважина (фонтанная арматура) 24: {%for items_tech in itemss_tech%}{{items_tech.r24|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r25">
+            <a href="#" class="close_okno">x</a><br>
+           Скважина (фонтанная арматура) 25: {%for items_tech in itemss_tech%}{{items_tech.r25|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r26">
+            <a href="#" class="close_okno">x</a><br>
+           Скважина (фонтанная арматура) 26: {%for items_tech in itemss_tech%}{{items_tech.r26|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+        <div id="okno_r27">
+            <a href="#" class="close_okno">x</a><br>
+           Манифольд 27: {%for items_tech in itemss_tech%}{{items_tech.r27|floatformat:3|default:"-"}}{%endfor%} кг/ч
+        </div>
+    </div>
+
+        {% include 'asrmb_raports/MAG.svg' %}
+
+
+        <div id="okno_table_mag">
+            <a href="#" class="close_okno">x</a><br>
+          Таблица расчета материального баланса
+            <table class="table_mag">
+
+                <thead>
+                    <tr>
+                        <th class="objCellmag" style="width: 2%">№</th>
+                        <th class="objCellmag" style="width: 48%">Параметр баланса</th>
+                        <th class="objCellmag" style="width: 25%">Размерность</th>
+                        <th class="objCellmag" style="width: 25%">Значение</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th class="objCellmag">A</th>
+                        <td class="objCellmag">Наличие оборотного рМэг на начало смены</td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_a|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">B</th>
+                        <td class="objCellmag">Наличие факт. товарного МЭГ 100% на складе (поз.20)</td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_b|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">C</th>
+                        <td class="objCellmag">Наличие на начало суток на складе ПБ</td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_c|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">D</th>
+                        <td class="objCellmag">Приход товарного МЭГ (100% мас.) на склад фКГДУ (поз.6)</td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_d|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">E</th>
+                        <td class="objCellmag">Приход товарного МЭГ 100% со склада ПБ на склад УКПГ (поз.20)</td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_e|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" >F</th>
+                        <td class="objCellmag">Вовлечение товарного МЭГ со склада УКПГ (поз.20)</td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_f|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+
+                    {% comment %} <tr>
+                        <th class="objCellmag" >G</th>
+                        <td class="objCellmag" >Концентрация МЭГ</td>
+                        <td class="objCellmag">% (масс.)</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_g|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr> {% endcomment %}
+
+                    <tr>
+                        <th class="objCellmag" >G</th>
+                        <td class="objCellmag"> Концентрациян МЭГ</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_g_nmag|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" >G</th>
+                        <td class="objCellmag"> Концентрация рМЭГ 30И-1</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_g_rmag_30i_1|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" >G</th>
+                        <td class="objCellmag"> Концентрация рМЭГ 60Е-1</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_g_rmag_60e_1|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+
+                    <tr>
+                        <th class="objCellmag">H</th>
+                        <td class="objCellmag">Плотность рМЭГ</td>
+                        {% comment %} <td class="objCellmag">рМЭГ 60Е-1</td> {% endcomment %}
+                        <td class="objCellmag">т/м3</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_h|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" >I</th>
+                        <td class="objCellmag" >Приход нМЭГ (30И-1)</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_i|floatformat:3|default:"-"}}{%endfor%}</td>
+
+                    </tr>
+
+                    {% comment %} <tr>
+                        <td class="objCellmag" >30PM-1(a)</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag" >30PM-1(б)</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag" >30PM-1(в)</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr> {% endcomment %}
+
+                    <tr>
+                        <th class="objCellmag" >J</th>
+                        <td class="objCellmag" >Регенерация рМЭГа из УРМ</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_j|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+
+                    {% comment %} <tr>
+                        <td class="objCellmag" >30PM-1(a)</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag" >30PM-1(б)</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag" >30PM-1(в)</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr> {% endcomment %}
+
+                    <tr>
+                        <th class="objCellmag">K</th>
+                        <td class="objCellmag">Подача рМЭГ на ПДК (всего)</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_k|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">L</th>
+                        <td class="objCellmag">Подача рМЭГ на cкважину P1</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_l|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">M</th>
+                        <td class="objCellmag">Подача рМЭГ на скважину P2</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_m|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">N</th>
+                        <td class="objCellmag">Подача рМЭГ на скважину P3</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_n|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">O</th>
+                        <td class="objCellmag">Подача рМЭГ на скважину P4-бис</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_o|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">P</th>
+                        <td class="objCellmag">Подача рМЭГ на скважину P5</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_p|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">Q</th>
+                        <td class="objCellmag">Подача рМЭГ на скважину P6</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_q|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">R</th>
+                        <td class="objCellmag">Подача рМЭГ на скважину P7</td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_r|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">S</th>
+                        <td class="objCellmag">Подача рМЭГ на манифольд</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_s|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">T</th>
+                        <td class="objCellmag">Подача рМЭГ на технологию</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_t|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">U</th>
+                        <td class="objCellmag">Подача рМЭГ на площадку факельных сепараторов</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_u|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">V</th>
+                        <td class="objCellmag">Потери МЭГ на РЭН</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_v|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">W</th>
+                        <td class="objCellmag">КГС после УСК</td>
+                        <td class="objCellmag">т/сут.</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_w|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">X</th>
+                        <td class="objCellmag"> Унос МЭГ с КГС (норма расхода 0.9495 кг/тонн)</td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_x|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+
+                    {% comment %} <tr>
+                        <td class="objCellmag" >60E-1 №1</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag" >60E-1 №2</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag" >60E-1 №3</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag" >60E-3</tb>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">231</td>
+                    </tr> {% endcomment %}
+
+                    <tr>
+                        <th class="objCellmag">AA</th>
+                        <td class="objCellmag">Остаток оборотного рМЭГ на конец суток </td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_aa|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">BB</th>
+                        <td class="objCellmag">Остаток товарного МЭГ на поз.20 (100% мас.)</td>                        </td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_bb|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">CC</th>
+                        <td class="objCellmag">Остаток на конец суток на складе ПБ (100% мас.)</td>                        </td>
+                        <td class="objCellmag">тонны</td>
+                        <td class="objCellmag">{%for items_balance in itemss_balance%}{{items_balance.par_cc|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div id="okno_table_tech">
+            <a href="#" class="close_okno">x</a><br>
+          Датчиковое оборудование на схеме
+
+
+            <table  style="width:470px; height:700px ; font-size: 10px; border-radius: 10px; border: 1px solid #989494;">
+                 <thead >
+                    <tr>
+                        <th class="objCellmag" colspan='4' style='text-align: center;' >Дата: {{delta_day}} </th>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" >№</th>
+                        <th class="objCellmag" >Тип датчика</th>
+                        <th class="objCellmag" >Размерность</th>
+                        <th class="objCellmag" >Значение</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th class="objCellmag">1</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r1|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">2</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r2|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">3</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r3|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">4</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r4|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">5</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r5|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">6</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r6|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">7</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r7|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">8</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r8|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">9</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r9|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">10</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r10|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">11</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r11|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">12</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r12|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" rowspan="2">13</th>
+                        <td class="objCellmag">Датчик уровня</td>
+                        <td class="objCellmag">мм</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.dy13|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag">Расчетный тег</td>
+                        <td class="objCellmag">м3</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.rt13|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" rowspan="2">14</th>
+                        <td class="objCellmag">Датчик уровня</td>
+                        <td class="objCellmag">мм</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.dy14|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag">Расчетный тег</td>
+                        <td class="objCellmag">м3</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.rt14|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" rowspan="2">15</th>
+                        <td class="objCellmag">Датчик уровня</td>
+                        <td class="objCellmag">мм</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.dy15|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+
+                        <td class="objCellmag">Расчетный тег</td>
+                        <td class="objCellmag">м3</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.rt15|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag" rowspan="2">16</th>
+                        <td class="objCellmag">Датчик уровня</td>
+                        <td class="objCellmag">мм</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.dy16|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <td class="objCellmag">Расчетный тег</td>
+                        <td class="objCellmag">м3</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.rt16|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">17</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r17|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">18</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r18|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">19</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r19|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">20</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">------</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">21</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">------</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">22</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r22|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">23</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r23|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">24</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r24|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">25</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r25|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">26</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r26|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+                    <tr>
+                        <th class="objCellmag">27</th>
+                        <td class="objCellmag">Расходомер</td>
+                        <td class="objCellmag">кг/ч</td>
+                        <td class="objCellmag">{%for items_tech in itemss_tech%}{{items_tech.r27|floatformat:3|default:"-"}}{%endfor%}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+
+{% endblock %}

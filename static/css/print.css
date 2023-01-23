@@ -1,9 +1,13 @@
 @media print {
     
-    print{
+    .print{
         margin: 0 0 0 20px;
+        page-break-before: always;
+        background: #0079c2;
     }
-    
+    .tableRaportsSar{
+        background: #0079c2;
+    }
     #block_conteiner_graphs{
         margin-top: 300px;
     }

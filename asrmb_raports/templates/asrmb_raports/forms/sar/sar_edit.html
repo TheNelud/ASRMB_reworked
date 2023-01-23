@@ -1,4 +1,4 @@
-{%extends 'base.html' %}
+{%extends 'asrmb_main/base.html' %}
 
 {% block sidebar%}
 {%load static%}
@@ -6,18 +6,16 @@
     <li>
         <a href="#">
             <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg>
-            <form id='checkDateSarEdit' class="link_name" method="post" action="{% url 'filter_date_sar_edit' %}" class="js-product-update-form">
+            <form id='checkDateSarEdit' class="link_name" method="post" action="#" class="js-product-update-form">
                 {% csrf_token %}
-                {% comment %} <input type="date" class='form-control'  name='date_update' max={{max_date_now}} onchange="document.getElementById('checkDateSarEdit').submit()" > {% endcomment %}
-                <input type="date" class='form-control'  name='date_update' max={{max_date_now}} onchange="document.getElementById('checkDateSarEdit').submit()" >
-            
+                <span  style="color:#000;">{{ just_day }}</span>
             </form>
 
-            <form class="sub-menu blank" method="post" action="{% url 'filter_date_sar' %}" class="js-product-update-form">
+            <form class="sub-menu blank" method="post" action="#" class="js-product-update-form">
                 {% csrf_token %}
-                <input type="date" class='form-control'  name='date_update' max={{max_date_now}} onchange="document.getElementById('checkDateSarEdit').submit()" >
+                <li><a class="link_name" >{{ just_day }}</a></li>
             </form>
-           
+
         </a>
     </li>
     <li>
@@ -61,7 +59,7 @@
                 </tr>
                 <tr>
                     <th class="objCellsar"></th>
-                    <th class="objCellsar">Дата {{delta_day}}</th>
+                    <th class="objCellsar">Дата <input type="text" readonly="readonly"  style="border: 0;" name="date_update" maxlength="255" required id="id_ser_1" value={{ just_day|date:"d.m.Y" }} ></th>
                     <th class="objCellsar">Ед.изм</th>
                     <th class="objCellsar">за сутки</th>
                     <th class="objCellsar">за месяц</th>
@@ -75,7 +73,7 @@
                     <th class="objCellsar"></th>
                     <th class="objCellsar" colspan=4>Газ горючий природный</th>
                 </tr>
-                {% comment %} TEST  {% endcomment %}
+
                 <tr>
                     <td class="objCellsar">1</td>
                     <td class="objCellsar" style="text-align: left">Добыча ГГП</td>
