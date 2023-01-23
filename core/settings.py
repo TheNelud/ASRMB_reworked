@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'asrmb_main',
-    'asrmb_raports',
+    'asrmb_main.apps.AsrmbMainConfig',
+    'asrmb_raports.apps.AsrmbRaportsConfig',
+    'asrmb_oks.apps.AsrmbOksConfig'
 ]
 
 MIDDLEWARE = [
@@ -99,11 +100,24 @@ DATABASES = {
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '5433',
+    },
+    'rp_p_component_composition': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS': {
+            'options': '-c search_path=rp_p_component_composition,public'
+        },
+        'NAME': 'asrmb',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5433',
     }
+
 }
 
 
 DATABASE_ROUTERS = ('asrmb_raports.db_router.Raport_db_router',
+                    'asrmb_oks.db_router.Rp_p_component_composition_db_router'
                     )
 
 # Password validation

@@ -1,13 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import *
-from django.views.generic import ListView, DetailView, CreateView
-from datetime import datetime, timedelta
-from django.views.generic.dates import YearArchiveView
-
-from django.http import HttpResponse
-from django.views import View
-
 from .utils import *
 
 # Create your views here.

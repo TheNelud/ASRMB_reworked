@@ -24,6 +24,67 @@ body{
 {
     width: 78px;
 }
+
+.tabs {
+      font-size: 0;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+}
+
+.tabs.close {display: none}
+
+.tabs>input[type="radio"] {
+  display: none;
+}
+
+.tabs>div {
+  /* скрыть контент по умолчанию */
+  display: none;
+  /*padding: 10px 15px;*/
+  font-size: 16px;
+}
+
+/* отобразить контент, связанный с вабранной радиокнопкой (input type="radio") */
+
+
+#tab-btn-1:checked~#content-1,
+#tab-btn-2:checked~#content-2{
+  display: block;
+}
+
+
+
+.tabs>label {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: rgba(114, 114, 114, 0.55);
+    padding: 6px;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+    width: 50%
+}
+
+.tabs>label:not(:first-of-type) {
+  border-left: none;
+}
+
+.tabs>input[type="radio"]:checked+label {
+  background-color: #d1d1d1;
+}
+
+
+.sidebar.close .tabs>label {
+    display: none;
+
+}
+
 .sidebar .logo-details
 {
     height: 60px;
@@ -381,3 +442,7 @@ input[type=date]:focus{
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #0079c2;}
+
+
+
+

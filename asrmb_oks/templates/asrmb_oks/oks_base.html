@@ -1,0 +1,31 @@
+{%extends 'asrmb_main/base.html' %}
+{% load static %}
+{% block sidebar %}
+    <div class="tabs">
+        <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+        <label for="tab-btn-1">Таблицы</label>
+        <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+        <label for="tab-btn-2">Функционал</label>
+
+        <div id="content-1">
+          {% include 'asrmb_oks/sidebar_tables.html' %}
+        </div>
+        <div id="content-2">
+            {% include 'asrmb_oks/sidebar_func.html' %}
+
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+    <div class="base_content print" id='print'>
+
+
+    </div>
+
+{% endblock %}
