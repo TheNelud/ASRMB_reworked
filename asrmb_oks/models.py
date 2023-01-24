@@ -6,7 +6,7 @@ from django.urls import reverse
 class P1ComponentCompositionOfUnstableCondensate(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
-    molar_components = models.FloatField()
+    molar_content_of_components = models.FloatField()
     molar_mass_of_the_component = models.FloatField()
     total_molar_mass = models.FloatField()
     chromatograph_mass = models.FloatField()
@@ -15,7 +15,7 @@ class P1ComponentCompositionOfUnstableCondensate(models.Model):
     date_update = models.DateField(auto_now=True)
 
     def get_absolute_url(self):
-        return reverse('p1_edit', kwargs={'date_p1': self.date_update})
+        return reverse('p1_edit', kwargs={'date_oks_p1': self.date_update})
 
     class Meta:
         # ordering = ['id']

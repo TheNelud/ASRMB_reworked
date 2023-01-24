@@ -48,10 +48,17 @@ body{
 /* отобразить контент, связанный с вабранной радиокнопкой (input type="radio") */
 
 
-#tab-btn-1:checked~#content-1,
-#tab-btn-2:checked~#content-2{
+#tab-btn-1:checked~#content-1{
   display: block;
 }
+
+#tab-btn-2:checked~#content-2{
+    display: block;
+
+
+}
+
+
 
 
 
