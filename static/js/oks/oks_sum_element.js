@@ -1,4 +1,109 @@
+let result_molar_content_of_components_c1 = document.getElementById('id_form-0-molar_content_of_components');
+let result_molar_content_of_components_c2 = document.getElementById('id_form-1-molar_content_of_components');
+let result_molar_content_of_components_c3 = document.getElementById('id_form-2-molar_content_of_components');
+let result_molar_content_of_components_i_C4 = document.getElementById('id_form-3-molar_content_of_components');
+let result_molar_content_of_components_n_C4 = document.getElementById('id_form-4-molar_content_of_components');
+let result_molar_content_of_components_i_C5 = document.getElementById('id_form-5-molar_content_of_components');
+let result_molar_content_of_components_n_C5 = document.getElementById('id_form-6-molar_content_of_components');
+let result_molar_content_of_components_c6 = document.getElementById('id_form-7-molar_content_of_components');
+let result_molar_content_of_components_n2 = document.getElementById('id_form-8-molar_content_of_components');
+let result_molar_content_of_components_c02 = document.getElementById('id_form-9-molar_content_of_components');
+let result_molar_content_of_components_02 = document.getElementById('id_form-10-molar_content_of_components');
+// //
+let result_molar_mass_of_the_component_c1 = document.getElementById('id_form-0-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_c2 = document.getElementById('id_form-1-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_c3 = document.getElementById('id_form-2-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_i_C4 = document.getElementById('id_form-3-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_n_C4 = document.getElementById('id_form-4-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_i_C5 = document.getElementById('id_form-5-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_n_C5 = document.getElementById('id_form-6-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_c6 = document.getElementById('id_form-7-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_n2 = document.getElementById('id_form-8-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_c02 = document.getElementById('id_form-9-molar_mass_of_the_component');
+let result_molar_mass_of_the_component_02 = document.getElementById('id_form-10-molar_mass_of_the_component');
+// //Total result
+let result_total_molar_mass_c1 = document.getElementById('id_form-0-total_molar_mass');
+let result_total_molar_mass_c2 = document.getElementById('id_form-1-total_molar_mass');
+let result_total_molar_mass_c3 = document.getElementById('id_form-2-total_molar_mass');
+let result_total_molar_mass_i_C4 = document.getElementById('id_form-3-total_molar_mass');
+let result_total_molar_mass_n_C4 = document.getElementById('id_form-4-total_molar_mass');
+let result_total_molar_mass_i_C5 = document.getElementById('id_form-5-total_molar_mass');
+let result_total_molar_mass_n_C5 = document.getElementById('id_form-6-total_molar_mass');
+let result_total_molar_mass_c6 = document.getElementById('id_form-7-total_molar_mass');
+let result_total_molar_mass_n2 = document.getElementById('id_form-8-total_molar_mass');
+let result_total_molar_mass_c02 = document.getElementById('id_form-9-total_molar_mass');
+let result_total_molar_mass_02 = document.getElementById('id_form-10-total_molar_mass');
 
+
+
+
+result_molar_content_of_components_c1.addEventListener('input', function (){
+    result_total_molar_mass_c1.value = (result_molar_content_of_components_c1.value * result_molar_mass_of_the_component_c1.value) / 100;
+})
+result_molar_mass_of_the_component_c1.addEventListener('input',function (){
+    result_total_molar_mass_c1.value = (result_molar_content_of_components_c1.value * result_molar_mass_of_the_component_c1.value) / 100;
+})
+result_molar_content_of_components_c2.addEventListener('input', function (){
+    result_total_molar_mass_c2.value = (result_molar_content_of_components_c2.value * result_molar_mass_of_the_component_c2.value) / 100;
+})
+result_molar_mass_of_the_component_c2.addEventListener('input', function (){
+    result_total_molar_mass_c2.value = (result_molar_content_of_components_c2.value * result_molar_mass_of_the_component_c2.value) / 100;
+})
+
+result_molar_content_of_components_c3.addEventListener('input', function (){
+    result_total_molar_mass_c3.value = (result_molar_content_of_components_c3.value * result_molar_mass_of_the_component_c3.value) / 100;
+})
+result_molar_mass_of_the_component_c3.addEventListener('input', function (){
+    result_total_molar_mass_c3.value = (result_molar_content_of_components_c3.value * result_molar_mass_of_the_component_c3.value) / 100;
+})
+result_molar_content_of_components_i_C4.addEventListener('input', function (){
+    result_total_molar_mass_i_C4.value = (result_molar_content_of_components_i_C4.value * result_molar_mass_of_the_component_i_C4.value) / 100;
+})
+result_molar_mass_of_the_component_i_C4.addEventListener('input', function (){
+    result_total_molar_mass_i_C4.value = (result_molar_content_of_components_i_C4.value * result_molar_mass_of_the_component_i_C4.value) / 100;
+})
+result_molar_content_of_components_n_C4.addEventListener('input', function (){
+    result_total_molar_mass_n_C4.value = (result_molar_content_of_components_n_C4.value * result_molar_mass_of_the_component_n_C4.value) / 100;
+})
+result_molar_mass_of_the_component_n_C4.addEventListener('input', function (){
+    result_total_molar_mass_n_C4.value = (result_molar_content_of_components_n_C4.value * result_molar_mass_of_the_component_n_C4.value) / 100;
+})
+result_molar_content_of_components_i_C5.addEventListener('input', function (){
+    result_total_molar_mass_i_C5.value = (result_molar_content_of_components_i_C5.value * result_molar_mass_of_the_component_i_C5.value) / 100;
+})
+result_molar_mass_of_the_component_i_C5.addEventListener('input', function (){
+    result_total_molar_mass_i_C5.value = (result_molar_content_of_components_n_C5.value * result_molar_mass_of_the_component_n_C5.value) / 100;
+})
+result_molar_content_of_components_n_C5.addEventListener('input', function (){
+    result_total_molar_mass_n_C5.value = (result_molar_content_of_components_n_C5.value * result_molar_mass_of_the_component_n_C5.value) / 100;
+})
+result_molar_mass_of_the_component_n_C5.addEventListener('input', function (){
+    result_total_molar_mass_n_C5.value = (result_molar_content_of_components_n_C5.value * result_molar_mass_of_the_component_n_C5.value) / 100;
+})
+result_molar_content_of_components_c6.addEventListener('input', function (){
+    result_total_molar_mass_c6.value = (result_molar_content_of_components_c6.value * result_molar_mass_of_the_component_c6.value) / 100;
+})
+result_molar_mass_of_the_component_c6.addEventListener('input', function (){
+    result_total_molar_mass_c6.value = (result_molar_content_of_components_c6.value * result_molar_mass_of_the_component_c6.value) / 100;
+})
+result_molar_content_of_components_n2.addEventListener('input', function (){
+    result_total_molar_mass_n2.value = (result_molar_content_of_components_n2.value * result_molar_mass_of_the_component_n2.value) / 100;
+})
+result_molar_mass_of_the_component_n2.addEventListener('input', function (){
+    result_total_molar_mass_n2.value = (result_molar_content_of_components_n2.value * result_molar_mass_of_the_component_n2.value) / 100;
+})
+result_molar_content_of_components_c02.addEventListener('input', function (){
+    result_total_molar_mass_c02.value = (result_molar_content_of_components_c02.value * result_molar_mass_of_the_component_c02.value) / 100;
+})
+result_molar_mass_of_the_component_c02.addEventListener('input', function (){
+    result_total_molar_mass_c02.value = (result_molar_content_of_components_c02.value * result_molar_mass_of_the_component_c02.value) / 100;
+})
+result_molar_content_of_components_02.addEventListener('input', function (){
+    result_total_molar_mass_02.value = (result_molar_content_of_components_02.value * result_molar_mass_of_the_component_02.value) / 100;
+})
+result_molar_mass_of_the_component_02.addEventListener('input', function (){
+    result_total_molar_mass_02.value = (result_molar_content_of_components_02.value * result_molar_mass_of_the_component_02.value) / 100;
+})
 
 
 //MOLAR_CONTENT_OF_COMPONENTS
@@ -52,6 +157,9 @@ function sumArr_molar_mass_of_the_component(arr){
 //total_molar_mass
 let sum_total_molar_mass  = document.getElementById('id_form-11-total_molar_mass');
 let small_total_molar_mass = document.querySelectorAll('.item_js_total_molar_mass');
+
+
+
 let numbers_total_molar_mass = []
 for (let i = 0; i < small_total_molar_mass.length; i++){
     numbers_total_molar_mass.push(small_total_molar_mass[i].value);
@@ -63,6 +171,7 @@ for (let i = 0; i < small_total_molar_mass.length; i++){
 updateResults_total_molar_mass();
 function updateResults_total_molar_mass(){
     sum_total_molar_mass.value = sumArr_total_molar_mass(numbers_total_molar_mass);
+
 }
 
 function sumArr_total_molar_mass(arr){
@@ -121,3 +230,17 @@ function sumArr_calculated_mass(arr){
   }
   return x;
 }
+
+
+
+
+
+
+// let result_total_molar_mass_c1 = document.getElementById('id_form-0-total_molar_mass');
+//
+//
+// result_total_molar_mass_c1.value = (result_molar_content_of_components_c1.value * result_molar_mass_of_the_component_c1.value) / 100;
+//
+//
+// updateTotalResultC1()
+
