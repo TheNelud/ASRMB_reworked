@@ -41,12 +41,12 @@
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="#delete_oks">
                     <svg width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>
                     <span class="link_name" style="color:#000;">Удалить</span>
                 </a>
                  <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Удалить</a></li>
+                    <li><a class="link_name" href="#delete_oks">Удалить</a></li>
                 </ul>
             </li>
         </ul>
@@ -93,50 +93,17 @@
             </table>
         </div>
 
-        <div id="create_oks_p1">
-            <a href="#" class="close_okno">x</a><br>
-            Создать запись
-             <table>
-                <thead>
-                    <tr>
-                        <th  colspan="6">Определение компонентного состава конденсата нестабильного</th>
-                    </tr>
-                    <tr>
-                        <th  colspan="6">10Р-2№2 Протокол анализа №09-2021 PVT(К) от {{ just_day|date:"d.m.Y" }}</th>
-                    </tr>
-                    <tr>
-                        <th >Наименование</th>
-                        <th >Мольное содержание компонентов, %</th>
-                        <th >Молярная масса компонента</th>
-                        <th >Молярная масса общая, гр/моль</th>
-                        <th ">Масс, % (хрома-тограф)</th>
-                        <th >Масс, % (расчетная)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for oks_item in oks_p1_items%}
-                        <tr>
-                            <td ><span>{{oks_item.name|default_if_none:"-"}}</span></td>
-                            <td ><span>{{oks_item.molar_content_of_components|default_if_none:"-"}}</span></td>
-                            <td ><span>{{oks_item.molar_mass_of_the_component|default_if_none:"-"}}</span></td>
-                            <td ><span>{{oks_item.total_molar_mass|default_if_none:"-"}}</span></td>
-                            <td ><span>{{oks_item.chromatograph_mass|default_if_none:"-"}}</span></td>
-                            <td ><span>{{oks_item.calculated_mass|default_if_none:"-"}}</span></td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+        {% include 'asrmb_oks/forms/oks_p1/form_create.html' %}
 
         <div id="edit_oks_p1">
             <a href="#" class="close_okno">x</a><br>
             Редактировать запись
         </div>
 
-{#        <div id="delete_oks_p1">#}
-{#            <a href="#" class="close_okno">x</a><br>#}
-{#            Удалить запись#}
-{#        </div>#}
+        <div id="delete_oks">
+            <a href="#" class="close_okno">x</a><br>
+            Удалить запись
+        </div>
 
 
     </div>
