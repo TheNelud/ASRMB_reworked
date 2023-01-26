@@ -34,75 +34,169 @@ let result_total_molar_mass_n2 = document.getElementById('id_form-8-total_molar_
 let result_total_molar_mass_c02 = document.getElementById('id_form-9-total_molar_mass');
 let result_total_molar_mass_02 = document.getElementById('id_form-10-total_molar_mass');
 
+//Result_calculated_mass
+let result_calculated_mass_c1 = document.getElementById('id_form-0-calculated_mass');
+let result_calculated_mass_c2 = document.getElementById('id_form-1-calculated_mass');
+let result_calculated_mass_c3 = document.getElementById('id_form-2-calculated_mass');
+let result_calculated_mass_i_C4 = document.getElementById('id_form-3-calculated_mass');
+let result_calculated_mass_n_C4 = document.getElementById('id_form-4-calculated_mass');
+let result_calculated_mass_i_C5 = document.getElementById('id_form-5-calculated_mass');
+let result_calculated_mass_n_C5 = document.getElementById('id_form-6-calculated_mass');
+let result_calculated_mass_c6 = document.getElementById('id_form-7-calculated_mass');
+let result_calculated_mass_n2 = document.getElementById('id_form-8-calculated_mass');
+let result_calculated_mass_c02 = document.getElementById('id_form-9-calculated_mass');
+let result_calculated_mass_02 = document.getElementById('id_form-10-calculated_mass');
+
+let result_total_molar_mass_summ = document.getElementById('id_form-11-total_molar_mass')
 
 
+
+let numbers_total_molar_mass = []
+
+let numbers_calculated_mass = []
 
 result_molar_content_of_components_c1.addEventListener('input', function (){
     result_total_molar_mass_c1.value = (result_molar_content_of_components_c1.value * result_molar_mass_of_the_component_c1.value) / 100;
+    numbers_total_molar_mass[0] = result_total_molar_mass_c1.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
+    console.log(numbers_total_molar_mass[0]);
+
+    result_calculated_mass_c1.value = numbers_total_molar_mass[0].value / (result_total_molar_mass_summ.value * 100);
+    console.log(result_calculated_mass_c1.value);
+
 })
 result_molar_mass_of_the_component_c1.addEventListener('input',function (){
     result_total_molar_mass_c1.value = (result_molar_content_of_components_c1.value * result_molar_mass_of_the_component_c1.value) / 100;
+    numbers_total_molar_mass[0] = result_total_molar_mass_c1.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
+    console.log(numbers_total_molar_mass[0]);
+    result_calculated_mass_c1.value = numbers_total_molar_mass[0].value / (result_total_molar_mass_summ.value * 100);
+    console.log(result_calculated_mass_c1.value);
 })
+
+
 result_molar_content_of_components_c2.addEventListener('input', function (){
     result_total_molar_mass_c2.value = (result_molar_content_of_components_c2.value * result_molar_mass_of_the_component_c2.value) / 100;
+    numbers_chromatograph_mass[1] = result_total_molar_mass_c2.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_c2.addEventListener('input', function (){
     result_total_molar_mass_c2.value = (result_molar_content_of_components_c2.value * result_molar_mass_of_the_component_c2.value) / 100;
+    numbers_total_molar_mass[1] = result_total_molar_mass_c2.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 
 result_molar_content_of_components_c3.addEventListener('input', function (){
     result_total_molar_mass_c3.value = (result_molar_content_of_components_c3.value * result_molar_mass_of_the_component_c3.value) / 100;
+    numbers_total_molar_mass[2] =  result_total_molar_mass_c3.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_c3.addEventListener('input', function (){
     result_total_molar_mass_c3.value = (result_molar_content_of_components_c3.value * result_molar_mass_of_the_component_c3.value) / 100;
+    numbers_total_molar_mass[2] =  result_total_molar_mass_c3.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_content_of_components_i_C4.addEventListener('input', function (){
     result_total_molar_mass_i_C4.value = (result_molar_content_of_components_i_C4.value * result_molar_mass_of_the_component_i_C4.value) / 100;
+    numbers_total_molar_mass[3] =  result_total_molar_mass_i_C4.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_i_C4.addEventListener('input', function (){
     result_total_molar_mass_i_C4.value = (result_molar_content_of_components_i_C4.value * result_molar_mass_of_the_component_i_C4.value) / 100;
+    numbers_total_molar_mass[3] =  result_total_molar_mass_i_C4.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_content_of_components_n_C4.addEventListener('input', function (){
     result_total_molar_mass_n_C4.value = (result_molar_content_of_components_n_C4.value * result_molar_mass_of_the_component_n_C4.value) / 100;
+    numbers_total_molar_mass[4] =  result_total_molar_mass_n_C4.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_n_C4.addEventListener('input', function (){
     result_total_molar_mass_n_C4.value = (result_molar_content_of_components_n_C4.value * result_molar_mass_of_the_component_n_C4.value) / 100;
+    numbers_total_molar_mass[4] =  result_total_molar_mass_n_C4.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_content_of_components_i_C5.addEventListener('input', function (){
     result_total_molar_mass_i_C5.value = (result_molar_content_of_components_i_C5.value * result_molar_mass_of_the_component_i_C5.value) / 100;
+    numbers_total_molar_mass[5] =  result_total_molar_mass_i_C5.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_i_C5.addEventListener('input', function (){
-    result_total_molar_mass_i_C5.value = (result_molar_content_of_components_n_C5.value * result_molar_mass_of_the_component_n_C5.value) / 100;
+    result_total_molar_mass_i_C5.value = (result_molar_content_of_components_i_C5.value * result_molar_mass_of_the_component_i_C5.value) / 100;
+    numbers_total_molar_mass[5] =  result_total_molar_mass_i_C5.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_content_of_components_n_C5.addEventListener('input', function (){
     result_total_molar_mass_n_C5.value = (result_molar_content_of_components_n_C5.value * result_molar_mass_of_the_component_n_C5.value) / 100;
+    numbers_total_molar_mass[6] =  result_total_molar_mass_n_C5.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_n_C5.addEventListener('input', function (){
     result_total_molar_mass_n_C5.value = (result_molar_content_of_components_n_C5.value * result_molar_mass_of_the_component_n_C5.value) / 100;
+    numbers_total_molar_mass[6] =  result_total_molar_mass_n_C5.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_content_of_components_c6.addEventListener('input', function (){
     result_total_molar_mass_c6.value = (result_molar_content_of_components_c6.value * result_molar_mass_of_the_component_c6.value) / 100;
+    numbers_total_molar_mass[7] =  result_total_molar_mass_c6.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_c6.addEventListener('input', function (){
     result_total_molar_mass_c6.value = (result_molar_content_of_components_c6.value * result_molar_mass_of_the_component_c6.value) / 100;
+    numbers_total_molar_mass[7] =  result_total_molar_mass_c6.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_content_of_components_n2.addEventListener('input', function (){
     result_total_molar_mass_n2.value = (result_molar_content_of_components_n2.value * result_molar_mass_of_the_component_n2.value) / 100;
+    numbers_total_molar_mass[8] =  result_total_molar_mass_n2.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_n2.addEventListener('input', function (){
     result_total_molar_mass_n2.value = (result_molar_content_of_components_n2.value * result_molar_mass_of_the_component_n2.value) / 100;
+    numbers_total_molar_mass[8] =  result_total_molar_mass_n2.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_content_of_components_c02.addEventListener('input', function (){
     result_total_molar_mass_c02.value = (result_molar_content_of_components_c02.value * result_molar_mass_of_the_component_c02.value) / 100;
+    numbers_total_molar_mass[9] =  result_total_molar_mass_c02.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_c02.addEventListener('input', function (){
     result_total_molar_mass_c02.value = (result_molar_content_of_components_c02.value * result_molar_mass_of_the_component_c02.value) / 100;
+    numbers_total_molar_mass[9] =  result_total_molar_mass_c02.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_content_of_components_02.addEventListener('input', function (){
     result_total_molar_mass_02.value = (result_molar_content_of_components_02.value * result_molar_mass_of_the_component_02.value) / 100;
+    numbers_total_molar_mass[10] =  result_total_molar_mass_02.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 result_molar_mass_of_the_component_02.addEventListener('input', function (){
     result_total_molar_mass_02.value = (result_molar_content_of_components_02.value * result_molar_mass_of_the_component_02.value) / 100;
+    numbers_total_molar_mass[10] =  result_total_molar_mass_02.value;
+    addDictTotalMolarMass();
+    updateResults_total_molar_mass();
 })
 
 
@@ -157,21 +251,34 @@ function sumArr_molar_mass_of_the_component(arr){
 //total_molar_mass
 let sum_total_molar_mass  = document.getElementById('id_form-11-total_molar_mass');
 let small_total_molar_mass = document.querySelectorAll('.item_js_total_molar_mass');
+let numbers_total_molar_mass_manual = []
 
 
+function addDictTotalMolarMass(){
+    for (let i = 0; i < small_total_molar_mass.length; i++){
+        numbers_total_molar_mass[i] = small_total_molar_mass[i].value;
 
-let numbers_total_molar_mass = []
+    }
+}
+updateResults_total_molar_mass();
+
 for (let i = 0; i < small_total_molar_mass.length; i++){
-    numbers_total_molar_mass.push(small_total_molar_mass[i].value);
+    numbers_total_molar_mass_manual.push(small_total_molar_mass[i].value)
+    console.log(numbers_total_molar_mass)
     small_total_molar_mass[i].addEventListener('input', function (){
-        numbers_total_molar_mass[i] = this.value;
-        updateResults_total_molar_mass();});
+        updateResults_total_molar_mass_manual();
+    });
 }
 
-updateResults_total_molar_mass();
+
+updateResults_total_molar_mass_manual();
+
+function updateResults_total_molar_mass_manual(){
+    sum_total_molar_mass.value = sumArr_total_molar_mass(numbers_total_molar_mass_manual);
+}
+
 function updateResults_total_molar_mass(){
     sum_total_molar_mass.value = sumArr_total_molar_mass(numbers_total_molar_mass);
-
 }
 
 function sumArr_total_molar_mass(arr){
@@ -207,10 +314,10 @@ function sumArr_chromatograph_mass(arr){
   return x;
 }
 
-//chromatograph_mass
+//calculated_mass
 let sum_calculated_mass = document.getElementById('id_form-11-calculated_mass');
 let small_calculated_mass = document.querySelectorAll('.item_js_calculated_mass');
-let numbers_calculated_mass = []
+
 for (let i = 0; i < small_calculated_mass.length; i++){
     numbers_calculated_mass.push(small_calculated_mass[i].value);
     small_calculated_mass[i].addEventListener('input', function (){
