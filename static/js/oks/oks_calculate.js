@@ -70,31 +70,70 @@ let in_11_mmo = document.getElementById('id_form-11-total_molar_mass');
 let in_11_mh = document.getElementById('id_form-11-chromatograph_mass');
 let in_11_mr = document.getElementById('id_form-11-calculated_mass');
 
-in_0_msk.addEventListener('input', function (){summa_msk();in_0_mmo.value = (Number(in_0_msk.value) * Number(in_0_mmk.value))/100;summa_mmo();})
-in_1_msk.addEventListener('input', function (){summa_msk();in_1_mmo.value = (Number(in_1_msk.value) * Number(in_1_mmk.value))/100;summa_mmo();})
-in_2_msk.addEventListener('input', function (){summa_msk();in_2_mmo.value = (Number(in_2_msk.value) * Number(in_2_mmk.value))/100;summa_mmo();})
-in_3_msk.addEventListener('input', function (){summa_msk();in_3_mmo.value = (Number(in_3_msk.value) * Number(in_3_mmk.value))/100;summa_mmo();})
-in_4_msk.addEventListener('input', function (){summa_msk();in_4_mmo.value = (Number(in_4_msk.value) * Number(in_4_mmk.value))/100;summa_mmo();})
-in_5_msk.addEventListener('input', function (){summa_msk();in_5_mmo.value = (Number(in_5_msk.value) * Number(in_5_mmk.value))/100;summa_mmo();})
-in_6_msk.addEventListener('input', function (){summa_msk();in_6_mmo.value = (Number(in_6_msk.value) * Number(in_6_mmk.value))/100;summa_mmo();})
-in_7_msk.addEventListener('input', function (){summa_msk();in_7_mmo.value = (Number(in_7_msk.value) * Number(in_7_mmk.value))/100;summa_mmo();})
-in_8_msk.addEventListener('input', function (){summa_msk();in_8_mmo.value = (Number(in_8_msk.value) * Number(in_8_mmk.value))/100;summa_mmo();})
-in_9_msk.addEventListener('input', function (){summa_msk();in_9_mmo.value = (Number(in_9_msk.value) * Number(in_9_mmk.value))/100;summa_mmo();})
-in_10_msk.addEventListener('input', function (){summa_msk();in_10_mmo.value = (Number(in_10_msk.value) * Number(in_10_mmk.value))/100;summa_mmo();})
+in_0_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_1_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_2_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_3_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_4_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_5_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_6_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_7_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_8_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_9_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
+in_10_msk.addEventListener('input', function (){summa_msk();summa_mmo();calculated_mr(summa_mmo());})
 
-in_0_mmk.addEventListener('input', function (){summa_mmk();in_0_mmo.value = (Number(in_0_msk.value) * Number(in_0_mmk.value))/100;summa_mmo();})
-in_1_mmk.addEventListener('input', function (){summa_mmk();in_1_mmo.value = (Number(in_1_msk.value) * Number(in_1_mmk.value))/100;summa_mmo();})
-in_2_mmk.addEventListener('input', function (){summa_mmk();in_2_mmo.value = (Number(in_2_msk.value) * Number(in_2_mmk.value))/100;summa_mmo();})
-in_3_mmk.addEventListener('input', function (){summa_mmk();in_3_mmo.value = (Number(in_3_msk.value) * Number(in_3_mmk.value))/100;summa_mmo();})
-in_4_mmk.addEventListener('input', function (){summa_mmk();in_4_mmo.value = (Number(in_4_msk.value) * Number(in_4_mmk.value))/100;summa_mmo();})
-in_5_mmk.addEventListener('input', function (){summa_mmk();in_5_mmo.value = (Number(in_5_msk.value) * Number(in_5_mmk.value))/100;summa_mmo();})
-in_6_mmk.addEventListener('input', function (){summa_mmk();in_6_mmo.value = (Number(in_6_msk.value) * Number(in_6_mmk.value))/100;summa_mmo();})
-in_7_mmk.addEventListener('input', function (){summa_mmk();in_7_mmo.value = (Number(in_7_msk.value) * Number(in_7_mmk.value))/100;summa_mmo();})
-in_8_mmk.addEventListener('input', function (){summa_mmk();in_8_mmo.value = (Number(in_8_msk.value) * Number(in_8_mmk.value))/100;summa_mmo();})
-in_9_mmk.addEventListener('input', function (){summa_mmk();in_9_mmo.value = (Number(in_1_msk.value) * Number(in_9_mmk.value))/100;summa_mmo();})
-in_10_mmk.addEventListener('input', function (){summa_mmk();in_10_mmo.value = (Number(in_10_msk.value) * Number(in_10_mmk.value))/100;summa_mmo();})
+in_0_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_1_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_2_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_3_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_4_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_5_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_6_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_7_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_8_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_9_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+in_10_mmk.addEventListener('input', function (){summa_mmk();summa_mmo();calculated_mr(summa_mmo());})
+
+in_0_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_1_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_2_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_3_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_4_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_5_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_6_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_7_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_8_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+in_10_mmo.addEventListener('input', function (){summa_mmo();calculated_mr(summa_mmo());})
+
+in_0_mh.addEventListener('input', function (){summa_mh();})
+in_1_mh.addEventListener('input', function (){summa_mh();})
+in_2_mh.addEventListener('input', function (){summa_mh();})
+in_3_mh.addEventListener('input', function (){summa_mh();})
+in_4_mh.addEventListener('input', function (){summa_mh();})
+in_5_mh.addEventListener('input', function (){summa_mh();})
+in_6_mh.addEventListener('input', function (){summa_mh();})
+in_7_mh.addEventListener('input', function (){summa_mh();})
+in_8_mh.addEventListener('input', function (){summa_mh();})
+in_9_mh.addEventListener('input', function (){summa_mh();})
+in_10_mh.addEventListener('input', function (){summa_mh();})
 
 
+
+function calculated_mr(summa_mmo){
+    in_0_mr.value=Number(in_0_mmo.value)/Number(summa_mmo) * 100;
+    in_1_mr.value=Number(in_1_mmo.value)/Number(summa_mmo) * 100;
+    in_2_mr.value=Number(in_2_mmo.value)/Number(summa_mmo) * 100;
+    in_3_mr.value=Number(in_3_mmo.value)/Number(summa_mmo) * 100;
+    in_4_mr.value=Number(in_4_mmo.value)/Number(summa_mmo) * 100;
+    in_5_mr.value=Number(in_5_mmo.value)/Number(summa_mmo) * 100;
+    in_6_mr.value=Number(in_6_mmo.value)/Number(summa_mmo) * 100;
+    in_7_mr.value=Number(in_7_mmo.value)/Number(summa_mmo) * 100;
+    in_8_mr.value=Number(in_8_mmo.value)/Number(summa_mmo) * 100;
+    in_9_mr.value=Number(in_9_mmo.value)/Number(summa_mmo) * 100;
+    in_10_mr.value=Number(in_10_mmo.value)/Number(summa_mmo) * 100;
+    in_11_mr.value=Number(in_0_mr.value) + Number(in_1_mr.value) + Number(in_2_mr.value) + Number(in_3_mr.value) + Number(in_4_mr.value) + Number(in_5_mr.value) + Number(in_6_mr.value) + Number(in_7_mr.value) + Number(in_8_mr.value) + Number(in_9_mr.value) + Number(in_10_mr.value);
+
+}
 
 function summa_msk(){
     in_11_msk.value = Number(in_0_msk.value) + Number(in_1_msk.value) + Number(in_2_msk.value) + Number(in_3_msk.value) + Number(in_4_msk.value) + Number(in_5_msk.value) + Number(in_6_msk.value) + Number(in_7_msk.value) + Number(in_8_msk.value) + Number(in_9_msk.value) + Number(in_10_msk.value);
@@ -105,6 +144,17 @@ function summa_mmk(){
     return in_11_mmk.value
 }
 function summa_mmo(){
+    in_0_mmo.value = (Number(in_0_msk.value) * Number(in_0_mmk.value))/100;
+    in_1_mmo.value = (Number(in_1_msk.value) * Number(in_1_mmk.value))/100;
+    in_2_mmo.value = (Number(in_2_msk.value) * Number(in_2_mmk.value))/100;
+    in_3_mmo.value = (Number(in_3_msk.value) * Number(in_3_mmk.value))/100;
+    in_4_mmo.value = (Number(in_4_msk.value) * Number(in_4_mmk.value))/100;
+    in_5_mmo.value = (Number(in_5_msk.value) * Number(in_5_mmk.value))/100;
+    in_6_mmo.value = (Number(in_6_msk.value) * Number(in_6_mmk.value))/100;
+    in_7_mmo.value = (Number(in_7_msk.value) * Number(in_7_mmk.value))/100;
+    in_8_mmo.value = (Number(in_8_msk.value) * Number(in_8_mmk.value))/100;
+    in_9_mmo.value = (Number(in_9_msk.value) * Number(in_9_mmk.value))/100;
+    in_10_mmo.value = (Number(in_10_msk.value) * Number(in_10_mmk.value))/100;
     in_11_mmo.value = Number(in_0_mmo.value) + Number(in_1_mmo.value) + Number(in_2_mmo.value) + Number(in_3_mmo.value) + Number(in_4_mmo.value) + Number(in_5_mmo.value) + Number(in_6_mmo.value) + Number(in_7_mmo.value) + Number(in_8_mmo.value) + Number(in_9_mmo.value) + Number(in_10_mmo.value);
     return in_11_mmo.value
 }
