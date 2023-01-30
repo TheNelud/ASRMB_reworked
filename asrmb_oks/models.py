@@ -11,8 +11,8 @@ class P1ComponentCompositionOfUnstableCondensate(models.Model):
     total_molar_mass = models.FloatField()
     chromatograph_mass = models.FloatField()
     calculated_mass = models.FloatField()
-    date_create = models.DateField(auto_now_add=True)
-    date_update = models.DateField(auto_now=True)
+    date_create = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now=True)
 
     def get_absolute_url(self):
         return reverse('p1_edit', kwargs={'date_oks_p1': self.date_update})

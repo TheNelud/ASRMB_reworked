@@ -78,3 +78,37 @@
 }
 
 #delete_oks:target {display: block;}
+
+.button_save_form{
+    display: inline-block;
+    border: #727272;
+    border-radius: 90px;
+    color: #000000;
+    padding: 0 300px;
+    text-decoration: none;
+    background: #f2f2f2;
+    font-size: 14pt;
+    cursor:pointer;
+    right: 200px;
+    left: 200px;
+    bottom: 50px;
+    position: absolute;
+}
+.button_save_form:hover {background: #e6e6ff;}
+
+.title_form{
+    display: inline-block;
+    border: #727272;
+    border-radius: 90px;
+    color: #ffffff;
+    padding: 0 10px;
+    text-decoration: none;
+    /*background: #f2f2f2;*/
+    font-size: 14pt;
+    cursor:pointer;
+    right: 200px;
+    left: 200px;
+    top: 10px;
+    /*bottom: 50px;*/
+    position: absolute;
+}
