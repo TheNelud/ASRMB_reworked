@@ -13,11 +13,14 @@ def oks_p1(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
     oks_p1_items = P1ComponentCompositionOfUnstableCondensate.objects.filter(date_create__contains=max_date_now).order_by('id')[:12]
     # url_oks_p1 = oks_p1_items[0].date_create
-    form_set = P1ComponentCompositionOfUnstableCondensateModelFormSet()
+    form_set = P1ComponentCompositionOfUnstableCondensateFormSet()
     if request.method == "POST":
         oks_p1_items = P1ComponentCompositionOfUnstableCondensate.objects.filter(
             date_create__contains=request.POST.get('date_update', ''))[:12]
-        form_set = P1ComponentCompositionOfUnstableCondensateModelFormSet(queryset=oks_p1_items)
+        print(oks_p1_items.values)
+        form_set = P1ComponentCompositionOfUnstableCondensateFormSet(oks_p1_items)
+        for form in form_set:
+            print(form.as_table())
 
         # url_oks_p1 = oks_p1_items[0].date_create
 
@@ -26,8 +29,6 @@ def oks_p1(request):
     else:
         just_day = request.POST.get('date_create', '')
 
-    for form in form_set:
-        print(form.as_p())
     context = {
         'max_date_now': max_date_now,
         'oks_p1_items': oks_p1_items,

@@ -21,7 +21,7 @@ class P1ComponentCompositionOfUnstableCondensateForm(ModelForm):
 
 
 P1ComponentCompositionOfUnstableCondensateFormSet = formset_factory(P1ComponentCompositionOfUnstableCondensateForm,
-                                                                    extra=1)
+                                                                    extra=12)
 P1ComponentCompositionOfUnstableCondensateModelFormSet = modelformset_factory(
     P1ComponentCompositionOfUnstableCondensate,
     fields=('name',
