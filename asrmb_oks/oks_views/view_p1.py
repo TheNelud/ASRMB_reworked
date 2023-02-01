@@ -11,18 +11,13 @@ from ..forms import *
 
 def oks_p1(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
-    oks_p1_items = P1ComponentCompositionOfUnstableCondensate.objects.filter(date_create__contains=max_date_now).order_by('id')[:12]
-    # url_oks_p1 = oks_p1_items[0].date_create
+    oks_p1_items = P1ComponentCompositionOfUnstableCondensate.objects.filter(
+        date_create__contains=max_date_now).order_by('id')[:12]
     form_set = P1ComponentCompositionOfUnstableCondensateFormSet()
+
     if request.method == "POST":
         oks_p1_items = P1ComponentCompositionOfUnstableCondensate.objects.filter(
-            date_create__contains=request.POST.get('date_update', ''))[:12]
-        print(oks_p1_items.values)
-        form_set = P1ComponentCompositionOfUnstableCondensateFormSet(oks_p1_items)
-        for form in form_set:
-            print(form.as_table())
-
-        # url_oks_p1 = oks_p1_items[0].date_create
+            date_create__contains=request.POST.get('date_create', ''))[:12]
 
     if oks_p1_items.values():
         just_day = oks_p1_items.values()[0]['date_create']
@@ -32,7 +27,6 @@ def oks_p1(request):
     context = {
         'max_date_now': max_date_now,
         'oks_p1_items': oks_p1_items,
-        # 'url_oks_p1': url_oks_p1,
         'just_day': just_day,
         'form_set': form_set,
     }
@@ -50,16 +44,6 @@ def save_oks_p1_form(request, form_set):
 
 
 def oks_p1_create(request):
-    if request.method == 'POST':
-        print(request.POST)
-        form_set = P1ComponentCompositionOfUnstableCondensateFormSet(request.POST)
-        print(form_set)
-    else:
-        print('3')
-        form_set = P1ComponentCompositionOfUnstableCondensateFormSet()
-    return save_oks_p1_form(request, form_set)
-
-def oks_p1_edit(request):
     if request.method == 'POST':
         print(request.POST)
         form_set = P1ComponentCompositionOfUnstableCondensateFormSet(request.POST)

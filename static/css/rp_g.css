@@ -28,7 +28,11 @@
     text-align: center;
 }
 
-#create_oks_p1, #edit_oks_p1{
+#create_oks_p1, #edit_oks_p1,#create_oks_p2, #edit_oks_p2,
+#create_oks_p3, #edit_oks_p3,#create_oks_p4, #edit_oks_p4,
+#create_oks_p5, #edit_oks_p5,#create_oks_p6, #edit_oks_p6,
+#create_oks_p7, #edit_oks_p7,#create_oks_p8, #edit_oks_p8,
+#create_oks_p9, #edit_oks_p9,#create_oks_p10, #edit_oks_p10{
     width: 1100px;
     height: 600px;
     text-align: center;
@@ -58,6 +62,32 @@
 #create_oks_p1:target {display: block;}
 #edit_oks_p1:target {display: block;}
 
+#create_oks_p2:target {display: block;}
+#edit_oks_p2:target {display: block;}
+
+#create_oks_p3:target {display: block;}
+#edit_oks_p3:target {display: block;}
+
+#create_oks_p4:target {display: block;}
+#edit_oks_p4:target {display: block;}
+
+#create_oks_p5:target {display: block;}
+#edit_oks_p5:target {display: block;}
+
+#create_oks_p6:target {display: block;}
+#edit_oks_p6:target {display: block;}
+
+#create_oks_p7:target {display: block;}
+#edit_oks_p7:target {display: block;}
+
+#create_oks_p8:target {display: block;}
+#edit_oks_p8:target {display: block;}
+
+#create_oks_p9:target {display: block;}
+#edit_oks_p9:target {display: block;}
+
+#create_oks_p10:target {display: block;}
+#edit_oks_p10:target {display: block;}
 
 #delete_oks{
     width: 300px;

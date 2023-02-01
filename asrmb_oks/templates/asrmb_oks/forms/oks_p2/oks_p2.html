@@ -28,13 +28,13 @@
                 </a>
             </li>
             <li>
-                <a href="#create_oks_p1">
+                <a href="#create_oks_p2">
 {#                <a href="{% url 'oks_p1_create' %}">#}
                     <svg width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M5 21h14a2 2 0 0 0 2-2V8a1 1 0 0 0-.29-.71l-4-4A1 1 0 0 0 16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm10-2H9v-5h6zM13 7h-2V5h2zM5 5h2v4h8V5h.59L19 8.41V19h-2v-5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v5H5z"></path></svg>
                     <span class="link_name" style="color:#000;">Добавить</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#create_oks_p1">Добавить</a></li>
+                    <li><a class="link_name" href="#create_oks_p2">Добавить</a></li>
                 </ul>
             </li>
 {#            <li>#}
@@ -71,10 +71,10 @@
             <table>
                 <thead class="table_content_header">
                     <tr>
-                        <th class="table_content_th" colspan="6">Определение компонентного состава конденсата нестабильного</th>
+                        <th class="table_content_th" colspan="6">Определение компонентного состава газа по ГОСТ 31371</th>
                     </tr>
                     <tr>
-                        <th class="table_content_th" colspan="6">10Р-2№2 Протокол анализа №09-2021 PVT(К) от {{ just_day|date:"d.m.Y" }}</th>
+                        <th class="table_content_th" colspan="6">10С-1№2  протокол № 05 - PVT(Г) от  {{ just_day|date:"d.m.Y" }}</th>
                     </tr>
                     <tr>
                         <th class="table_content_th">Наименование</th>
@@ -86,7 +86,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for oks_item in oks_p1_items%}
+                    {% for oks_item in oks_p2_items%}
                         <tr>
                             <td class="table_content_td"><span>{{oks_item.name|default_if_none:"-"}}</span></td>
                             <td class="table_content_td"><span>{{oks_item.molar_content_of_components|default_if_none:"-"}}</span></td>
@@ -100,9 +100,9 @@
             </table>
         </div>
 
-        {% include 'asrmb_oks/forms/oks_p1/form_create.html' %}
+        {% include 'asrmb_oks/forms/oks_p2/form_create.html' %}
 
-        {% include 'asrmb_oks/forms/oks_p1/form_edit.html' %}
+        {% include 'asrmb_oks/forms/oks_p2/form_edit.html' %}
 
         <div id="delete_oks">
             <a href="#" class="close_okno">x</a><br>

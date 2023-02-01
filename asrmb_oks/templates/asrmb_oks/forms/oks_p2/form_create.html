@@ -1,16 +1,16 @@
 {% load static %}
-<div id="create_oks_p1">
+<div id="create_oks_p2">
     <a href="#" class="close_okno">x</a><br>
     <p class="title_form">Создать запись</p>
-    <form action="{% url 'oks_p1_create' %}" method="post">
+    <form action="{% url 'oks_p2_create' %}" method="post">
         {% csrf_token %}
          <table class="table_oks_form">
             <thead>
                 <tr>
-                    <th class="table_oks_form_th" colspan="6">Определение компонентного состава конденсата нестабильного</th>
+                    <th class="table_oks_form_th" colspan="6">Определение компонентного состава газа по ГОСТ 31371</th>
                 </tr>
                 <tr>
-                    <th class="table_oks_form_th" colspan="6">10Р-2№2 Протокол анализа №09-2021 PVT(К) от {{ max_date_now|date:"d.m.Y" }}</th>
+                    <th class="table_oks_form_th" colspan="6">10С-1№2  протокол № 05 - PVT(Г) от {{ max_date_now|date:"d.m.Y" }}</th>
                 </tr>
                 <tr>
                     <th class="table_oks_form_th">Наименование</th>
