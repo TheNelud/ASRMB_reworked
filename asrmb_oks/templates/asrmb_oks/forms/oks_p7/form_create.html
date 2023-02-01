@@ -1,16 +1,16 @@
 {% load static %}
-<div id="create_oks_p4" style="width: 1400px; left: 10%">
+<div id="create_oks_p7" >
     <a href="#" class="close_okno">x</a><br>
     <p class="title_form">Создать запись</p>
-    <form action="{% url 'oks_p4_create' %}" method="post">
+    <form action="{% url 'oks_p7_create' %}" method="post">
         {% csrf_token %}
          <table class="table_oks_form">
             <thead>
                 <tr>
-                    <th class="table_oks_form_th" colspan="8">Определение компонентного состава газа по ГОСТ 31371</th>
+                    <th class="table_oks_form_th" colspan="6">Определение компонентного состава газа по ГОСТ 31371</th>
                 </tr>
                 <tr>
-                    <th class="table_oks_form_th" colspan="8"> п.34 паспорт качества  №3 от {{ max_date_now|date:"d.m.Y" }}</th>
+                    <th class="table_oks_form_th" colspan="6">10С-4№2</th>
                 </tr>
                 <tr>
                     <th class="table_oks_form_th">Наименование</th>
@@ -19,8 +19,6 @@
                     <th class="table_oks_form_th">Молярная масса общая, гр/моль</th>
                     <th class="table_oks_form_th">Масс, % (хрома-тограф)</th>
                     <th class="table_oks_form_th">Масс, % (расчетная)</th>
-                    <th class="table_oks_form_th">Содержание компонента в  газе, кг/м3</th>
-                    <th class="table_oks_form_th">Доля компонента в 1м3 газа</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,9 +29,6 @@
                     <td><input type="number" name="form-0-total_molar_mass" step="any" id="id_form-0-total_molar_mass"></td>
                     <td><input type="number" name="form-0-chromatograph_mass" step="any" id="id_form-0-chromatograph_mass"></td>
                     <td><input type="number" name="form-0-calculated_mass" step="any" id="id_form-0-calculated_mass"></td>
-                    <td><input type="number" name="form-0-content_of_the_component" step="any" id="id_form-0-content_of_the_component"></td>
-                    <td><input type="number" name="form-0-proportion_of_the_component" step="any" id="id_form-0-proportion_of_the_component"></td>
-
                 </tr>
                 <tr>
                     <td><input type="text" name="form-1-name" maxlength="255" value="C2" id="id_form-1-name"></td>
@@ -42,8 +37,6 @@
                     <td><input type="number" name="form-1-total_molar_mass" step="any" id="id_form-1-total_molar_mass"></td>
                     <td><input type="number" name="form-1-chromatograph_mass" step="any" id="id_form-1-chromatograph_mass"></td>
                     <td><input type="number" name="form-1-calculated_mass" step="any" id="id_form-1-calculated_mass"></td>
-                    <td><input type="number" name="form-1-content_of_the_component" step="any" id="id_form-1-content_of_the_component"></td>
-                    <td><input type="number" name="form-1-proportion_of_the_component" step="any" id="id_form-1-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-2-name" maxlength="255" value="C3" id="id_form-2-name"></td>
@@ -52,8 +45,6 @@
                     <td><input type="number" name="form-2-total_molar_mass" step="any" id="id_form-2-total_molar_mass"></td>
                     <td><input type="number" name="form-2-chromatograph_mass" step="any" id="id_form-2-chromatograph_mass"></td>
                     <td><input type="number" name="form-2-calculated_mass" step="any" id="id_form-2-calculated_mass"></td>
-                    <td><input type="number" name="form-2-content_of_the_component" step="any" id="id_form-2-content_of_the_component"></td>
-                    <td><input type="number" name="form-2-proportion_of_the_component" step="any" id="id_form-2-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-3-name" maxlength="255" value="i-C4" id="id_form-3-name"></td>
@@ -62,8 +53,6 @@
                     <td><input type="number" name="form-3-total_molar_mass" step="any" id="id_form-3-total_molar_mass"></td>
                     <td><input type="number" name="form-3-chromatograph_mass" step="any" id="id_form-3-chromatograph_mass"></td>
                     <td><input type="number" name="form-3-calculated_mass" step="any" id="id_form-3-calculated_mass"></td>
-                    <td><input type="number" name="form-3-content_of_the_component" step="any" id="id_form-3-content_of_the_component"></td>
-                    <td><input type="number" name="form-3-proportion_of_the_component" step="any" id="id_form-3-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-4-name" maxlength="255" value="n-C4" id="id_form-4-name"></td>
@@ -72,8 +61,6 @@
                     <td><input type="number" name="form-4-total_molar_mass" step="any" id="id_form-4-total_molar_mass"></td>
                     <td><input type="number" name="form-4-chromatograph_mass" step="any" id="id_form-4-chromatograph_mass"></td>
                     <td><input type="number" name="form-4-calculated_mass" step="any" id="id_form-4-calculated_mass"></td>
-                    <td><input type="number" name="form-4-content_of_the_component" step="any" id="id_form-4-content_of_the_component"></td>
-                    <td><input type="number" name="form-4-proportion_of_the_component" step="any" id="id_form-4-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-5-name" maxlength="255" value="i-C5" id="id_form-5-name"></td>
@@ -82,8 +69,6 @@
                     <td><input type="number" name="form-5-total_molar_mass" step="any" id="id_form-5-total_molar_mass"></td>
                     <td><input type="number" name="form-5-chromatograph_mass" step="any" id="id_form-5-chromatograph_mass"></td>
                     <td><input type="number" name="form-5-calculated_mass" step="any" id="id_form-5-calculated_mass"></td>
-                    <td><input type="number" name="form-5-content_of_the_component" step="any" id="id_form-5-content_of_the_component"></td>
-                    <td><input type="number" name="form-5-proportion_of_the_component" step="any" id="id_form-5-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-6-name" maxlength="255" value="n-C5" id="id_form-6-name"></td>
@@ -92,8 +77,6 @@
                     <td><input type="number" name="form-6-total_molar_mass" step="any" id="id_form-6-total_molar_mass"></td>
                     <td><input type="number" name="form-6-chromatograph_mass" step="any" id="id_form-6-chromatograph_mass"></td>
                     <td><input type="number" name="form-6-calculated_mass" step="any" id="id_form-6-calculated_mass"></td>
-                    <td><input type="number" name="form-6-content_of_the_component" step="any" id="id_form-6-content_of_the_component"></td>
-                    <td><input type="number" name="form-6-proportion_of_the_component" step="any" id="id_form-6-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-7-name" maxlength="255" value="C6+" id="id_form-7-name"></td>
@@ -102,8 +85,6 @@
                     <td><input type="number" name="form-7-total_molar_mass" step="any" id="id_form-7-total_molar_mass"></td>
                     <td><input type="number" name="form-7-chromatograph_mass" step="any" id="id_form-7-chromatograph_mass"></td>
                     <td><input type="number" name="form-7-calculated_mass" step="any" id="id_form-7-calculated_mass"></td>
-                    <td><input type="number" name="form-7-content_of_the_component" step="any" id="id_form-7-content_of_the_component"></td>
-                    <td><input type="number" name="form-7-proportion_of_the_component" step="any" id="id_form-7-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-8-name" maxlength="255" value="N2" id="id_form-8-name"></td>
@@ -112,8 +93,6 @@
                     <td><input type="number" name="form-8-total_molar_mass" step="any" id="id_form-8-total_molar_mass"></td>
                     <td><input type="number" name="form-8-chromatograph_mass" step="any" id="id_form-8-chromatograph_mass"></td>
                     <td><input type="number" name="form-8-calculated_mass" step="any" id="id_form-8-calculated_mass"></td>
-                    <td><input type="number" name="form-8-content_of_the_component" step="any" id="id_form-8-content_of_the_component"></td>
-                    <td><input type="number" name="form-8-proportion_of_the_component" step="any" id="id_form-8-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-9-name" maxlength="255" value="CO2" id="id_form-9-name"></td>
@@ -122,8 +101,6 @@
                     <td><input type="number" name="form-9-total_molar_mass" step="any" id="id_form-9-total_molar_mass"></td>
                     <td><input type="number" name="form-9-chromatograph_mass" step="any" id="id_form-9-chromatograph_mass"></td>
                     <td><input type="number" name="form-9-calculated_mass" step="any" id="id_form-9-calculated_mass"></td>
-                    <td><input type="number" name="form-9-content_of_the_component" step="any" id="id_form-9-content_of_the_component"></td>
-                    <td><input type="number" name="form-9-proportion_of_the_component" step="any" id="id_form-9-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-10-name" maxlength="255" value="O2" id="id_form-10-name"></td>
@@ -132,8 +109,6 @@
                     <td><input type="number" name="form-10-total_molar_mass" step="any" id="id_form-10-total_molar_mass"></td>
                     <td><input type="number" name="form-10-chromatograph_mass" step="any" id="id_form-10-chromatograph_mass"></td>
                     <td><input type="number" name="form-10-calculated_mass" step="any" id="id_form-10-calculated_mass"></td>
-                    <td><input type="number" name="form-10-content_of_the_component" step="any" id="id_form-10-content_of_the_component"></td>
-                    <td><input type="number" name="form-10-proportion_of_the_component" step="any" id="id_form-10-proportion_of_the_component"></td>
                 </tr>
                 <tr>
                     <td><input type="text" name="form-11-name" maxlength="255" value="Сумма" id="id_form-11-name"></td>
@@ -142,8 +117,6 @@
                     <td><input type="number" name="form-11-total_molar_mass" step="any" id="id_form-11-total_molar_mass"></td>
                     <td><input type="number" name="form-11-chromatograph_mass" step="any" id="id_form-11-chromatograph_mass"></td>
                     <td><input type="number" name="form-11-calculated_mass" step="any" id="id_form-11-calculated_mass"></td>
-                    <td><input type="number" name="form-11-content_of_the_component" step="any" id="id_form-11-content_of_the_component"></td>
-                    <td><input type="number" name="form-11-proportion_of_the_component" step="any" id="id_form-11-proportion_of_the_component"></td>
                 </tr>
 
                 <tr>

@@ -1,0 +1,120 @@
+{% load static %}
+<div id="create_oks_p8" style="width: 700px; height: 500px; left: 60%">
+    <a href="#" class="close_okno">x</a><br>
+    <p class="title_form">Создать запись</p>
+    <form action="{% url 'oks_p8_create' %}" method="post">
+        {% csrf_token %}
+         <table class="table_oks_form">
+            <thead>
+                <tr>
+                    <th class="table_oks_form_th" colspan="4">Таблица 5.3 Состав конденсата скв Р5. </th>
+                </tr>
+                <tr>
+                    <th class="table_oks_form_th">Наименование</th>
+                    <th class="table_oks_form_th">Баллон 1506</th>
+                    <th class="table_oks_form_th">Баллон 1641</th>
+                    <th class="table_oks_form_th">Среднее значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="form-0-name" maxlength="255" value="C1" id="id_form-0-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-0-cylinder_1506" step="any" id="id_form-0-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-0-cylinder_1641" step="any" id="id_form-0-cylinder_1641"></td>
+                    <td><input type="number" name="form-0-average_value" step="any" id="id_form-0-average_value"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-1-name" maxlength="255" value="C2" id="id_form-1-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-1-cylinder_1506" step="any" id="id_form-1-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-1-cylinder_1641" step="any" id="id_form-1-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-1-average_value" step="any" id="id_form-1-average_value"></td>
+                 
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-2-name" maxlength="255" value="C3" id="id_form-2-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-2-cylinder_1506" step="any" id="id_form-2-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-2-cylinder_1641" step="any" id="id_form-2-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-2-average_value" step="any" id="id_form-2-average_value"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-3-name" maxlength="255" value="С4и" id="id_form-3-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-3-cylinder_1506" step="any" id="id_form-3-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-3-cylinder_1641" step="any" id="id_form-3-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-3-average_value" step="any" id="id_form-3-average_value"></td>
+                  
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-4-name" maxlength="255" value="С4н" id="id_form-4-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-4-cylinder_1506" step="any" id="id_form-4-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-4-cylinder_1641" step="any" id="id_form-4-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-4-average_value" step="any" id="id_form-4-average_value"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-5-name" maxlength="255" value="С5" id="id_form-5-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-5-cylinder_1506" step="any" id="id_form-5-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-5-cylinder_1641" step="any" id="id_form-5-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-5-average_value" step="any" id="id_form-5-average_value"></td>
+                   
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-6-name" maxlength="255" value="С5н" id="id_form-6-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-6-cylinder_1506" step="any" id="id_form-6-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-6-cylinder_1641" step="any" id="id_form-6-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-6-average_value" step="any" id="id_form-6-average_value"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-7-name" maxlength="255" value="C6" id="id_form-7-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-7-cylinder_1506" step="any" id="id_form-7-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-7-cylinder_1641" step="any" id="id_form-7-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-7-average_value" step="any" id="id_form-7-average_value"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-8-name" maxlength="255" value="С7" id="id_form-8-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-8-cylinder_1506" step="any" id="id_form-8-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-8-cylinder_1641" step="any" id="id_form-8-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-8-average_value" step="any" id="id_form-8-average_value"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-9-name" maxlength="255" value="C8" id="id_form-9-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-9-cylinder_1506" step="any" id="id_form-9-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-9-cylinder_1641" step="any" id="id_form-9-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-9-average_value" step="any" id="id_form-9-average_value"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-10-name" maxlength="255" value="С9" id="id_form-10-name"></td>
+                    <td><input type="number" class="js-sum-c1506" name="form-10-cylinder_1506" step="any" id="id_form-10-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641" name="form-10-cylinder_1641" step="any" id="id_form-10-cylinder_1641"></td>
+                    <td><input type="number" class="js-average_value" name="form-10-average_value" step="any" id="id_form-10-average_value"></td>
+                    
+                </tr>
+                <tr>
+                    <td><input type="text" name="form-11-name" maxlength="255" value="Сумма" id="id_form-11-name"></td>
+                    <td><input type="number" class="js-sum-c1506-result" name="form-11-cylinder_1506" step="any" id="id_form-11-cylinder_1506"></td>
+                    <td><input type="number" class="js-sum-c1641-result" name="form-11-cylinder_1641" step="any" id="id_form-11-cylinder_1641"></td>
+                    <td><input type="number" class="js-sum-average_value-result" name="form-11-average_value" step="any" id="id_form-11-average_value"></td>
+                    
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="hidden" name="form-TOTAL_FORMS" id="id_form-TOTAL_FORMS" value='12'>
+                        <input type="hidden" name="form-INITIAL_FORMS" id="id_form-INITIAL_FORMS"  value='12'>
+                        <input type="hidden" name="form-MIN_NUM_FORMS" id="id_form-MIN_NUM_FORMS"  value='12'>
+                        <input type="hidden" name="form-MAX_NUM_FORMS" id="id_form-MAX_NUM_FORMS"  value='12'>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="button_save_form" style="right: 50px; left: 50px; bottom: 25px; padding: 0 0 ;">Сохранить</button>
+        <script type="text/javascript" src="{% static 'js/oks/oks_calculated_p8.js'%}" ></script>
+    </form>
+</div>
+
+
