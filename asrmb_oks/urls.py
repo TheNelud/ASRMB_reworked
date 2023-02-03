@@ -6,6 +6,8 @@ from .oks_views.view_p5 import *
 from .oks_views.view_p6 import *
 from .oks_views.view_p7 import *
 from .oks_views.view_p8 import *
+from .oks_views.view_p9 import *
+from .oks_views.view_p10 import *
 from .views import *
 from django.urls import path
 
@@ -35,5 +37,11 @@ urlpatterns = [
 
     path('p8/', oks_p8, name='oks_p8'),
     path('p8/create/', oks_p8_create, name='oks_p8_create'),
+
+    path('p9/', oks_p9, name='oks_p9'),
+    path('p9/create/', oks_p9_create, name='oks_p9_create'),
+
+    path('p10/', oks_p10, name='oks_p10'),
+    path('p10/create/', oks_p10_create, name='oks_p10_create'),
 
 ]

@@ -153,7 +153,9 @@ class P9ComponentOfTheSeparationGas(models.Model):
 class P10ProtokolKGN(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
+    structure = models.CharField(max_length=255)
     molar_mass_of_the_component = models.FloatField()
+    chromatograph_mass = models.FloatField()
     difference = models.FloatField()
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)

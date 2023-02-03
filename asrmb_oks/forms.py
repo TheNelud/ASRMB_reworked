@@ -187,16 +187,18 @@ P9ComponentOfTheSeparationGasFormSet = formset_factory(P9ComponentOfTheSeparatio
 
 class P10ProtokolKGNForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
+    structure = forms.CharField(label='Состав', required=False)
     molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
     difference = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
     class Meta:
         model = P10ProtokolKGN
-        fields = ['name', 'molar_mass_of_the_component',
+        fields = ['name', 'structure', 'molar_mass_of_the_component', 'chromatograph_mass',
                   'difference']
 
 
 P10ProtokolKGNFormSet = formset_factory(P10ProtokolKGNForm,
-                                        extra=1)
+                                        extra=42)
