@@ -1,18 +1,18 @@
 from .models import *
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput
 from django.forms import formset_factory, modelformset_factory
 
 
 class P1ComponentCompositionOfUnstableCondensateForm(ModelForm):
-    name = forms.CharField(label="Наименование", max_length=255, required=False)
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False)
-    date_create = forms.DateTimeField(label='Дата создания', required=False)
-    date_update = forms.DateTimeField(label='Дата обновления', required=False)
+    name = forms.CharField(label="Наименование", max_length=255, required=False )
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False, widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False, widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False, widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False, widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False, widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
+    date_create = forms.DateTimeField(label='Дата создания')
+    date_update = forms.DateTimeField(label='Дата обновления')
 
     class Meta:
         model = P1ComponentCompositionOfUnstableCondensate
@@ -21,7 +21,7 @@ class P1ComponentCompositionOfUnstableCondensateForm(ModelForm):
 
 
 P1ComponentCompositionOfUnstableCondensateFormSet = formset_factory(P1ComponentCompositionOfUnstableCondensateForm,
-                                                                    extra=12)
+                                                                    extra=0)
 
 
 class P2ComponentCompositionOfGasForm(ModelForm):
