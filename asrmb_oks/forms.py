@@ -1,18 +1,23 @@
 from .models import *
 from django import forms
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, inlineformset_factory
 from django.forms import formset_factory, modelformset_factory
 
 
 class P1ComponentCompositionOfUnstableCondensateForm(ModelForm):
-    name = forms.CharField(label="Наименование", max_length=255, required=False )
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False, widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False, widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False, widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False, widget=forms.NumberInput(attrs={'class': 'js-cm'}))
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False, widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
-    date_create = forms.DateTimeField(label='Дата создания')
-    date_update = forms.DateTimeField(label='Дата обновления')
+    name = forms.CharField(label="Наименование", max_length=255, required=False)
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False,
+                                       widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
+    date_create = forms.DateTimeField(label='Дата создания', required=False)
+    date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
     class Meta:
         model = P1ComponentCompositionOfUnstableCondensate
@@ -22,15 +27,22 @@ class P1ComponentCompositionOfUnstableCondensateForm(ModelForm):
 
 P1ComponentCompositionOfUnstableCondensateFormSet = formset_factory(P1ComponentCompositionOfUnstableCondensateForm,
                                                                     extra=0)
+P1ModelFormSet = modelformset_factory(model=P1ComponentCompositionOfUnstableCondensate,
+                                      form=P1ComponentCompositionOfUnstableCondensateForm)
 
 
 class P2ComponentCompositionOfGasForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False)
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False,
+                                       widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
@@ -46,11 +58,16 @@ P2ComponentCompositionOfGasFormSet = formset_factory(P2ComponentCompositionOfGas
 
 class P3DeterminationOfTheComponentOfGasForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False)
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False,
+                                       widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
@@ -66,13 +83,20 @@ P3DeterminationOfTheComponentOfGasFormSet = formset_factory(P3DeterminationOfThe
 
 class P4GasCompositionToTheProtocolForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False)
-    content_of_the_component = forms.FloatField(label='', required=False)
-    proportion_of_the_component = forms.FloatField(label='', required=False)
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False,
+                                       widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
+    content_of_the_component = forms.FloatField(label='', required=False,
+                                                widget=forms.NumberInput(attrs={'class': 'js-coc'}))
+    proportion_of_the_component = forms.FloatField(label='', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-poc'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
@@ -89,11 +113,16 @@ P4GasCompositionToTheProtocolFormSet = formset_factory(P4GasCompositionToTheProt
 
 class P5DeterminationOfTheComponentCompositionForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False)
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False,
+                                       widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
@@ -109,11 +138,16 @@ P5DeterminationOfTheComponentCompositionFormSet = formset_factory(P5Determinatio
 
 class P6CompositionOfGasOutputForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False)
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False,
+                                       widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
@@ -129,11 +163,16 @@ P6CompositionOfGasOutputFormSet = formset_factory(P6CompositionOfGasOutputForm,
 
 class P7CompositionOfGas10cForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False)
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False,
+                                       widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
@@ -149,9 +188,12 @@ P7CompositionOfGas10cFormSet = formset_factory(P7CompositionOfGas10cForm,
 
 class P8CompositionOfTheCondensateForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    cylinder_1506 = forms.FloatField(label="Резервуар 1506", required=False)
-    cylinder_1641 = forms.FloatField(label='Резервуар 1641', required=False)
-    average_value = forms.FloatField(label='Среднее значение', required=False)
+    cylinder_1506 = forms.FloatField(label="Резервуар 1506", required=False,
+                                     widget=forms.NumberInput(attrs={'class': 'js-sum-c1506'}))
+    cylinder_1641 = forms.FloatField(label='Резервуар 1641', required=False,
+                                     widget=forms.NumberInput(attrs={'class': 'js-sum-c1641'}))
+    average_value = forms.FloatField(label='Среднее значение', required=False,
+                                     widget=forms.NumberInput(attrs={'class': 'js-average_value'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
@@ -167,11 +209,16 @@ P8CompositionOfTheCondensateFormSet = formset_factory(P8CompositionOfTheCondensa
 
 class P9ComponentOfTheSeparationGasForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False)
+    molar_content_of_components = forms.FloatField(label="Мольное содержание компонентов, %", required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mcc'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    total_molar_mass = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-tmm'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    calculated_mass = forms.FloatField(label='Масс, % (расчетная)', required=False,
+                                       widget=forms.NumberInput(attrs={'class': 'js-calcm'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 
@@ -187,10 +234,14 @@ P9ComponentOfTheSeparationGasFormSet = formset_factory(P9ComponentOfTheSeparatio
 
 class P10ProtokolKGNForm(ModelForm):
     name = forms.CharField(label="Наименование", max_length=255, required=False)
-    structure = forms.CharField(label='Состав', required=False)
-    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False)
-    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False)
-    difference = forms.FloatField(label='Молярная масса общая, гр/моль', required=False)
+    structure = forms.CharField(label='Состав', required=False,
+                                widget=forms.NumberInput(attrs={'class': 'js-structure'}))
+    molar_mass_of_the_component = forms.FloatField(label='Молярная масса компонента', required=False,
+                                                   widget=forms.NumberInput(attrs={'class': 'js-mmc'}))
+    chromatograph_mass = forms.FloatField(label='Молярная масса, % (хроматограф)', required=False,
+                                          widget=forms.NumberInput(attrs={'class': 'js-cm'}))
+    difference = forms.FloatField(label='Молярная масса общая, гр/моль', required=False,
+                                  widget=forms.NumberInput(attrs={'class': 'js-diff'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False)
     date_update = forms.DateTimeField(label='Дата обновления', required=False)
 

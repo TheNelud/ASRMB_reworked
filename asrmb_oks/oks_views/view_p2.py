@@ -16,6 +16,7 @@ def oks_p2(request):
     if request.method == "POST":
         oks_p2_items = P2ComponentCompositionOfGas.objects.filter(
             date_create__contains=request.POST.get('date_create', ''))[:12]
+        form_set = P2ComponentCompositionOfGasFormSet(initial=oks_p2_items.values())
     if oks_p2_items.values():
         just_day = oks_p2_items.values()[0]['date_create']
     else:
@@ -48,4 +49,5 @@ def oks_p2_create(request):
     return save_oks_p2_form(request, form_set)
 
 
-
+def oks_p2_edit(request):
+    pass
