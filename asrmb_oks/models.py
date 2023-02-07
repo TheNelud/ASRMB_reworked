@@ -33,6 +33,9 @@ class P2ComponentCompositionOfGas(models.Model):
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
 
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p2': self.date_update})
+
     class Meta:
         managed = False
         db_table = 'p2_component_composition_of_gas'
@@ -48,6 +51,9 @@ class P3DeterminationOfTheComponentOfGas(models.Model):
     calculated_mass = models.FloatField()
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p3': self.date_update})
 
     class Meta:
         managed = False
@@ -67,6 +73,9 @@ class P4GasCompositionToTheProtocol(models.Model):
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
 
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p4': self.date_update})
+
     class Meta:
         managed = False
         db_table = 'p4_gas_composition_to_the_protocol'
@@ -82,6 +91,9 @@ class P5DeterminationOfTheComponentComposition(models.Model):
     calculated_mass = models.FloatField()
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p5': self.date_update})
 
     class Meta:
         managed = False
@@ -99,6 +111,9 @@ class P6CompositionOfGasOutput(models.Model):
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
 
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p6': self.date_update})
+
     class Meta:
         managed = False
         db_table = 'p6_composition_of_gas_output'
@@ -115,6 +130,9 @@ class P7CompositionOfGas10c(models.Model):
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
 
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p7': self.date_update})
+
     class Meta:
         managed = False
         db_table = 'p7_composition_of_gas_10c'
@@ -128,6 +146,9 @@ class P8CompositionOfTheCondensate(models.Model):
     average_value = models.FloatField()
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p8': self.date_update})
 
     class Meta:
         managed = False
@@ -145,6 +166,9 @@ class P9ComponentOfTheSeparationGas(models.Model):
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
 
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p9': self.date_update})
+
     class Meta:
         managed = False
         db_table = 'p9_component_of_the_separation_gas'
@@ -159,6 +183,9 @@ class P10ProtokolKGN(models.Model):
     difference = models.FloatField()
     date_create = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
+
+    def get_absolute_url(self):
+        return reverse('p1_edit', kwargs={'date_oks_p10': self.date_update})
 
     class Meta:
         managed = False

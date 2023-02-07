@@ -68,6 +68,8 @@ def oks_p1_edit(request, date_oks_p1):
 
     else:
         form_set = P1ModelFormSet(queryset=oks_p1_items)
+        for f in form_set:
+            print(f.as_table())
 
     context = {
         'just_day': date_oks_p1,
@@ -78,10 +80,12 @@ def oks_p1_edit(request, date_oks_p1):
 
 def oks_p1_delete(request, date_oks_p1):
     oks_p1_items = P1ComponentCompositionOfUnstableCondensate.objects.filter(
-        date_create__contains=date_oks_p1).order_by('date_update')[:12]
+        date_create__contains=date_oks_p1).order_by('date_update')[:12].values_list('id', flat=True)
+    print(oks_p1_items)
+
     if not oks_p1_items:
         raise Http404("Нет данных")
 
     if request.method == 'POST':
-        oks_p1_items.delete()
+        P1ComponentCompositionOfUnstableCondensate.objects.filter(pk__in=list(oks_p1_items)).delete()
         return redirect('oks_p1')

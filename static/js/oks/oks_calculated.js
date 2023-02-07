@@ -4,6 +4,9 @@ let in_tmm = document.querySelectorAll('.js-tmm');
 let in_cm = document.querySelectorAll('.js-cm');
 let in_calcm = document.querySelectorAll('.js-calcm');
 
+let in_coc = document.querySelectorAll('.js-coc');
+let in_poc = document.querySelectorAll('.js-poc');
+
 for (let i=0; i<in_mcc.length-1; i++){
     in_mcc[i].addEventListener('input', function (){update_result();});
 }
@@ -24,6 +27,22 @@ function update_result(){
     calculated_tmm();
     summa_cm();
     calculated_calc();
+    calculated_coc();
+    calculated_poc();
+}
+
+function calculated_poc(){
+    for (let i=0; i<in_poc.length-1; i++){
+        in_poc[i].value = Number(in_coc[i].value) / Number(in_mmc[i].value) * 24.04;
+    }
+    in_poc[11].value = Number(in_poc[0].value) + Number(in_poc[1].value) + Number(in_poc[2].value) + Number(in_poc[3].value) + Number(in_poc[4].value) + Number(in_poc[5].value) + Number(in_poc[6].value) + Number(in_poc[7].value) + Number(in_poc[8].value) + Number(in_poc[9].value) + Number(in_poc[10].value);
+}
+
+function calculated_coc(){
+    for (let i=0; i<in_coc.length-1; i++){
+        in_coc[i].value = 1.1500 * Number(in_calcm[i].value) / 100;
+    }
+    in_coc[11].value = Number(in_coc[0].value) + Number(in_coc[1].value) + Number(in_coc[2].value) + Number(in_coc[3].value) + Number(in_coc[4].value) + Number(in_coc[5].value) + Number(in_coc[6].value) + Number(in_coc[7].value) + Number(in_coc[8].value) + Number(in_coc[9].value) + Number(in_coc[10].value);
 }
 
 function calculated_calc (){

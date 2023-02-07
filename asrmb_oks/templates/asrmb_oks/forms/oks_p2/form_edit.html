@@ -1,51 +1,85 @@
+{%extends 'asrmb_main/base.html' %}
 {% load static %}
-<div id="edit_oks_p2">
-    <a href="#" class="close_okno">x</a><br>
-    <p class="title_form">Редактировать запись</p>
-    <form action="" method="post">
-        {% csrf_token %}
-         <table class="table_oks_form">
-            <thead>
-                <tr>
-                    <th class="table_oks_form_th" colspan="6">Определение компонентного состава конденсата нестабильного</th>
-                </tr>
-                <tr>
-                    <th class="table_oks_form_th" colspan="6">10Р-2№2 Протокол анализа №09-2021 PVT(К) от {{ max_date_now|date:"d.m.Y" }}</th>
-                </tr>
-                <tr>
-                    <th class="table_oks_form_th">Наименование</th>
-                    <th class="table_oks_form_th">Мольное содержание компонентов, %</th>
-                    <th class="table_oks_form_th">Молярная масса компонента</th>
-                    <th class="table_oks_form_th">Молярная масса общая, гр/моль</th>
-                    <th class="table_oks_form_th">Масс, % (хрома-тограф)</th>
-                    <th class="table_oks_form_th">Масс, % (расчетная)</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for form in edit_form_set %}
-                    <tr>
-                        <td>{{ form.name }}</td>
-                        <td>{{ form.molar_content_of_components }}</td>
-                        <td>{{ form.molar_mass_of_the_component }}</td>
-                        <td>{{ form.total_molar_mass }}</td>
-                        <td>{{ form.chromatograph_mass }}</td>
-                        <td>{{ form.calculated_mass }}</td>
-                    </tr>
-                {% endfor %}
+{% block sidebar %}
 
-                <tr>
-                    <td colspan="2">
-                        <input type="hidden" name="form-TOTAL_FORMS" id="id_form-TOTAL_FORMS" value='12'>
-                        <input type="hidden" name="form-INITIAL_FORMS" id="id_form-INITIAL_FORMS"  value='12'>
-                        <input type="hidden" name="form-MIN_NUM_FORMS" id="id_form-MIN_NUM_FORMS"  value='12'>
-                        <input type="hidden" name="form-MAX_NUM_FORMS" id="id_form-MAX_NUM_FORMS"  value='12'>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="submit" class="button_save_form">Сохранить</button>
-        <script type="text/javascript" src="{% static 'js/oks/oks_calculate.js'%}" ></script>
-    </form>
+    <div class="tabs">
+<input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+<label for="tab-btn-1">Функционал</label>
+<input type="radio" name="tab-btn" id="tab-btn-2" value="">
+<label for="tab-btn-2">Таблицы</label>
+
+
+    <div id="content-1">
+        <ul class="nav-links">
+            <li>
+                <a href="#"  onclick="document.getElementById('form_oks_p2').submit()" >
+                    <svg  width="60" height="60" viewBox="0 0 24 24" style="fill:rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M10 11H7.101l.001-.009a4.956 4.956 0 0 1 .752-1.787 5.054 5.054 0 0 1 2.2-1.811c.302-.128.617-.226.938-.291a5.078 5.078 0 0 1 2.018 0 4.978 4.978 0 0 1 2.525 1.361l1.416-1.412a7.036 7.036 0 0 0-2.224-1.501 6.921 6.921 0 0 0-1.315-.408 7.079 7.079 0 0 0-2.819 0 6.94 6.94 0 0 0-1.316.409 7.04 7.04 0 0 0-3.08 2.534 6.978 6.978 0 0 0-1.054 2.505c-.028.135-.043.273-.063.41H2l4 4 4-4zm4 2h2.899l-.001.008a4.976 4.976 0 0 1-2.103 3.138 4.943 4.943 0 0 1-1.787.752 5.073 5.073 0 0 1-2.017 0 4.956 4.956 0 0 1-1.787-.752 5.072 5.072 0 0 1-.74-.61L7.05 16.95a7.032 7.032 0 0 0 2.225 1.5c.424.18.867.317 1.315.408a7.07 7.07 0 0 0 2.818 0 7.031 7.031 0 0 0 4.395-2.945 6.974 6.974 0 0 0 1.053-2.503c.027-.135.043-.273.063-.41H22l-4-4-4 4z"></path></svg>
+                    <span class="link_name" style="color:#000;">Сохранить</span>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#" onclick="document.getElementById('form_oks_p2').submit()" >Сохранить</a></li>
+                    </ul>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'oks_p2' %}">
+                    <svg  width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg><span class="link_name" style="color:#000;">Назад</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="{% url 'oks_p2' %}">Назад</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    {% include 'asrmb_oks/sidebar_tables.html' %}
 </div>
+
+{% endblock %}
+{% block content %}
+<div class="base_content print" id='print'>
+        <div class="table_content">
+        <p class="title_form">Редактировать запись</p>
+        <form action="" method="post" id="form_oks_p2">
+            {% csrf_token %}
+             <table class="table_content_header">
+                <thead>
+                    <tr>
+                        <th class="table_content_th" colspan="6">Определение компонентного состава газа по ГОСТ 31371</th>
+                    </tr>
+                    <tr>
+                        <th class="table_content_th" colspan="6">10С-1№2  протокол № 05 - PVT(Г) от {{ max_date_now|date:"d.m.Y" }}</th>
+                    </tr>
+                    <tr>
+
+                        <th class="table_content_th">Наименование</th>
+                        <th class="table_content_th">Мольное содержание компонентов, %</th>
+                        <th class="table_content_th">Молярная масса компонента</th>
+                        <th class="table_content_th">Молярная масса общая, гр/моль</th>
+                        <th class="table_content_th">Масс, % (хрома-тограф)</th>
+                        <th class="table_content_th">Масс, % (расчетная)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ form_set.management_form }}
+                    {% for form in form_set %}
+                        <tr>
+                            {{ form.id }}
+                            <td class="table_content_td">{{ form.name }}</td>
+                            <td class="table_content_td">{{ form.molar_content_of_components }}</td>
+                            <td class="table_content_td">{{ form.molar_mass_of_the_component }}</td>
+                            <td class="table_content_td">{{ form.total_molar_mass }}</td>
+                            <td class="table_content_td">{{ form.chromatograph_mass }}</td>
+                            <td class="table_content_td">{{ form.calculated_mass }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
 
 
