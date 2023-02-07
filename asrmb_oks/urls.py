@@ -32,18 +32,26 @@ urlpatterns = [
     path('p4/create/', oks_p4_create, name='oks_p4_create'),
     path('p4/edit/<slug:date_oks_p4>', oks_p4_edit, name='oks_p4_edit'),
     path('p4/delete/<slug:date_oks_p4>', oks_p4_delete, name='oks_p4_delete'),
-    #
-    # path('p5/', oks_p5, name='oks_p5'),
-    # path('p5/create/', oks_p5_create, name='oks_p5_create'),
-    #
-    # path('p6/', oks_p6, name='oks_p6'),
-    # path('p6/create/', oks_p6_create, name='oks_p6_create'),
-    #
-    # path('p7/', oks_p7, name='oks_p7'),
-    # path('p7/create/', oks_p7_create, name='oks_p7_create'),
-    #
-    # path('p8/', oks_p8, name='oks_p8'),
-    # path('p8/create/', oks_p8_create, name='oks_p8_create'),
+
+    path('p5/', oks_p5, name='oks_p5'),
+    path('p5/create/', oks_p5_create, name='oks_p5_create'),
+    path('p5/edit/<slug:date_oks_p5>', oks_p5_edit, name='oks_p5_edit'),
+    path('p5/delete/<slug:date_oks_p5>', oks_p5_delete, name='oks_p5_delete'),
+
+    path('p6/', oks_p6, name='oks_p6'),
+    path('p6/create/', oks_p6_create, name='oks_p6_create'),
+    path('p6/edit/<slug:date_oks_p6>', oks_p6_edit, name='oks_p6_edit'),
+    path('p6/delete/<slug:date_oks_p6>', oks_p6_delete, name='oks_p6_delete'),
+
+    path('p7/', oks_p7, name='oks_p7'),
+    path('p7/create/', oks_p7_create, name='oks_p7_create'),
+    path('p7/edit/<slug:date_oks_p7>', oks_p7_edit, name='oks_p7_edit'),
+    path('p7/delete/<slug:date_oks_p7>', oks_p7_delete, name='oks_p7_delete'),
+
+    path('p8/', oks_p8, name='oks_p8'),
+    path('p8/create/', oks_p8_create, name='oks_p8_create'),
+    path('p8/edit/<slug:date_oks_p8>', oks_p8_edit, name='oks_p8_edit'),
+    path('p8/delete/<slug:date_oks_p8>', oks_p8_delete, name='oks_p8_delete'),
     #
     # path('p9/', oks_p9, name='oks_p9'),
     # path('p9/create/', oks_p9_create, name='oks_p9_create'),

@@ -18,34 +18,31 @@
                         <input type="date" class='form-control' name='date_create'  onchange="document.getElementById('checkDateOks').submit()" value="{{ just_day|date:"Y-m-d" }}"  max="{{max_date_now}}">
                     </form>
 
-
                     <form class="sub-menu blank" method="post" action="#" >
                         {% csrf_token %}
-
                         <input type="date" class='form-control' name='date_create'  onchange="document.getElementById('checkDateOks').submit()" value="{{ just_day|date:"Y-m-d" }}"  max="{{max_date_now}}">
-
                     </form>
                 </a>
             </li>
             <li>
-                <a href="#create_oks_p5">
+                <a href="{% url 'oks_p5_create' %}">
 {#                <a href="{% url 'oks_p5_create' %}">#}
                     <svg width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M5 21h14a2 2 0 0 0 2-2V8a1 1 0 0 0-.29-.71l-4-4A1 1 0 0 0 16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm10-2H9v-5h6zM13 7h-2V5h2zM5 5h2v4h8V5h.59L19 8.41V19h-2v-5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v5H5z"></path></svg>
                     <span class="link_name" style="color:#000;">Добавить</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#create_oks_p5">Добавить</a></li>
+                    <li><a class="link_name" href="{% url 'oks_p5_create' %}">Добавить</a></li>
                 </ul>
             </li>
-{#            <li>#}
-{#                <a href="#edit_oks_p5">#}
-{#                    <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>#}
-{#                    <span class="link_name" style="color:#000;">Редактировать</span>#}
-{#                </a>#}
-{#                 <ul class="sub-menu blank">#}
-{#                    <li><a class="link_name" href="#edit_oks_p5">Редактировать</a></li>#}
-{#                </ul>#}
-{#            </li>#}
+            <li>
+                <a href="{% url 'oks_p5_edit' url_oks_p5 %}" >
+                    <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>
+                    <span class="link_name" style="color:#000;">Редактировать</span>
+                </a>
+                 <ul class="sub-menu blank">
+                    <li><a class="link_name" href="{% url 'oks_p5_edit' url_oks_p5 %}">Редактировать</a></li>
+                </ul>
+            </li>
             <li>
                 <a href="#delete_oks">
                     <svg width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>
@@ -59,11 +56,7 @@
     </div>
     {% include 'asrmb_oks/sidebar_tables.html' %}
 </div>
-
 {% endblock %}
-
-
-
 
 {% block content %}
     <div class="base_content print" id='print'>
@@ -71,10 +64,10 @@
             <table>
                 <thead class="table_content_header">
                     <tr>
-                        <th class="table_content_th" colspan="6">Определение компонентного состава газа по ГОСТ 31371</th>
+                        <th class="table_content_th" colspan="6">Определение компонентного состава конденсата нестабильного</th>
                     </tr>
                     <tr>
-                        <th class="table_content_th" colspan="6">20Е-1№3 протокол №06 - PVT(Г) от {{ just_day|date:"d.m.Y" }}</th>
+                        <th class="table_content_th" colspan="6">20Е-1№3  протокол № 06 - PVT(Г) от  {{ just_day|date:"d.m.Y" }}</th>
                     </tr>
                     <tr>
                         <th class="table_content_th">Наименование</th>
@@ -99,20 +92,13 @@
                 </tbody>
             </table>
         </div>
-
-        {% include 'asrmb_oks/forms/oks_p5/form_create.html' %}
-
-        {% include 'asrmb_oks/forms/oks_p5/form_edit.html' %}
-
-        <div id="delete_oks">
+         <div id="delete_oks">
             <a href="#" class="close_okno">x</a><br>
             Удалить запись
-        </div>
-
-
+             <form action="{% url 'oks_p5_delete' url_oks_p5 %}" method="post">
+                 {% csrf_token %}
+                 <button type="submit" > Удалить</button>
+             </form>
+         </div>
     </div>
-
-
-
-
 {% endblock %}
