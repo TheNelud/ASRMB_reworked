@@ -1,316 +1,354 @@
+{%extends 'asrmb_main/base.html' %}
 {% load static %}
-<div id="create_oks_p10" style="width: 870px; height: 1300px; top:800px;  " >
+{% block sidebar %}
+
+    <div class="tabs">
+        <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+        <label for="tab-btn-1">Функционал</label>
+        <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+        <label for="tab-btn-2">Таблицы</label>
+        <div id="content-1">
+            <ul class="nav-links">
+                <li>
+                    <a href="#"  onclick="document.getElementById('form_oks_p10').submit()" >
+                        <svg  width="60" height="60" viewBox="0 0 24 24" style="fill:rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M10 11H7.101l.001-.009a4.956 4.956 0 0 1 .752-1.787 5.054 5.054 0 0 1 2.2-1.811c.302-.128.617-.226.938-.291a5.078 5.078 0 0 1 2.018 0 4.978 4.978 0 0 1 2.525 1.361l1.416-1.412a7.036 7.036 0 0 0-2.224-1.501 6.921 6.921 0 0 0-1.315-.408 7.079 7.079 0 0 0-2.819 0 6.94 6.94 0 0 0-1.316.409 7.04 7.04 0 0 0-3.08 2.534 6.978 6.978 0 0 0-1.054 2.505c-.028.135-.043.273-.063.41H2l4 4 4-4zm4 2h2.899l-.001.008a4.976 4.976 0 0 1-2.103 3.138 4.943 4.943 0 0 1-1.787.752 5.073 5.073 0 0 1-2.017 0 4.956 4.956 0 0 1-1.787-.752 5.072 5.072 0 0 1-.74-.61L7.05 16.95a7.032 7.032 0 0 0 2.225 1.5c.424.18.867.317 1.315.408a7.07 7.07 0 0 0 2.818 0 7.031 7.031 0 0 0 4.395-2.945 6.974 6.974 0 0 0 1.053-2.503c.027-.135.043-.273.063-.41H22l-4-4-4 4z"></path></svg>
+                        <span class="link_name" style="color:#000;">Сохранить</span>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" href="#" onclick="document.getElementById('form_oks_p10').submit()" >Сохранить</a></li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'oks_p10' %}">
+                        <svg  width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg><span class="link_name" style="color:#000;">Назад</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="{% url 'oks_p10' %}">Назад</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        {% include 'asrmb_oks/sidebar_tables.html' %}
+</div>
+
+{% endblock %}
+{% block content %}
+
+    <div class="base_content print" id='print'>
+        <div class="table_content">
     <a href="#" class="close_okno">x</a><br>
     <p class="title_form">Создать запись</p>
-    <form action="{% url 'oks_p10_create' %}" method="post">
+    <form action="{% url 'oks_p10_create' %}" method="post" id="form_oks_p10">
         {% csrf_token %}
-         <table class="table_oks_form">
+         <table class="table_content_header">
             <thead>
                 <tr>
-                        <th class="table_oks_form_th" colspan="6">10Р-2№2 КГН  Протокол 09-2021 PVT (К) от {{ just_day|date:"d.m.Y" }}</th>
+                        <th class="table_content_th" colspan="6">10Р-2№2 КГН  Протокол 09-2021 PVT (К) от {{ just_day|date:"d.m.Y" }}</th>
                     </tr>
                     <tr>
-                        <th class="table_oks_form_th">Наименование</th>
-                        <th class="table_oks_form_th">Состав</th>
-                        <th class="table_oks_form_th">Молярная масса<br>компонента</th>
-                        <th class="table_oks_form_th">Масс,<br> % (хрома-тограф)</th>
-                        <th class="table_oks_form_th">Разность</th>
+                        <th class="table_content_th">Наименование</th>
+                        <th class="table_content_th">Состав</th>
+                        <th class="table_content_th">Молярная масса<br>компонента</th>
+                        <th class="table_content_th">Масс,<br> % (хрома-тограф)</th>
+                        <th class="table_content_th">Разность</th>
                     </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="text" name="form-0-name" maxlength="255" id="id_form-0-name"></td>
-                    <td><input type="text" class="js-structure-manual" name="form-0-structure" value="Co2" step="any" id="id_form-0-structure"></td>
-                    <td><input type="number" class="js-mmc-manual" name="form-0-molar_mass_of_the_component" step="any" id="id_form-0-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm-manual" name="form-0-chromatograph_mass" step="any" id="id_form-0-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff-manual" name="form-0-difference" step="any" id="id_form-0-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-0-name" maxlength="255" id="id_form-0-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure-manual" name="form-0-structure" value="Co2" step="any" id="id_form-0-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc-manual" name="form-0-molar_mass_of_the_component" step="any" id="id_form-0-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm-manual" name="form-0-chromatograph_mass" step="any" id="id_form-0-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff-manual" name="form-0-difference" step="any" id="id_form-0-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-1-name" maxlength="255" id="id_form-1-name"></td>
-                    <td><input type="text" class="js-structure-manual" name="form-1-structure" value="N" step="any" id="id_form-1-structure"></td>
-                    <td><input type="number" class="js-mmc-manual" name="form-1-molar_mass_of_the_component" step="any" id="id_form-1-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm-manual" name="form-1-chromatograph_mass" step="any" id="id_form-1-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff-manual" name="form-1-difference" step="any" id="id_form-1-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-1-name" maxlength="255" id="id_form-1-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure-manual" name="form-1-structure" value="N" step="any" id="id_form-1-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc-manual" name="form-1-molar_mass_of_the_component" step="any" id="id_form-1-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm-manual" name="form-1-chromatograph_mass" step="any" id="id_form-1-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff-manual" name="form-1-difference" step="any" id="id_form-1-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-2-name" maxlength="255" value="C1" id="id_form-2-name"></td>
-                    <td><input type="text" class="js-structure" name="form-2-structure" value="1" step="any" id="id_form-2-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-2-molar_mass_of_the_component" step="any" id="id_form-2-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-2-chromatograph_mass" step="any" id="id_form-2-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-2-difference" step="any" id="id_form-2-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-2-name" maxlength="255" value="C1" id="id_form-2-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-2-structure" value="1" step="any" id="id_form-2-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-2-molar_mass_of_the_component" step="any" id="id_form-2-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-2-chromatograph_mass" step="any" id="id_form-2-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-2-difference" step="any" id="id_form-2-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-3-name" maxlength="255" value="C2" id="id_form-3-name"></td>
-                    <td><input type="text" class="js-structure" name="form-3-structure" value="2" step="any" id="id_form-3-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-3-molar_mass_of_the_component" step="any" id="id_form-3-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-3-chromatograph_mass" step="any" id="id_form-3-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-3-difference" step="any" id="id_form-3-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-3-name" maxlength="255" value="C2" id="id_form-3-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-3-structure" value="2" step="any" id="id_form-3-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-3-molar_mass_of_the_component" step="any" id="id_form-3-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-3-chromatograph_mass" step="any" id="id_form-3-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-3-difference" step="any" id="id_form-3-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-4-name" maxlength="255" value="C3" id="id_form-4-name"></td>
-                    <td><input type="text" class="js-structure" name="form-4-structure" value="3" step="any" id="id_form-4-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-4-molar_mass_of_the_component" step="any" id="id_form-4-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-4-chromatograph_mass" step="any" id="id_form-4-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-4-difference" step="any" id="id_form-4-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-4-name" maxlength="255" value="C3" id="id_form-4-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-4-structure" value="3" step="any" id="id_form-4-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-4-molar_mass_of_the_component" step="any" id="id_form-4-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-4-chromatograph_mass" step="any" id="id_form-4-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-4-difference" step="any" id="id_form-4-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-5-name" maxlength="255" value="C4" id="id_form-5-name"></td>
-                    <td><input type="text" class="js-structure" name="form-5-structure" value="4" step="any" id="id_form-5-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-5-molar_mass_of_the_component" step="any" id="id_form-5-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-5-chromatograph_mass" step="any" id="id_form-5-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-5-difference" step="any" id="id_form-5-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-5-name" maxlength="255" value="C4" id="id_form-5-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-5-structure" value="4" step="any" id="id_form-5-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-5-molar_mass_of_the_component" step="any" id="id_form-5-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-5-chromatograph_mass" step="any" id="id_form-5-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-5-difference" step="any" id="id_form-5-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-6-name" maxlength="255" value="C4" id="id_form-6-name"></td>
-                    <td><input type="text" class="js-structure" name="form-6-structure" value="4" step="any" id="id_form-6-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-6-molar_mass_of_the_component" step="any" id="id_form-6-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-6-chromatograph_mass" step="any" id="id_form-6-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-6-difference" step="any" id="id_form-6-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-6-name" maxlength="255" value="C4" id="id_form-6-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-6-structure" value="4" step="any" id="id_form-6-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-6-molar_mass_of_the_component" step="any" id="id_form-6-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-6-chromatograph_mass" step="any" id="id_form-6-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-6-difference" step="any" id="id_form-6-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-7-name" maxlength="255" value="C5" id="id_form-7-name"></td>
-                    <td><input type="text" class="js-structure" name="form-7-structure" value="5" step="any" id="id_form-7-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-7-molar_mass_of_the_component" step="any" id="id_form-7-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-7-chromatograph_mass" step="any" id="id_form-7-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-7-difference" step="any" id="id_form-7-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-7-name" maxlength="255" value="C5" id="id_form-7-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-7-structure" value="5" step="any" id="id_form-7-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-7-molar_mass_of_the_component" step="any" id="id_form-7-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-7-chromatograph_mass" step="any" id="id_form-7-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-7-difference" step="any" id="id_form-7-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-8-name" maxlength="255" value="C5" id="id_form-8-name"></td>
-                    <td><input type="text" class="js-structure" name="form-8-structure" value="5" step="any" id="id_form-8-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-8-molar_mass_of_the_component" step="any" id="id_form-8-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-8-chromatograph_mass" step="any" id="id_form-8-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-8-difference" step="any" id="id_form-8-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-8-name" maxlength="255" value="C5" id="id_form-8-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-8-structure" value="5" step="any" id="id_form-8-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-8-molar_mass_of_the_component" step="any" id="id_form-8-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-8-chromatograph_mass" step="any" id="id_form-8-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-8-difference" step="any" id="id_form-8-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-9-name" maxlength="255" value="C6" id="id_form-9-name"></td>
-                    <td><input type="text" class="js-structure" name="form-9-structure" value="6" step="any" id="id_form-9-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-9-molar_mass_of_the_component" step="any" id="id_form-9-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-9-chromatograph_mass" step="any" id="id_form-9-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-9-difference" step="any" id="id_form-9-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-9-name" maxlength="255" value="C6" id="id_form-9-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-9-structure" value="6" step="any" id="id_form-9-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-9-molar_mass_of_the_component" step="any" id="id_form-9-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-9-chromatograph_mass" step="any" id="id_form-9-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-9-difference" step="any" id="id_form-9-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-10-name" maxlength="255" value="C6" id="id_form-10-name"></td>
-                    <td><input type="text" class="js-structure" name="form-10-structure" value="6" step="any" id="id_form-10-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-10-molar_mass_of_the_component" step="any" id="id_form-10-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-10-chromatograph_mass" step="any" id="id_form-10-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-10-difference" step="any" id="id_form-10-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-10-name" maxlength="255" value="C6" id="id_form-10-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-10-structure" value="6" step="any" id="id_form-10-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-10-molar_mass_of_the_component" step="any" id="id_form-10-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-10-chromatograph_mass" step="any" id="id_form-10-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-10-difference" step="any" id="id_form-10-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-11-name" maxlength="255" value="C6" id="id_form-11-name"></td>
-                    <td><input type="text" class="js-structure" name="form-11-structure" value="6" step="any" id="id_form-11-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-11-molar_mass_of_the_component" step="any" id="id_form-11-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-11-chromatograph_mass" step="any" id="id_form-11-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-11-difference" step="any" id="id_form-11-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-11-name" maxlength="255" value="C6" id="id_form-11-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-11-structure" value="6" step="any" id="id_form-11-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-11-molar_mass_of_the_component" step="any" id="id_form-11-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-11-chromatograph_mass" step="any" id="id_form-11-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-11-difference" step="any" id="id_form-11-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-12-name" maxlength="255" value="C6" id="id_form-12-name"></td>
-                    <td><input type="text" class="js-structure" name="form-12-structure" value="6" step="any" id="id_form-12-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-12-molar_mass_of_the_component" step="any" id="id_form-12-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-12-chromatograph_mass" step="any" id="id_form-12-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-12-difference" step="any" id="id_form-12-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-12-name" maxlength="255" value="C6" id="id_form-12-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-12-structure" value="6" step="any" id="id_form-12-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-12-molar_mass_of_the_component" step="any" id="id_form-12-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-12-chromatograph_mass" step="any" id="id_form-12-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-12-difference" step="any" id="id_form-12-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-13-name" maxlength="255" value="C7" id="id_form-13-name"></td>
-                    <td><input type="text" class="js-structure" name="form-13-structure" value="7" step="any" id="id_form-13-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-13-molar_mass_of_the_component" step="any" id="id_form-13-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-13-chromatograph_mass" step="any" id="id_form-13-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-13-difference" step="any" id="id_form-13-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-13-name" maxlength="255" value="C7" id="id_form-13-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-13-structure" value="7" step="any" id="id_form-13-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-13-molar_mass_of_the_component" step="any" id="id_form-13-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-13-chromatograph_mass" step="any" id="id_form-13-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-13-difference" step="any" id="id_form-13-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-14-name" maxlength="255" value="C7" id="id_form-14-name"></td>
-                    <td><input type="text" class="js-structure" name="form-14-structure" value="7" step="any" id="id_form-14-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-14-molar_mass_of_the_component" step="any" id="id_form-14-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-14-chromatograph_mass" step="any" id="id_form-14-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-14-difference" step="any" id="id_form-14-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-14-name" maxlength="255" value="C7" id="id_form-14-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-14-structure" value="7" step="any" id="id_form-14-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-14-molar_mass_of_the_component" step="any" id="id_form-14-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-14-chromatograph_mass" step="any" id="id_form-14-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-14-difference" step="any" id="id_form-14-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-15-name" maxlength="255" value="C7" id="id_form-15-name"></td>
-                    <td><input type="text" class="js-structure" name="form-15-structure" value="7" step="any" id="id_form-15-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-15-molar_mass_of_the_component" step="any" id="id_form-15-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-15-chromatograph_mass" step="any" id="id_form-15-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-15-difference" step="any" id="id_form-15-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-15-name" maxlength="255" value="C7" id="id_form-15-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-15-structure" value="7" step="any" id="id_form-15-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-15-molar_mass_of_the_component" step="any" id="id_form-15-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-15-chromatograph_mass" step="any" id="id_form-15-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-15-difference" step="any" id="id_form-15-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-16-name" maxlength="255" value="C8" id="id_form-16-name"></td>
-                    <td><input type="text" class="js-structure" name="form-16-structure" value="8" step="any" id="id_form-16-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-16-molar_mass_of_the_component" step="any" id="id_form-16-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-16-chromatograph_mass" step="any" id="id_form-16-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-16-difference" step="any" id="id_form-16-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-16-name" maxlength="255" value="C8" id="id_form-16-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-16-structure" value="8" step="any" id="id_form-16-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-16-molar_mass_of_the_component" step="any" id="id_form-16-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-16-chromatograph_mass" step="any" id="id_form-16-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-16-difference" step="any" id="id_form-16-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-17-name" maxlength="255" value="C8" id="id_form-17-name"></td>
-                    <td><input type="text" class="js-structure" name="form-17-structure" value="8" step="any" id="id_form-17-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-17-molar_mass_of_the_component" step="any" id="id_form-17-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-17-chromatograph_mass" step="any" id="id_form-17-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-17-difference" step="any" id="id_form-17-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-17-name" maxlength="255" value="C8" id="id_form-17-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-17-structure" value="8" step="any" id="id_form-17-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-17-molar_mass_of_the_component" step="any" id="id_form-17-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-17-chromatograph_mass" step="any" id="id_form-17-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-17-difference" step="any" id="id_form-17-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-18-name" maxlength="255" value="C8" id="id_form-18-name"></td>
-                    <td><input type="text" class="js-structure" name="form-18-structure" value="8" step="any" id="id_form-18-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-18-molar_mass_of_the_component" step="any" id="id_form-18-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-18-chromatograph_mass" step="any" id="id_form-18-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-18-difference" step="any" id="id_form-18-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-18-name" maxlength="255" value="C8" id="id_form-18-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-18-structure" value="8" step="any" id="id_form-18-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-18-molar_mass_of_the_component" step="any" id="id_form-18-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-18-chromatograph_mass" step="any" id="id_form-18-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-18-difference" step="any" id="id_form-18-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-19-name" maxlength="255" value="C8" id="id_form-19-name"></td>
-                    <td><input type="text" class="js-structure" name="form-19-structure" value="8" step="any" id="id_form-19-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-19-molar_mass_of_the_component" step="any" id="id_form-19-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-19-chromatograph_mass" step="any" id="id_form-19-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-19-difference" step="any" id="id_form-19-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-19-name" maxlength="255" value="C8" id="id_form-19-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-19-structure" value="8" step="any" id="id_form-19-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-19-molar_mass_of_the_component" step="any" id="id_form-19-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-19-chromatograph_mass" step="any" id="id_form-19-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-19-difference" step="any" id="id_form-19-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-20-name" maxlength="255" value="C9" id="id_form-20-name"></td>
-                    <td><input type="text" class="js-structure" name="form-20-structure" value="9" step="any" id="id_form-20-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-20-molar_mass_of_the_component" step="any" id="id_form-20-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-20-chromatograph_mass" step="any" id="id_form-20-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-20-difference" step="any" id="id_form-20-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-20-name" maxlength="255" value="C9" id="id_form-20-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-20-structure" value="9" step="any" id="id_form-20-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-20-molar_mass_of_the_component" step="any" id="id_form-20-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-20-chromatograph_mass" step="any" id="id_form-20-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-20-difference" step="any" id="id_form-20-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-21-name" maxlength="255" value="C10" id="id_form-21-name"></td>
-                    <td><input type="text" class="js-structure" name="form-21-structure" value="10" step="any" id="id_form-21-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-21-molar_mass_of_the_component" step="any" id="id_form-21-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-21-chromatograph_mass" step="any" id="id_form-21-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-21-difference" step="any" id="id_form-21-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-21-name" maxlength="255" value="C10" id="id_form-21-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-21-structure" value="10" step="any" id="id_form-21-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-21-molar_mass_of_the_component" step="any" id="id_form-21-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-21-chromatograph_mass" step="any" id="id_form-21-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-21-difference" step="any" id="id_form-21-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-22-name" maxlength="255" value="C11" id="id_form-22-name"></td>
-                    <td><input type="text" class="js-structure" name="form-22-structure" value="11" step="any" id="id_form-22-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-22-molar_mass_of_the_component" step="any" id="id_form-22-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-22-chromatograph_mass" step="any" id="id_form-22-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-22-difference" step="any" id="id_form-22-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-22-name" maxlength="255" value="C11" id="id_form-22-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-22-structure" value="11" step="any" id="id_form-22-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-22-molar_mass_of_the_component" step="any" id="id_form-22-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-22-chromatograph_mass" step="any" id="id_form-22-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-22-difference" step="any" id="id_form-22-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-23-name" maxlength="255" value="C12" id="id_form-23-name"></td>
-                    <td><input type="text" class="js-structure" name="form-23-structure" value="12" step="any" id="id_form-23-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-23-molar_mass_of_the_component" step="any" id="id_form-23-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-23-chromatograph_mass" step="any" id="id_form-23-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-23-difference" step="any" id="id_form-23-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-23-name" maxlength="255" value="C12" id="id_form-23-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-23-structure" value="12" step="any" id="id_form-23-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-23-molar_mass_of_the_component" step="any" id="id_form-23-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-23-chromatograph_mass" step="any" id="id_form-23-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-23-difference" step="any" id="id_form-23-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-24-name" maxlength="255" value="C13" id="id_form-24-name"></td>
-                    <td><input type="text" class="js-structure" name="form-24-structure" value="13" step="any" id="id_form-24-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-24-molar_mass_of_the_component" step="any" id="id_form-24-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-24-chromatograph_mass" step="any" id="id_form-24-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-24-difference" step="any" id="id_form-24-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-24-name" maxlength="255" value="C13" id="id_form-24-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-24-structure" value="13" step="any" id="id_form-24-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-24-molar_mass_of_the_component" step="any" id="id_form-24-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-24-chromatograph_mass" step="any" id="id_form-24-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-24-difference" step="any" id="id_form-24-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-25-name" maxlength="255" value="C14" id="id_form-25-name"></td>
-                    <td><input type="text" class="js-structure" name="form-25-structure" value="14" step="any" id="id_form-25-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-25-molar_mass_of_the_component" step="any" id="id_form-25-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-25-chromatograph_mass" step="any" id="id_form-25-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-25-difference" step="any" id="id_form-25-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-25-name" maxlength="255" value="C14" id="id_form-25-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-25-structure" value="14" step="any" id="id_form-25-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-25-molar_mass_of_the_component" step="any" id="id_form-25-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-25-chromatograph_mass" step="any" id="id_form-25-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-25-difference" step="any" id="id_form-25-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-26-name" maxlength="255" value="C15" id="id_form-26-name"></td>
-                    <td><input type="text" class="js-structure" name="form-26-structure" value="15" step="any" id="id_form-26-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-26-molar_mass_of_the_component" step="any" id="id_form-26-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-26-chromatograph_mass" step="any" id="id_form-26-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-26-difference" step="any" id="id_form-26-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-26-name" maxlength="255" value="C15" id="id_form-26-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-26-structure" value="15" step="any" id="id_form-26-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-26-molar_mass_of_the_component" step="any" id="id_form-26-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-26-chromatograph_mass" step="any" id="id_form-26-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-26-difference" step="any" id="id_form-26-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-27-name" maxlength="255" value="C16" id="id_form-27-name"></td>
-                    <td><input type="text" class="js-structure" name="form-27-structure" value="16" step="any" id="id_form-27-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-27-molar_mass_of_the_component" step="any" id="id_form-27-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-27-chromatograph_mass" step="any" id="id_form-27-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-27-difference" step="any" id="id_form-27-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-27-name" maxlength="255" value="C16" id="id_form-27-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-27-structure" value="16" step="any" id="id_form-27-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-27-molar_mass_of_the_component" step="any" id="id_form-27-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-27-chromatograph_mass" step="any" id="id_form-27-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-27-difference" step="any" id="id_form-27-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-28-name" maxlength="255" value="C17" id="id_form-28-name"></td>
-                    <td><input type="text" class="js-structure" name="form-28-structure" value="17" step="any" id="id_form-28-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-28-molar_mass_of_the_component" step="any" id="id_form-28-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-28-chromatograph_mass" step="any" id="id_form-28-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-28-difference" step="any" id="id_form-28-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-28-name" maxlength="255" value="C17" id="id_form-28-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-28-structure" value="17" step="any" id="id_form-28-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-28-molar_mass_of_the_component" step="any" id="id_form-28-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-28-chromatograph_mass" step="any" id="id_form-28-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-28-difference" step="any" id="id_form-28-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-29-name" maxlength="255" value="C18" id="id_form-29-name"></td>
-                    <td><input type="text" class="js-structure" name="form-29-structure" value="18" step="any" id="id_form-29-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-29-molar_mass_of_the_component" step="any" id="id_form-29-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-29-chromatograph_mass" step="any" id="id_form-29-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-29-difference" step="any" id="id_form-29-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-29-name" maxlength="255" value="C18" id="id_form-29-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-29-structure" value="18" step="any" id="id_form-29-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-29-molar_mass_of_the_component" step="any" id="id_form-29-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-29-chromatograph_mass" step="any" id="id_form-29-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-29-difference" step="any" id="id_form-29-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-30-name" maxlength="255" value="C19" id="id_form-30-name"></td>
-                    <td><input type="text" class="js-structure" name="form-30-structure" value="19" step="any" id="id_form-30-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-30-molar_mass_of_the_component" step="any" id="id_form-30-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-30-chromatograph_mass" step="any" id="id_form-30-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-30-difference" step="any" id="id_form-30-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-30-name" maxlength="255" value="C19" id="id_form-30-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-30-structure" value="19" step="any" id="id_form-30-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-30-molar_mass_of_the_component" step="any" id="id_form-30-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-30-chromatograph_mass" step="any" id="id_form-30-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-30-difference" step="any" id="id_form-30-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-31-name" maxlength="255" value="C20" id="id_form-31-name"></td>
-                    <td><input type="text" class="js-structure" name="form-31-structure" value="20" step="any" id="id_form-31-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-31-molar_mass_of_the_component" step="any" id="id_form-31-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-31-chromatograph_mass" step="any" id="id_form-31-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-31-difference" step="any" id="id_form-31-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-31-name" maxlength="255" value="C20" id="id_form-31-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-31-structure" value="20" step="any" id="id_form-31-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-31-molar_mass_of_the_component" step="any" id="id_form-31-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-31-chromatograph_mass" step="any" id="id_form-31-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-31-difference" step="any" id="id_form-31-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-32-name" maxlength="255" value="C21" id="id_form-32-name"></td>
-                    <td><input type="text" class="js-structure" name="form-32-structure" value="21" step="any" id="id_form-32-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-32-molar_mass_of_the_component" step="any" id="id_form-32-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-32-chromatograph_mass" step="any" id="id_form-32-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-32-difference" step="any" id="id_form-32-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-32-name" maxlength="255" value="C21" id="id_form-32-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-32-structure" value="21" step="any" id="id_form-32-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-32-molar_mass_of_the_component" step="any" id="id_form-32-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-32-chromatograph_mass" step="any" id="id_form-32-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-32-difference" step="any" id="id_form-32-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-33-name" maxlength="255" value="C22" id="id_form-33-name"></td>
-                    <td><input type="text" class="js-structure" name="form-33-structure" value="22" step="any" id="id_form-33-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-33-molar_mass_of_the_component" step="any" id="id_form-33-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-33-chromatograph_mass" step="any" id="id_form-33-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-33-difference" step="any" id="id_form-33-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-33-name" maxlength="255" value="C22" id="id_form-33-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-33-structure" value="22" step="any" id="id_form-33-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-33-molar_mass_of_the_component" step="any" id="id_form-33-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-33-chromatograph_mass" step="any" id="id_form-33-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-33-difference" step="any" id="id_form-33-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-34-name" maxlength="255" value="C23" id="id_form-34-name"></td>
-                    <td><input type="text" class="js-structure" name="form-34-structure" value="23" step="any" id="id_form-34-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-34-molar_mass_of_the_component" step="any" id="id_form-34-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-34-chromatograph_mass" step="any" id="id_form-34-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-34-difference" step="any" id="id_form-34-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-34-name" maxlength="255" value="C23" id="id_form-34-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-34-structure" value="23" step="any" id="id_form-34-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-34-molar_mass_of_the_component" step="any" id="id_form-34-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-34-chromatograph_mass" step="any" id="id_form-34-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-34-difference" step="any" id="id_form-34-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-35-name" maxlength="255" value="C24" id="id_form-35-name"></td>
-                    <td><input type="text" class="js-structure" name="form-35-structure" value="24" step="any" id="id_form-35-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-35-molar_mass_of_the_component" step="any" id="id_form-35-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-35-chromatograph_mass" step="any" id="id_form-35-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-35-difference" step="any" id="id_form-35-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-35-name" maxlength="255" value="C24" id="id_form-35-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-35-structure" value="24" step="any" id="id_form-35-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-35-molar_mass_of_the_component" step="any" id="id_form-35-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-35-chromatograph_mass" step="any" id="id_form-35-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-35-difference" step="any" id="id_form-35-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-36-name" maxlength="255" value="C25" id="id_form-36-name"></td>
-                    <td><input type="text" class="js-structure" name="form-36-structure" value="25" step="any" id="id_form-36-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-36-molar_mass_of_the_component" step="any" id="id_form-36-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-36-chromatograph_mass" step="any" id="id_form-36-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-36-difference" step="any" id="id_form-36-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-36-name" maxlength="255" value="C25" id="id_form-36-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-36-structure" value="25" step="any" id="id_form-36-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-36-molar_mass_of_the_component" step="any" id="id_form-36-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-36-chromatograph_mass" step="any" id="id_form-36-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-36-difference" step="any" id="id_form-36-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-37-name" maxlength="255" value="C26" id="id_form-37-name"></td>
-                    <td><input type="text" class="js-structure" name="form-37-structure" value="26" step="any" id="id_form-37-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-37-molar_mass_of_the_component" step="any" id="id_form-37-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-37-chromatograph_mass" step="any" id="id_form-37-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-37-difference" step="any" id="id_form-37-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-37-name" maxlength="255" value="C26" id="id_form-37-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-37-structure" value="26" step="any" id="id_form-37-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-37-molar_mass_of_the_component" step="any" id="id_form-37-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-37-chromatograph_mass" step="any" id="id_form-37-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-37-difference" step="any" id="id_form-37-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-38-name" maxlength="255" value="C27" id="id_form-38-name"></td>
-                    <td><input type="text" class="js-structure" name="form-38-structure" value="27" step="any" id="id_form-38-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-38-molar_mass_of_the_component" step="any" id="id_form-38-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-38-chromatograph_mass" step="any" id="id_form-38-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-38-difference" step="any" id="id_form-38-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-38-name" maxlength="255" value="C27" id="id_form-38-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-38-structure" value="27" step="any" id="id_form-38-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-38-molar_mass_of_the_component" step="any" id="id_form-38-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-38-chromatograph_mass" step="any" id="id_form-38-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-38-difference" step="any" id="id_form-38-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-39-name" maxlength="255" value="C28" id="id_form-39-name"></td>
-                    <td><input type="text" class="js-structure" name="form-39-structure" value="28" step="any" id="id_form-39-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-39-molar_mass_of_the_component" step="any" id="id_form-39-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-39-chromatograph_mass" step="any" id="id_form-39-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-39-difference" step="any" id="id_form-39-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-39-name" maxlength="255" value="C28" id="id_form-39-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-39-structure" value="28" step="any" id="id_form-39-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-39-molar_mass_of_the_component" step="any" id="id_form-39-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-39-chromatograph_mass" step="any" id="id_form-39-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-39-difference" step="any" id="id_form-39-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-40-name" maxlength="255" value="C29" id="id_form-40-name"></td>
-                    <td><input type="text" class="js-structure" name="form-40-structure" value="29" step="any" id="id_form-40-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-40-molar_mass_of_the_component" step="any" id="id_form-40-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-40-chromatograph_mass" step="any" id="id_form-40-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-40-difference" step="any" id="id_form-40-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-40-name" maxlength="255" value="C29" id="id_form-40-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-40-structure" value="29" step="any" id="id_form-40-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-40-molar_mass_of_the_component" step="any" id="id_form-40-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-40-chromatograph_mass" step="any" id="id_form-40-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-40-difference" step="any" id="id_form-40-difference"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="form-41-name" maxlength="255" value="C30" id="id_form-41-name"></td>
-                    <td><input type="text" class="js-structure" name="form-41-structure" value="30" step="any" id="id_form-41-structure"></td>
-                    <td><input type="number" class="js-mmc" name="form-41-molar_mass_of_the_component" step="any" id="id_form-41-molar_mass_of_the_component"></td>
-                    <td><input type="number" class="js-cm" name="form-41-chromatograph_mass" step="any" id="id_form-41-chromatograph_mass"></td>
-                    <td><input type="number" class="js-diff" name="form-41-difference" step="any" id="id_form-41-difference"></td>
+                    <td class="table_content_td"><input type="text" name="form-41-name" maxlength="255" value="C30" id="id_form-41-name"></td>
+                    <td class="table_content_td"><input type="text" class="js-structure" name="form-41-structure" value="30" step="any" id="id_form-41-structure"></td>
+                    <td class="table_content_td"><input type="number" class="js-mmc" name="form-41-molar_mass_of_the_component" step="any" id="id_form-41-molar_mass_of_the_component"></td>
+                    <td class="table_content_td"><input type="number" class="js-cm" name="form-41-chromatograph_mass" step="any" id="id_form-41-chromatograph_mass"></td>
+                    <td class="table_content_td"><input type="number" class="js-diff" name="form-41-difference" step="any" id="id_form-41-difference"></td>
+
                 </tr>
 
                 <tr>
@@ -323,9 +361,11 @@
                 </tr>
             </tbody>
         </table>
-        <button type="submit" class="button_save_form" style="padding: 0 0;">Сохранить</button>
+
         <script type="text/javascript" src="{% static 'js/oks/oks_calculated_p10.js'%}" ></script>
     </form>
 </div>
+    </div>
 
+{% endblock %}
 

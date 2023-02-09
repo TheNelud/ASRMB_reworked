@@ -52,11 +52,15 @@ urlpatterns = [
     path('p8/create/', oks_p8_create, name='oks_p8_create'),
     path('p8/edit/<slug:date_oks_p8>', oks_p8_edit, name='oks_p8_edit'),
     path('p8/delete/<slug:date_oks_p8>', oks_p8_delete, name='oks_p8_delete'),
-    #
-    # path('p9/', oks_p9, name='oks_p9'),
-    # path('p9/create/', oks_p9_create, name='oks_p9_create'),
-    #
-    # path('p10/', oks_p10, name='oks_p10'),
-    # path('p10/create/', oks_p10_create, name='oks_p10_create'),
+
+    path('p9/', oks_p9, name='oks_p9'),
+    path('p9/create/', oks_p9_create, name='oks_p9_create'),
+    path('p9/edit/<slug:date_oks_p9>', oks_p9_edit, name='oks_p9_edit'),
+    path('p9/delete/<slug:date_oks_p9>', oks_p9_delete, name='oks_p9_delete'),
+
+    path('p10/', oks_p10, name='oks_p10'),
+    path('p10/create/', oks_p10_create, name='oks_p10_create'),
+    path('p10/edit/<slug:date_oks_p10>', oks_p10_edit, name='oks_p10_edit'),
+    path('p10/delete/<slug:date_oks_p10>', oks_p10_delete, name='oks_p10_delete'),
 
 ]

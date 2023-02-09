@@ -287,6 +287,6 @@ class P10ProtokolKGNForm(ModelForm):
 P10ProtokolKGNFormSet = formset_factory(P10ProtokolKGNForm,
                                         extra=42)
 
-P9ModelFormSet = modelformset_factory(model=P10ProtokolKGN,
-                                      form=P10ProtokolKGNForm,
-                                      extra=0)
+P10ModelFormSet = modelformset_factory(model=P10ProtokolKGN,
+                                       form=P10ProtokolKGNForm,
+                                       extra=42)
