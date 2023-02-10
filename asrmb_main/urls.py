@@ -6,4 +6,5 @@ urlpatterns = [
 
     path('raports/', include('asrmb_raports.urls')),
     path('oks/', include('asrmb_oks.urls')),
+    path('rtp/', include('asrmb_rtp.urls')),
 ]

@@ -62,7 +62,11 @@ function calculated_tmm(){
 }
 
 function summa_mcc() {
-    in_mcc[11].value = Number(in_mcc[0].value) + Number(in_mcc[1].value) + Number(in_mcc[2].value) + Number(in_mcc[3].value) + Number(in_mcc[4].value) + Number(in_mcc[5].value) + Number(in_mcc[6].value) + Number(in_mcc[7].value) + Number(in_mcc[8].value) + Number(in_mcc[9].value) + Number(in_mcc[10].value);
+    in_mcc[11].value = Number(in_mcc[0].value) + Number(in_mcc[1].value) +
+        Number(in_mcc[2].value) + Number(in_mcc[3].value) +
+        Number(in_mcc[4].value) + Number(in_mcc[5].value) +
+        Number(in_mcc[6].value) + Number(in_mcc[7].value) +
+        Number(in_mcc[8].value) + Number(in_mcc[9].value) + Number(in_mcc[10].value);
 }
 
 function summa_mmc() {

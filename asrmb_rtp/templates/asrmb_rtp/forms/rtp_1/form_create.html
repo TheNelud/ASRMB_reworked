@@ -1,0 +1,87 @@
+{%extends 'asrmb_main/base.html' %}
+{% load static %}
+{% block sidebar %}
+
+    <div class="tabs">
+        <input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+        <label for="tab-btn-1">Функционал</label>
+        <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+        <label for="tab-btn-2">Таблицы</label>
+        <div id="content-1">
+            <ul class="nav-links">
+                <li>
+                    <a href="#"  onclick="document.getElementById('form_rtp_1').submit()" >
+                        <svg  width="60" height="60" viewBox="0 0 24 24" style="fill:rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M10 11H7.101l.001-.009a4.956 4.956 0 0 1 .752-1.787 5.054 5.054 0 0 1 2.2-1.811c.302-.128.617-.226.938-.291a5.078 5.078 0 0 1 2.018 0 4.978 4.978 0 0 1 2.525 1.361l1.416-1.412a7.036 7.036 0 0 0-2.224-1.501 6.921 6.921 0 0 0-1.315-.408 7.079 7.079 0 0 0-2.819 0 6.94 6.94 0 0 0-1.316.409 7.04 7.04 0 0 0-3.08 2.534 6.978 6.978 0 0 0-1.054 2.505c-.028.135-.043.273-.063.41H2l4 4 4-4zm4 2h2.899l-.001.008a4.976 4.976 0 0 1-2.103 3.138 4.943 4.943 0 0 1-1.787.752 5.073 5.073 0 0 1-2.017 0 4.956 4.956 0 0 1-1.787-.752 5.072 5.072 0 0 1-.74-.61L7.05 16.95a7.032 7.032 0 0 0 2.225 1.5c.424.18.867.317 1.315.408a7.07 7.07 0 0 0 2.818 0 7.031 7.031 0 0 0 4.395-2.945 6.974 6.974 0 0 0 1.053-2.503c.027-.135.043-.273.063-.41H22l-4-4-4 4z"></path></svg>
+                        <span class="link_name" style="color:#000;">Сохранить</span>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" href="#" onclick="document.getElementById('form_rtp_1').submit()" >Сохранить</a></li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'rtp_1' %}">
+                        <svg  width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg><span class="link_name" style="color:#000;">Назад</span>
+                    </a>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="{% url 'rtp_1' %}">Назад</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        {% include 'asrmb_rtp/sidebar_tables.html' %}
+</div>
+
+{% endblock %}
+{% block content %}
+
+    <div class="base_content print" id='print'>
+        <div class="table_content_rtp">
+            <p class="title_form">Создать запись</p>
+            <form action="" method="post" id="form_rtp_1">
+                {% csrf_token %}
+                 <table class="table_content_header">
+                    <thead>
+                        
+                        <tr>
+                            <th class="table_content_th_rtp" colspan="15">10Р-2№2 Протокол анализа №09-2021 PVT(К) от {{ max_date_now|date:"d.m.Y" }}</th>
+                        </tr>
+                        <tr>
+                        <th class="table_content_th_rtp">Оборудование</th>
+                        <th class="table_content_th_rtp">V</th>
+                        <th class="table_content_th_rtp">Рн</th>
+                        <th class="table_content_th_rtp">Тн</th>
+                        <th class="table_content_th_rtp">Zн</th>
+                        <th class="table_content_th_rtp">Рк</th>
+                        <th class="table_content_th_rtp">Тк</th>
+                        <th class="table_content_th_rtp">Zk</th>
+                        <th class="table_content_th_rtp">Vоп</th>
+                        <th class="table_content_th_rtp">nг.прод</th>
+                        <th class="table_content_th_rtp">nг.пл</th>
+                        <th class="table_content_th_rtp">Xг.прод</th>
+                        <th class="table_content_th_rtp">N</th>
+                        <th class="table_content_th_rtp">Пг.оп</th>
+                        <th class="table_content_th_rtp" style="width: 200px">Мольная доля С1-С4  % согласно справкам ХАЛ </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for form in form_set %}
+                            <td> {{ form }}</td>
+                        {% endfor %}
+                        <tr>
+                            <td colspan="2">
+                                <input type="hidden" name="form-TOTAL_FORMS" id="id_form-TOTAL_FORMS" value='12'>
+                                <input type="hidden"  name="form-INITIAL_FORMS" id="id_form-INITIAL_FORMS"  value='12'>
+                                <input type="hidden" name="form-MIN_NUM_FORMS" id="id_form-MIN_NUM_FORMS"  value='12'>
+                                <input type="hidden" name="form-MAX_NUM_FORMS" id="id_form-MAX_NUM_FORMS"  value='12'>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <script type="text/javascript" src="{% static 'js/rtp/rtp-1.js'%}" ></script>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+

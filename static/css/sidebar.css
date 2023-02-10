@@ -17,6 +17,7 @@ body{
     height: 100%;
     width: 260px;
     background: #d1d1d1;
+    /*background: linear-gradient(0deg, rgba(209,209,209,1) 0%, rgba(0,121,194,1) 80%);*/
     z-index: 100;
     transition: all 0.5s ease;
 }
