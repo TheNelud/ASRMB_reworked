@@ -142,7 +142,6 @@ def mar_edit(request, date_mar):
 
 
 def mag(request):
-
     max_date_now = datetime.now().strftime("%Y-%m-%d")
     items_tech = Sen_equip.objects.all().order_by('-date_update')[:1]
     items_balance = Balance.objects.all().order_by('-date_update')[:1]
@@ -163,12 +162,25 @@ def mag(request):
         delta_day = "-"
 
     context = {
-        "itemss_tech":items_tech,
-        "itemss_balance":items_balance,
-        'max_date_now':max_date_now,
+        "itemss_tech": items_tech,
+        "itemss_balance": items_balance,
+        'max_date_now': max_date_now,
         'url_mer_day': url_mer_day,
         'just_day': just_day,
         'delta_day': delta_day
     }
 
     return render(request, 'asrmb_raports/mag.html', context)
+
+
+def mag_edit(request, date_mag):
+    items_tech = Sen_equip.objects.filter(date_create__contains=date_mag).order_by(
+        '-id')[:1]
+    items_balance = Balance.objects.filter(date_create__contains=date_mag).order_by(
+        '-id')[:1]
+
+    context = {
+
+    }
+
+    return render(request, 'asrmb_raports/forms/mag/mag_edit.html', context)

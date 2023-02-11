@@ -25,21 +25,21 @@
                 </a>
             </li>
             <li>
-                <a href="{% url 'rtp_1_create' %}">
+                <a href="{% url 'rtp_2_create' %}">
                     <svg width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M5 21h14a2 2 0 0 0 2-2V8a1 1 0 0 0-.29-.71l-4-4A1 1 0 0 0 16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm10-2H9v-5h6zM13 7h-2V5h2zM5 5h2v4h8V5h.59L19 8.41V19h-2v-5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v5H5z"></path></svg>
                     <span class="link_name" style="color:#000;">Добавить</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{% url 'rtp_1_create' %}">Добавить</a></li>
+                    <li><a class="link_name" href="{% url 'rtp_2_create' %}">Добавить</a></li>
                 </ul>
             </li>
             <li>
-                <a href="{% url 'rtp_1_edit' url_rtp_1 %}" >
+                <a href="{% url 'rtp_2_edit' url_rtp_2 %}" >
                     <svg class='bx bx-grid-alt' width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M19.045 7.401c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.378-.378-.88-.586-1.414-.586s-1.036.208-1.413.585L4 13.585V18h4.413L19.045 7.401zm-3-3 1.587 1.585-1.59 1.584-1.586-1.585 1.589-1.584zM6 16v-1.585l7.04-7.018 1.586 1.586L7.587 16H6zm-2 4h16v2H4z"></path></svg>
                     <span class="link_name" style="color:#000;">Редактировать</span>
                 </a>
                  <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{% url 'rtp_1_edit' url_rtp_1 %}">Редактировать</a></li>
+                    <li><a class="link_name" href="{% url 'rtp_2_edit' url_rtp_2 %}">Редактировать</a></li>
                 </ul>
             </li>
             <li>
@@ -59,69 +59,47 @@
 
 {% block content %}
     <div class="base_content print" id='print'>
-        <div class="table_content_rtp">
+        <div class="table_content_rtp" style="left: 60%">
             <div>
-                <a href="#question_rtp" class="question" >
+                <a href="#question_rtp" class="question"  >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M12 4C9.243 4 7 6.243 7 9h2c0-1.654 1.346-3 3-3s3 1.346 3 3c0 1.069-.454 1.465-1.481 2.255-.382.294-.813.626-1.226 1.038C10.981 13.604 10.995 14.897 11 15v2h2v-2.009c0-.024.023-.601.707-1.284.32-.32.682-.598 1.031-.867C15.798 12.024 17 11.1 17 9c0-2.757-2.243-5-5-5zm-1 14h2v2h-2z"></path></svg>
                 </a>
             </div>
-            <div id="question_rtp">
+            <div id="question_rtp" style="left: -20%">
                 <a href="#" class="close_okno">x</a><br>
 
-                <p>V - геометрический объем аппарата, участка газопровода или технологической линии, опорожняемого для ремонта или внутреннего осмотра, м3
-                <br>Рн, Рк - абсолютное давление природного газа перед началом ремонтной работы и после опорожнения, Мпа
-                <br>Тн, Тк - температура природного газа перед началом работы и после опорожнения, К
-                <br>Zн, Zк - коэффициенты сверхсжимаемости природного газа при, Рн, Тн и Рк, Тк (ГОСТ 30319)
-                <br>N - количество операций в расчетный период
-                <br>Xг.прод - мольная доля добываемой продукции в газе, отправляемом на факел или свечу рассеивания
-                <br>nг.пл, nг.прод - соответственно число молей в газе и газа который является продукцией (лаб. анализ)
-
-
+                <p>
+                    <br>Пг.р.ж. - потери природного газа при регенерации технических жидкостей, м3
+                    <br>Qг.р.ж. - расход природного газа при регенерации технических жидкостей, м3 (прямой метод замера)
+                    <br>nг.пл, nг.прод - соответственно число молей в газе и газа который является продукцией (лаб. анализ)
                 </p>
             </div>
 
             <table>
                 <thead class="table_content_header">
                     <tr>
-                        <th class="table_content_th_rtp" colspan="15">1. Технологические потери природного газа по итогам опорожнения технологического оборудования и трубопроводов перед проведением ремонтных работ, м3 (п.4.2.)</th>
+                        <th class="table_content_th_rtp" colspan="6">2. Технологические потери природного газа при регенерации технических жидкостей (МЭГа), м3 (п. 4.3.2)</th>
                     </tr>
 
                     <tr>
                         <th class="table_content_th_rtp">Оборудование</th>
-                        <th class="table_content_th_rtp">V</th>
-                        <th class="table_content_th_rtp">Рн</th>
-                        <th class="table_content_th_rtp">Тн</th>
-                        <th class="table_content_th_rtp">Zн</th>
-                        <th class="table_content_th_rtp">Рк</th>
-                        <th class="table_content_th_rtp">Тк</th>
-                        <th class="table_content_th_rtp">Zk</th>
-                        <th class="table_content_th_rtp">Vоп</th>
+                        <th class="table_content_th_rtp">Qг.р.ж.</th>
                         <th class="table_content_th_rtp">nг.прод</th>
                         <th class="table_content_th_rtp">nг.пл</th>
                         <th class="table_content_th_rtp">Xг.прод</th>
-                        <th class="table_content_th_rtp">N</th>
-                        <th class="table_content_th_rtp">Пг.оп</th>
-                        <th class="table_content_th_rtp" style="width: 200px">Мольная доля С1-С4  % согласно справкам ХАЛ </th>
+                        <th class="table_content_th_rtp">Пг.р.ж.</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    {% for rtp_item in rtp_1_items%}
+                    {% for rtp_item in rtp_2_items%}
                         <tr>
                             <td class="table_content_td_rtp"><span>{{rtp_item.name|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.v|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.pn|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.tn|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.zn|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.press_pk|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.tk|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.zk|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span class="js-summa_vop">{{rtp_item.v_op|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{rtp_item.qgr_sh|default_if_none:"-"}}</span></td>
                             <td class="table_content_td_rtp"><span>{{rtp_item.ng_prod|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.ng_nl|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{rtp_item.ng_pl|default_if_none:"-"}}</span></td>
                             <td class="table_content_td_rtp"><span>{{rtp_item.xg_prod|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.n|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span class="js-summa_prop">{{rtp_item.pn_op|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.mol|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{rtp_item.pgr_sh|default_if_none:"-"}}</span></td>
                         </tr>
                     {% endfor %}
 
@@ -132,18 +110,6 @@
                         <td class="table_content_th_rtp"><span> </span></td>
                         <td class="table_content_th_rtp"><span> </span></td>
                         <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span class="js-summa_vop"> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span class="js-summa_prop"> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
-
-
-
                     </tr>
                 </tbody>
             </table>
@@ -151,12 +117,12 @@
          <div id="delete_rtp">
             <a href="#" class="close_okno">x</a><br>
             Удалить запись
-             <form action="{% url 'rtp_1_delete' url_rtp_1 %}" method="post">
+             <form action="{% url 'rtp_2_delete' url_rtp_2 %}" method="post">
                  {% csrf_token %}
                  <button type="submit" > Удалить</button>
              </form>
          </div>
     </div>
 
-    <script type="text/javascript" src="{% static 'js/rtp/rtp-1-summa.js'%}" ></script>
+    <script type="text/javascript" src="{% static 'js/rtp/rtp-2-summa.js'%}" ></script>
 {% endblock %}

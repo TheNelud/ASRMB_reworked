@@ -1,7 +1,11 @@
 from .models import *
 
-from django.forms import ModelForm, modelformset_factory
+from django.forms import ModelForm, modelformset_factory, formset_factory
 from django import forms
+
+''' 1. Технологические потери природного газа по итогам опорожнения технологического
+ оборудования и трубопроводов перед проведением ремонтных работ, м3 (п.4.2.)';
+ '''
 
 
 class TeclossesOneForm(ModelForm):
@@ -53,22 +57,66 @@ TeclossesOneModelFormSet = modelformset_factory(model=TeclossesOne,
                                                 form=TeclossesOneForm,
                                                 extra=0)
 
+''' 
+2. Технологические потери природного газа при регенерации технических жидкостей (МЭГа), м3 (п. 4.3.2)';
+'''
+
 
 class TeclossesTwoForm(ModelForm):
     name = forms.CharField(label="Оборудование", max_length=255, required=False)
     qgr_sh = forms.FloatField(label="Qг.р.ж. - расход природного газа при регенерации технических жидкостей",
-                              required=False)
-    ng_prod = forms.FloatField(label="nг.пл - соответственно число молей в газе", required=False)
-    ng_pl = forms.FloatField(label='nг.прод - соответственно число молей в газе', required=False)
-    xg_prod = forms.FloatField(label='Xг.прод - мольная доля добываемой продукции в газе', required=False)
+                              required=False,
+                              widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+    ng_prod = forms.FloatField(label="nг.пл - соответственно число молей в газе", required=False,
+                               widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+    ng_pl = forms.FloatField(label='nг.прод - соответственно число молей в газе', required=False,
+                             widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+    xg_prod = forms.FloatField(label='Xг.прод - мольная доля добываемой продукции в газе', required=False,
+                               widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
     pgr_sh = forms.FloatField(label="Пг.р.ж. - потери природного газа при регенерации технических жидкостей",
-                              required=False)
-    date_create = forms.DateTimeField(label='Дата создания', required=False)
-    date_update = forms.DateTimeField(label='Дата обновления', required=False)
+                              required=False,
+                              widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+    date_create = forms.DateTimeField(label='Дата создания', required=False,
+                                      widget=forms.NumberInput(attrs={'style': 'display: None'})
+                                      )
+    date_update = forms.DateTimeField(label='Дата обновления', required=False,
+                                      widget=forms.NumberInput(attrs={'style': 'display: None'})
+                                      )
 
     class Meta:
         model = TeclossesTwo
-        fields = ['name', 'qgr_sh', 'ng_prod', 'ng_pl']
+        fields = ['name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh']
+
+
+TeclossesTwoModelFormSet = modelformset_factory(model=TeclossesTwo,
+                                                form=TeclossesTwoForm,
+                                                extra=0)
+
+''' 
+показания счетчиков 30Р-1
+'''
+
+
+class MeterReading30P1Form(ModelForm):
+    num_one = forms.FloatField()
+    num_two = forms.FloatField()
+    date_create = forms.DateTimeField(label='Дата создания', required=False, )
+    date_update = forms.DateTimeField(label='Дата обновления', required=False, )
+
+    class Meta:
+        model = MeterReading30P1
+        fields = '__all__'
+
+
+MeterReading30P1FormSet = formset_factory(form=MeterReading30P1Form,
+                                          extra=3)
+MeterReading30P1ModelFormSet = modelformset_factory(model=MeterReading30P1,
+                                                    form=MeterReading30P1Form,
+                                                    extra=0)
+
+''' 
+ 3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)';
+'''
 
 
 class TeclossesTreeForm(ModelForm):

@@ -1,9 +1,11 @@
 from django.db import models
 from django.urls import reverse
 
+''' 1. Технологические потери природного газа по итогам опорожнения технологического
+ оборудования и трубопроводов перед проведением ремонтных работ, м3 (п.4.2.)';
+ '''
 
-# Create your models here. '1. Технологические потери природного газа по итогам опорожнения технологического
-# оборудования и трубопроводов перед проведением ремонтных работ, м3 (п.4.2.)';
+
 class TeclossesOne(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=255)
@@ -32,7 +34,10 @@ class TeclossesOne(models.Model):
         db_table = 'teclosses_one'
 
 
-# 2. Технологические потери природного газа при регенерации технических жидкостей (МЭГа), м3 (п. 4.3.2)';
+''' 
+2. Технологические потери природного газа при регенерации технических жидкостей (МЭГа), м3 (п. 4.3.2)';
+'''
+
 
 class TeclossesTwo(models.Model):
     id = models.BigAutoField(primary_key=True)
@@ -50,8 +55,27 @@ class TeclossesTwo(models.Model):
         db_table = 'teclosses_two'
 
 
-# Расчет технологических потерь при Добыче*
-# 3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)';
+''' 
+показания счетчиков 30Р-1
+'''
+
+
+class MeterReading30P1(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    num_one = models.FloatField()
+    num_two = models.FloatField()
+    date_create = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        managed = False
+        db_table = 'meter_readings_30P_1'
+
+
+''' 
+ 3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)';
+'''
+
 
 class TeclossesTree(models.Model):
     id = models.BigAutoField(primary_key=True)
