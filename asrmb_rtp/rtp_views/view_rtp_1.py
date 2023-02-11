@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.http import Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 
 from ..models import *
 from ..forms import *
@@ -52,18 +52,21 @@ def rtp_1_edit(request, date_rtp_1):
     rtp_1_items = TeclossesOne.objects.filter(
         date_create__contains=date_rtp_1).order_by('date_update')
 
+
     if not rtp_1_items:
         raise Http404("Нет данных")
 
     if request.method == 'POST':
-        form_set = TeclossesOneForm(request.POST)
+        form_set = TeclossesOneModelFormSet(request.POST)
+
         print('Форма валидна: ' + str(form_set.is_valid()))
+        print(form_set.as_table())
         if form_set.is_valid():
             form_set.save()
             return redirect('rtp_1')
 
     else:
-        form_set = TeclossesOneForm()
+        form_set = TeclossesOneModelFormSet(queryset=rtp_1_items)
 
         print(form_set.as_table())
 

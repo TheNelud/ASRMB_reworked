@@ -23,3 +23,28 @@
 .table_content_rd_rtp_input{
     width: 90px;
 }
+
+
+.style_tree_table{
+    font-size: 10px;
+}
+
+#question_rtp{
+    width: 1200px;
+    height: 200px;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #989494;
+    border-radius: 10px;
+    color: #ffffff;
+    display: none;
+    position: absolute;
+    /*top: 250px;*/
+    right: 0;
+    left: 10%;
+    /*bottom: 200px;*/
+    background: rgba(93, 93, 93, 0.9);
+    margin: auto;
+}
+
+#question_rtp:target {display: block;}

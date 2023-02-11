@@ -44,7 +44,7 @@
              <table class="table_content_header">
                 <thead>
                     <tr>
-                        <th class="table_content_th_rtp" colspan="15">10Р-2№2 Протокол анализа №09-2021 PVT(К) от {{ max_date_now|date:"d.m.Y" }}</th>
+                        <th class="table_content_th_rtp" colspan="15">1. Технологические потери природного газа по итогам опорожнения технологического оборудования и трубопроводов перед проведением ремонтных работ, м3 (п.4.2.)</th>
                     </tr>
                     <tr>
                         <th class="table_content_th_rtp">Оборудование</th>
@@ -67,11 +67,28 @@
                 <tbody>
                     {{ form_set.management_form }}
                     {% for form in form_set %}
-                        <td>{{ form }}</td>
+                       <tr>
+                            {{ form.id }}
+                            <td class="table_content_td_rtp"><span>{{form.name|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.v|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.pn|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.tn|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.zn|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.press_pk|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.tk|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.zk|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.v_op|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.ng_prod|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.ng_nl|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.xg_prod|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.n|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.pn_op|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span>{{form.mol|default_if_none:"-"}}</span></td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
-
+            <script type="text/javascript" src="{% static 'js/rtp/rtp-1.js'%}" ></script>
         </form>
     </div>
 </div>
