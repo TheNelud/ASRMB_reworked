@@ -35,7 +35,7 @@ def rtp_1_create(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
     form_set = TeclossesOneModelFormSet(queryset=TeclossesOne.objects.none())
     if request.method == 'POST':
-        form_set = TeclossesOneModelFormSet(date=request.POST)
+        form_set = TeclossesOneModelFormSet(data=request.POST)
         print('Форма валидна: ' + str(form_set.is_valid()))
         if form_set.is_valid():
             form_set.save()

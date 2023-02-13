@@ -13,34 +13,34 @@ class TeclossesOneForm(ModelForm):
                            widget=forms.TextInput(attrs={'class': 'table_content_rd_rtp_input',
                                                          'style': 'width: 118px'}))
     v = forms.FloatField(label="V - геометрический объем аппарата", required=False,
-                         widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                         widget=forms.NumberInput(attrs={'class': 'js-v table_content_rd_rtp_input'}))
     pn = forms.FloatField(label="Рн - абсолютное давление природного газа перед началом ремонтной работы",
                           required=False,
-                          widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                          widget=forms.NumberInput(attrs={'class': 'js-pn table_content_rd_rtp_input'}))
     tn = forms.FloatField(label="Тн - температура природного газа перед началом работы", required=False,
-                          widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                          widget=forms.NumberInput(attrs={'class': 'js-tn table_content_rd_rtp_input'}))
     zn = forms.FloatField(label="Zн - коэффициенты сверхсжимаемости природного газа", required=False,
-                          widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                          widget=forms.NumberInput(attrs={'class': 'js-zn table_content_rd_rtp_input'}))
     press_pk = forms.FloatField(label="Рк - абсолютное давление природного газа после опорожнения", required=False,
-                                widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                                widget=forms.NumberInput(attrs={'class': 'js-press_pk table_content_rd_rtp_input'}))
     tk = forms.FloatField(label="Тк - температура природного газа после опорожнения", required=False,
-                          widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                          widget=forms.NumberInput(attrs={'class': 'js-tk table_content_rd_rtp_input'}))
     zk = forms.FloatField(label="Zк - коэффициенты сверхсжимаемости природного газа", required=False,
-                          widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                          widget=forms.NumberInput(attrs={'class': 'js-zk table_content_rd_rtp_input'}))
     v_op = forms.FloatField(label='Vop', required=False,
-                            widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                            widget=forms.NumberInput(attrs={'class': 'js-v_op table_content_rd_rtp_input'}))
     ng_prod = forms.FloatField(label='nг.прод', required=False,
-                               widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                               widget=forms.NumberInput(attrs={'class': 'js-ng_prod table_content_rd_rtp_input'}))
     ng_nl = forms.FloatField(label="nг.пл - соответственно число молей в газе", required=False,
-                             widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                             widget=forms.NumberInput(attrs={'class': 'js-ng_nl table_content_rd_rtp_input'}))
     xg_prod = forms.FloatField(label='', required=False,
-                               widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                               widget=forms.NumberInput(attrs={'class': 'js-xg_prod table_content_rd_rtp_input'}))
     n = forms.FloatField(label="N - количество операций в расчетный период", required=False
-                         , widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                         , widget=forms.NumberInput(attrs={'class': 'js-n table_content_rd_rtp_input'}))
     pn_op = forms.FloatField(label="соответственно число молей в газе", required=False,
-                             widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                             widget=forms.NumberInput(attrs={'class': 'js-pn_op table_content_rd_rtp_input'}))
     mol = forms.FloatField(label="Мольная доля С1-С4", required=False,
-                           widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input',
+                           widget=forms.NumberInput(attrs={'class': 'js-mol table_content_rd_rtp_input',
                                                            'style': 'width: 200px'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False,
                                       widget=forms.NumberInput(attrs={'style': 'display: None'}))
@@ -68,16 +68,16 @@ class TeclossesTwoForm(ModelForm):
     name = forms.CharField(label="Оборудование", max_length=255, required=False)
     qgr_sh = forms.FloatField(label="Qг.р.ж. - расход природного газа при регенерации технических жидкостей",
                               required=False,
-                              widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                              widget=forms.NumberInput(attrs={'class': 'js-qgr_sh table_content_rd_rtp_input'}))
     ng_prod = forms.FloatField(label="nг.пл - соответственно число молей в газе", required=False,
-                               widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                               widget=forms.NumberInput(attrs={'class': 'js-ng_prod table_content_rd_rtp_input'}))
     ng_pl = forms.FloatField(label='nг.прод - соответственно число молей в газе', required=False,
-                             widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                             widget=forms.NumberInput(attrs={'class': 'js-ng_pl table_content_rd_rtp_input'}))
     xg_prod = forms.FloatField(label='Xг.прод - мольная доля добываемой продукции в газе', required=False,
-                               widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                               widget=forms.NumberInput(attrs={'class': 'js-xg_prod table_content_rd_rtp_input'}))
     pgr_sh = forms.FloatField(label="Пг.р.ж. - потери природного газа при регенерации технических жидкостей",
                               required=False,
-                              widget=forms.NumberInput(attrs={'class': 'js-calculated table_content_rd_rtp_input'}))
+                              widget=forms.NumberInput(attrs={'class': 'js-pgr_sh table_content_rd_rtp_input'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False,
                                       widget=forms.NumberInput(attrs={'style': 'display: None'})
                                       )

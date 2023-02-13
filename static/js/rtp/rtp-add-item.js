@@ -26,11 +26,7 @@ deleteButton.addEventListener('click', deleteForm);
 function deleteForm(e){
     e.preventDefault()
     let itemsForm = document.querySelectorAll(".items-form");
-    console.log(formNum);
-    for (let i = 0; i<itemsForm.length; i++){
-        console.log(itemsForm[i]);
-    }
-    console.log(itemsForm);
+
     container.removeChild(itemsForm[formNum]);
     formNum--;
     totalForms.setAttribute('value', `${formNum}`);
