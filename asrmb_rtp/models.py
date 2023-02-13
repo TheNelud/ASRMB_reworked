@@ -62,6 +62,7 @@ class TeclossesTwo(models.Model):
 
 class MeterReading30P1(models.Model):
     id = models.BigAutoField(primary_key=True)
+    date = models.DateTimeField()
     num_one = models.FloatField()
     num_two = models.FloatField()
     date_create = models.DateTimeField(auto_now_add=True)

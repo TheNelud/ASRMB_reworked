@@ -1,7 +1,5 @@
 let input_rtp = document.querySelectorAll('.js-calculated');
-// for (let i=0; i<input_rtp.length; i++) {
-//     input_rtp[i].value = 0;
-// }
+console.log(input_rtp)
 
 input_rtp[0].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
 input_rtp[1].addEventListener('input', function (){calculated_vop();calculated_pr_op();});

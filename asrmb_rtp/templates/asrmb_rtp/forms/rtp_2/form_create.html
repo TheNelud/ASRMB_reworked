@@ -38,7 +38,7 @@
     <div class="base_content print" id='print'>
         <div class="table_content_rtp" style="left: 30%">
             <p class="title_form">Создать запись</p>
-            <form action="" method="post" id="form_rtp_1" autocomplete="off">
+            <form action="" method="post" id="form_rtp_1" >
                 {% csrf_token %}
                 <table>
                     <thead>
@@ -55,13 +55,13 @@
                     <tbody>
 {#                        {% for form in meter_reading_form %}#}
                             <tr>
-                                <td class="table_content_td_rtp" ><input type="date" class="js-date" name="form-0-num_one" step="any" id="id_form-0-date_update"></td>
+                                <td class="table_content_td_rtp" ><input type="date" class="js-date" name="form-0-num_one" step="any" id="id_form-0-date"></td>
                                 <td class="table_content_td_rtp"><input type="number" class="js-num_one" name="form-0-num_one" step="any" id="id_form-0-num_one"></td>
                                 <td class="table_content_td_rtp"><input type="number" class="js-num_two" name="form-0-num_one" step="any" id="id_form-0-num_two"></td>
                                 <td class="table_content_td_rtp"></td>
                             </tr>
                             <tr>
-                                <td class="table_content_td_rtp"><input type="date"  class="js-date" name="form-1-num_one" step="any" id="id_form-1-date_update"></td>
+                                <td class="table_content_td_rtp"><input type="date"  class="js-date" name="form-1-num_one" step="any" id="id_form-1-date"></td>
                                 <td class="table_content_td_rtp"><input type="number" class="js-num_one" name="form-1-num_one" step="any" id="id_form-1-num_one"></td>
                                 <td class="table_content_td_rtp"><input type="number" class="js-num_two" name="form-1-num_one" step="any" id="id_form-1-num_two"></td>
                                 <td class="table_content_td_rtp"></td>
@@ -97,34 +97,27 @@
                     </tr>
                     </thead>
 
-
-                    {{ form_set.management_form }}
                     <tbody id="items-form-container">
+                        {{ form_set.management_form }}
                         {% for form in form_set %}
-                        <tr id="item-{{ forloop.counter0 }}">
-                            <td> {{ form.name }}</td>
-                            <td> {{ form.qgr_sh }}</td>
-                            <td> {{ form.ng_prod }}</td>
-                            <td> {{ form.ng_pl }}</td>
-                            <td> {{ form.xg_prod }}</td>
-                            <td> {{ form.pgr_sh }}</td>
-                        </tr>
+
+                            <tr class="items-form">
+                                <td class="table_content_td_rtp"> {{ form.name }}</td>
+                                <td class="table_content_td_rtp"> {{ form.qgr_sh }}</td>
+                                <td class="table_content_td_rtp"> {{ form.ng_prod }}</td>
+                                <td class="table_content_td_rtp"> {{ form.ng_pl }}</td>
+                                <td class="table_content_td_rtp"> {{ form.xg_prod }}</td>
+                                <td class="table_content_td_rtp"> {{ form.pgr_sh }}</td>
+                            </tr>
+
                         {% endfor %}
                     </tbody>
+
                 </table>
 
-
-                <script type="text/html" id="item-template">
-                            <tr id="item-__prefix__">
-                                {% for form in form_set.empty_form %}
-                                    <td> {{ form }}</td>
-                                {% endfor %}
-                            </tr>
-                </script>
-
-
-                <button type="button" id="add-item-button" class="add-item">+</button>
-
+                <a href="#" id="add-item" type="button" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(0,58,255);transform: ;msFilter:;"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg>
+                </a>
 
 
                 <script type="text/javascript" src="{% static 'js/rtp/rtp-2.js'%}" ></script>

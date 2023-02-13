@@ -55,7 +55,9 @@ class TeclossesOneForm(ModelForm):
 
 TeclossesOneModelFormSet = modelformset_factory(model=TeclossesOne,
                                                 form=TeclossesOneForm,
-                                                extra=0)
+                                                fields=('name', 'v', 'pn', 'tn', 'zn', 'press_pk', 'tk', 'zk', 'v_op',
+                                                        'ng_prod', 'ng_nl', 'xg_prod', 'n', 'pn_op', 'mol'),
+                                                extra=1)
 
 ''' 
 2. Технологические потери природного газа при регенерации технических жидкостей (МЭГа), м3 (п. 4.3.2)';
@@ -88,11 +90,12 @@ class TeclossesTwoForm(ModelForm):
         fields = ['name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh']
 
 
-TeclossesTwoFormSet = formset_factory(form=TeclossesTwoForm,
-                                      extra=1)
+# TeclossesTwoFormSet = formset_factory(form=TeclossesTwoForm,
+#                                       extra=1)
 TeclossesTwoModelFormSet = modelformset_factory(model=TeclossesTwo,
                                                 form=TeclossesTwoForm,
-                                                extra=0)
+                                                fields=('name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh'),
+                                                extra=1)
 
 ''' 
 показания счетчиков 30Р-1
@@ -100,8 +103,9 @@ TeclossesTwoModelFormSet = modelformset_factory(model=TeclossesTwo,
 
 
 class MeterReading30P1Form(ModelForm):
-    num_one = forms.FloatField()
-    num_two = forms.FloatField()
+    date = forms.DateTimeField(required=False)
+    num_one = forms.FloatField(required=False)
+    num_two = forms.FloatField(required=False)
     date_create = forms.DateTimeField(label='Дата создания', required=False, )
     date_update = forms.DateTimeField(label='Дата обновления', required=False, )
 
@@ -114,7 +118,7 @@ MeterReading30P1FormSet = formset_factory(form=MeterReading30P1Form,
                                           extra=3)
 MeterReading30P1ModelFormSet = modelformset_factory(model=MeterReading30P1,
                                                     form=MeterReading30P1Form,
-                                                    extra=0)
+                                                    extra=2)
 
 ''' 
  3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)';

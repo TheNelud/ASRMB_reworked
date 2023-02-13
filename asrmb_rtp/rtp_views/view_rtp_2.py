@@ -33,15 +33,17 @@ def rtp_2(request):
 
 def rtp_2_create(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
-    meter_reading_form = MeterReading30P1FormSet()
+    meter_reading_form = MeterReading30P1ModelFormSet(queryset=MeterReading30P1.objects.none())
+    form_set = TeclossesTwoModelFormSet(queryset=TeclossesTwo.objects.none())
 
-    form_set = TeclossesTwoFormSet()
-    for form in form_set:
-        print(form)
     if request.method == 'POST':
-        form_set = TeclossesTwoFormSet(request.POST)
-        print('Форма валидна: ' + str(form_set.is_valid()))
-        if form_set.is_valid():
+
+        meter_reading_form = MeterReading30P1ModelFormSet(request.POST)
+        form_set = TeclossesTwoModelFormSet(data=request.POST)
+
+        print('Форма валидна: ' + str(form_set.is_valid()) + str(meter_reading_form.is_valid()))
+        if form_set.is_valid() and meter_reading_form.is_valid():
+            meter_reading_form.save()
             form_set.save()
             return redirect('rtp_2')
 
@@ -56,7 +58,6 @@ def rtp_2_create(request):
 def rtp_2_edit(request, date_rtp_2):
     rtp_2_items = TeclossesTwo.objects.filter(
         date_create__contains=date_rtp_2).order_by('date_update')
-
 
     if not rtp_2_items:
         raise Http404("Нет данных")

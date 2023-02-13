@@ -1,19 +1,21 @@
+let itemsForm = document.querySelectorAll(".items-form");
+let container = document.querySelector("#items-form-container");
+let addButton = document.querySelector("#add-item");
+let totalForms = document.querySelector("#id_form-TOTAL_FORMS");
 
-$(document).ready(function() {
-    $('.add-item').click(function(ev) {
-        console.log("хуй")
-        ev.preventDefault();
-        let count = $('#items-form-container').children().length;
-        let tmplMarkup = $('#item-template').html();
-        let compiledTmpl = tmplMarkup.replace(/__prefix__/g, count);
-        $('tbody#items-form-container').append(compiledTmpl);
+let formNum = itemsForm.length-1;
 
-        // update form count
-        $('#id_item_items-TOTAL_FORMS').attr('value', count+1);
+addButton.addEventListener('click', addForm);
 
-        // some animate to scroll to view our new form
-        $('html, body').animate({
-                scrollTop: $("#add-item-button").position().top-200
-            }, 800);
-    });
-});
+function addForm(e){
+    e.preventDefault();
+
+    let newForm = itemsForm[0].cloneNode(true);
+    let formRegex = RegExp(`form-(\\d){1}-`,'g');
+
+    formNum++;
+    newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`);
+    container.insertBefore(newForm, itemsForm[formNum]);
+
+    totalForms.setAttribute('value', `${formNum+1}`);
+}
