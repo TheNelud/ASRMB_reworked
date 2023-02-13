@@ -1,6 +1,7 @@
 let itemsForm = document.querySelectorAll(".items-form");
 let container = document.querySelector("#items-form-container");
 let addButton = document.querySelector("#add-item");
+let deleteButton =document.querySelector("#delete-item")
 let totalForms = document.querySelector("#id_form-TOTAL_FORMS");
 
 let formNum = itemsForm.length-1;
@@ -19,3 +20,20 @@ function addForm(e){
 
     totalForms.setAttribute('value', `${formNum+1}`);
 }
+
+deleteButton.addEventListener('click', deleteForm);
+
+function deleteForm(e){
+    e.preventDefault()
+    let itemsForm = document.querySelectorAll(".items-form");
+    console.log(formNum);
+    for (let i = 0; i<itemsForm.length; i++){
+        console.log(itemsForm[i]);
+    }
+    console.log(itemsForm);
+    container.removeChild(itemsForm[formNum]);
+    formNum--;
+    totalForms.setAttribute('value', `${formNum}`);
+}
+
+
