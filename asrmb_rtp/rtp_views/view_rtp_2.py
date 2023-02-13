@@ -34,11 +34,12 @@ def rtp_2(request):
 def rtp_2_create(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
     meter_reading_form = MeterReading30P1FormSet()
-    for form in meter_reading_form:
+
+    form_set = TeclossesTwoFormSet()
+    for form in form_set:
         print(form)
-    form_set = TeclossesTwoForm()
     if request.method == 'POST':
-        form_set = TeclossesTwoForm(request.POST)
+        form_set = TeclossesTwoFormSet(request.POST)
         print('Форма валидна: ' + str(form_set.is_valid()))
         if form_set.is_valid():
             form_set.save()

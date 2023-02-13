@@ -88,6 +88,8 @@ class TeclossesTwoForm(ModelForm):
         fields = ['name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh']
 
 
+TeclossesTwoFormSet = formset_factory(form=TeclossesTwoForm,
+                                      extra=1)
 TeclossesTwoModelFormSet = modelformset_factory(model=TeclossesTwo,
                                                 form=TeclossesTwoForm,
                                                 extra=0)
