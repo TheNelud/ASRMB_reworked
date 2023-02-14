@@ -80,7 +80,7 @@ class MeterReading30P1(models.Model):
 
 class TeclossesTree(models.Model):
     id = models.BigAutoField(primary_key=True)
-    name = models.CharField(max_length=255)
+    type_of_analysis = models.CharField(max_length=255)
     v_pr = models.FloatField()
     p_pr = models.FloatField()
     t_pr = models.FloatField()

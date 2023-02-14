@@ -1,39 +1,143 @@
-let input_rtp = document.querySelectorAll('.js-calculated');
-console.log(input_rtp)
+function calculated() {
+    let in_v = document.querySelectorAll('.js-v');
+    let in_pn = document.querySelectorAll('.js-pn');
+    let in_tn = document.querySelectorAll('.js-tn');
+    let in_zn = document.querySelectorAll('.js-zn');
+    let in_press_pk = document.querySelectorAll('.js-press_pk');
+    let in_tk = document.querySelectorAll('.js-tk');
+    let in_zk = document.querySelectorAll('.js-zk');
+    let in_v_op = document.querySelectorAll('.js-v_op');
+    let in_ng_prod = document.querySelectorAll('.js-ng_prod');
+    let in_ng_nl = document.querySelectorAll('.js-ng_nl');
+    let in_xg_prod = document.querySelectorAll('.js-xg_prod');
+    let in_n = document.querySelectorAll('.js-n');
+    let in_pn_op = document.querySelectorAll('.js-pn_op');
+    let in_mol = document.querySelectorAll('.js-mol');
 
-input_rtp[0].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
-input_rtp[1].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
-input_rtp[2].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
-input_rtp[3].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
-input_rtp[4].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
-input_rtp[5].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
-input_rtp[6].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
-input_rtp[11].addEventListener('input', function (){calculated_vop();calculated_pr_op();});
 
-input_rtp[9].addEventListener('input', function (){calculated_xr_prod();calculated_pr_op();});
+    for (let i = 0; i < in_v.length; i++) {
+        in_v[i].addEventListener('input', function () {
+            calculated_vop(i);
+            calculated_pr_op(i);
+        });
+    }
+    for (let i = 0; i < in_pn.length; i++) {
+        in_pn[i].addEventListener('input', function () {
+            calculated_vop(i);
+            calculated_pr_op(i);
+        });
+    }
+    for (let i = 0; i < in_tn.length; i++) {
+        in_tn[i].addEventListener('input', function () {
+            calculated_vop(i);
+            calculated_pr_op(i);
+        });
+    }
+    for (let i = 0; i < in_zn.length; i++) {
+        in_zn[i].addEventListener('input', function () {
+            calculated_vop(i);
+            calculated_pr_op(i);
+        });
+    }
+    for (let i = 0; i < in_press_pk.length; i++) {
+        in_press_pk[i].addEventListener('input', function () {
+            calculated_vop(i);
+            calculated_pr_op(i);
+        });
+    }
+    for (let i = 0; i < in_tk.length; i++) {
+        in_tk[i].addEventListener('input', function () {
+            calculated_vop(i);
+            calculated_pr_op(i);
+        });
+    }
 
-input_rtp[13].addEventListener('input', function (){input_rtp[8].value = input_rtp[13].value;calculated_pr_op();})
+    for (let i = 0; i < in_zk.length; i++) {
+        in_zk[i].addEventListener('input', function () {
+            calculated_vop(i);
+            calculated_pr_op(i);
+        });
+    }
 
-calculated_vop();
-function calculated_vop(){
-    input_rtp[7].value = (2893 * Number(input_rtp[0].value) *
-        ((Number(input_rtp[1].value) / (Number(input_rtp[2].value)*Number(input_rtp[3].value))) -
-            (Number(input_rtp[4].value) / (Number(input_rtp[5].value) * Number(input_rtp[6].value)))) *
-            Number(input_rtp[11].value)).toFixed(3);
-}
+    for (let i = 0; i < in_n.length; i++) {
+        in_n[i].addEventListener('input', function () {
+            calculated_vop(i);
+            calculated_pr_op(i);
+        });
+    }
 
-function calculated_xr_prod(){
-    if (Number(input_rtp[9].value) === 0){
-        input_rtp[10].value = 0;
+    for (let i = 0; i < in_ng_nl.length; i++) {
+        in_ng_nl[i].addEventListener('input', function () {
+            calculated_xr_prod(i);
+            calculated_pr_op(i);
+        });
+    }
 
-    }else{
-        input_rtp[10].value = (Number(input_rtp[8].value) / Number(input_rtp[9].value)).toFixed(3);
+    for (let i = 0; i < in_mol.length; i++) {
+        in_mol[i].addEventListener('input', function () {
+            in_ng_prod[i].value = in_mol[i].value;
+            calculated_pr_op(i);
+        });
+    }
+
+    function calculated_vop(i) {
+        in_v_op[i].value = (2893 * Number(in_v[i].value) *
+            ((Number(in_pn[i].value) / (Number(in_tn[i].value) * Number(in_zn[i].value))) -
+                (Number(in_press_pk[i].value) / (Number(in_tk[i].value) * Number(in_zk[i].value)))) *
+            Number(in_n[i].value)).toFixed(3);
+    }
+
+    function calculated_xr_prod(i) {
+        if (Number(in_ng_nl[i].value) === 0) {
+            in_xg_prod[i].value = 0;
+
+        } else {
+            in_xg_prod[i].value = (Number(in_ng_prod[i].value) / Number(in_ng_nl[i].value)).toFixed(3);
+        }
+    }
+
+    function calculated_pr_op(i) {
+        in_pn_op[i].value = ((2893 * Number(in_v[i].value) *
+            ((Number(in_pn[i].value) / (Number(in_tn[i].value) * Number(in_zn[i].value))) -
+                (Number(in_press_pk[i].value) / (Number(in_tk[i].value) * Number(in_zk[i].value)))) *
+            Number(in_xg_prod[i].value) * Number(in_n[i].value))).toFixed(3);
     }
 }
 
-function calculated_pr_op(){
-    input_rtp[12].value = (2893 * (2893 * Number(input_rtp[0].value) *
-        ((Number(input_rtp[1].value) / (Number(input_rtp[2].value)*Number(input_rtp[3].value))) -
-            (Number(input_rtp[4].value) / (Number(input_rtp[5].value) * Number(input_rtp[6].value)))) *
-           Number(input_rtp[10].value) * Number(input_rtp[11].value)) ).toFixed(3);
+calculated();
+
+let itemsForm = document.querySelectorAll(".items-form");
+let container = document.querySelector("#items-form-container");
+let addButton = document.querySelector("#add-item");
+let deleteButton =document.querySelector("#delete-item")
+let totalForms = document.querySelector("#id_form-TOTAL_FORMS");
+
+let formNum = itemsForm.length-1;
+
+addButton.addEventListener('click', addForm);
+
+function addForm(e){
+    e.preventDefault();
+
+    let newForm = itemsForm[0].cloneNode(true);
+    let formRegex = RegExp(`form-(\\d){1}-`,'g');
+
+    formNum++;
+    newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`);
+    container.insertBefore(newForm, itemsForm[formNum]);
+
+    totalForms.setAttribute('value', `${formNum+1}`);
+    calculated();
+
+}
+
+deleteButton.addEventListener('click', deleteForm);
+
+function deleteForm(e){
+    e.preventDefault()
+    let itemsForm = document.querySelectorAll(".items-form");
+
+    container.removeChild(itemsForm[formNum]);
+    formNum--;
+    totalForms.setAttribute('value', `${formNum}`);
 }

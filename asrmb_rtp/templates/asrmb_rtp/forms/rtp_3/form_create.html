@@ -20,11 +20,11 @@
                 </li>
 
                 <li>
-                    <a href="{% url 'rtp_1' %}">
+                    <a href="{% url 'rtp_3' %}">
                         <svg  width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg><span class="link_name" style="color:#000;">Назад</span>
                     </a>
                     <ul class="sub-menu blank">
-                        <li><a class="link_name" href="{% url 'rtp_1' %}">Назад</a></li>
+                        <li><a class="link_name" href="{% url 'rtp_3' %}">Назад</a></li>
                     </ul>
                 </li>
             </ul>
@@ -33,63 +33,65 @@
 </div>
 
 {% endblock %}
-{% block content %}
 
+{% block content %}
     <div class="base_content print" id='print'>
-        <div class="table_content_rtp">
+        <div class="table_content_rtp" style="left: 0%">
             <p class="title_form">Создать запись</p>
-            <form action="" method="post" id="form_rtp_1">
+            <form action="" method="post" id="form_rtp_1" >
                 {% csrf_token %}
-                 <table class="table_content_header">
+
+                <table class="table_content_header">
                     <thead>
-                        
-                        <tr>
-                            <th class="table_content_th_rtp" colspan="15">1. Технологические потери природного газа по итогам опорожнения технологического оборудования и трубопроводов перед проведением ремонтных работ, м3 (п.4.2.)</th>
-                        </tr>
-                        <tr>
-                        <th class="table_content_th_rtp">Оборудование</th>
-                        <th class="table_content_th_rtp">V</th>
-                        <th class="table_content_th_rtp">Рн</th>
-                        <th class="table_content_th_rtp">Тн</th>
-                        <th class="table_content_th_rtp">Zн</th>
-                        <th class="table_content_th_rtp">Рк</th>
-                        <th class="table_content_th_rtp">Тк</th>
-                        <th class="table_content_th_rtp">Zk</th>
-                        <th class="table_content_th_rtp">Vоп</th>
-                        <th class="table_content_th_rtp">nг.прод</th>
-                        <th class="table_content_th_rtp">nг.пл</th>
+                    <tr>
+                        <th class="table_content_th_rtp" colspan="17">3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)</th>
+                    </tr>
+                    <tr>
+                        <th class="table_content_th_rtp">вид анализа</th>
+                        <th class="table_content_th_rtp">Vпр</th>
+                        <th class="table_content_th_rtp">Рпр</th>
+                        <th class="table_content_th_rtp">Рпр</th>
+                        <th class="table_content_th_rtp">Tпр</th>
+                        <th class="table_content_th_rtp">Zпр</th>
+                        <th class="table_content_th_rtp">b</th>
+                        <th class="table_content_th_rtp">ni </th>
+                        <th class="table_content_th_rtp">Xг.прод</th>
+                        <th class="table_content_th_rtp">Пг.оп</th>
+                        <th class="table_content_th_rtp">Прибор</th>
+                        <th class="table_content_th_rtp">Vр</th>
+                        <th class="table_content_th_rtp">τ</th>
                         <th class="table_content_th_rtp">Xг.прод</th>
                         <th class="table_content_th_rtp">N</th>
-                        <th class="table_content_th_rtp">Пг.оп</th>
-                        <th class="table_content_th_rtp" style="width: 200px">Мольная доля С1-С4  % согласно справкам ХАЛ </th>
+                        <th class="table_content_th_rtp">Пг.пот</th>
+                        <th class="table_content_th_rtp">Пг.пр</th>
+
                     </tr>
                     </thead>
+
                     <tbody id="items-form-container">
                         {{ form_set.management_form }}
                         {% for form in form_set %}
                             <tr class="items-form">
-                                <td class="table_content_td_rtp"> {{ form.name }}</td>
-                                <td class="table_content_td_rtp"> {{ form.v }}</td>
-                                <td class="table_content_td_rtp"> {{ form.pn }}</td>
-                                <td class="table_content_td_rtp"> {{ form.tn }}</td>
-                                <td class="table_content_td_rtp"> {{ form.zn }}</td>
-                                <td class="table_content_td_rtp"> {{ form.press_pk }}</td>
-                                <td class="table_content_td_rtp"> {{ form.tk }}</td>
-                                <td class="table_content_td_rtp"> {{ form.zk }}</td>
-                                <td class="table_content_td_rtp"> {{ form.v_op }}</td>
-                                <td class="table_content_td_rtp"> {{ form.ng_prod }}</td>
-                                <td class="table_content_td_rtp"> {{ form.ng_nl }}</td>
-                                <td class="table_content_td_rtp"> {{ form.xg_prod }}</td>
-                                <td class="table_content_td_rtp"> {{ form.n }}</td>
-                                <td class="table_content_td_rtp"> {{ form.pn_op }}</td>
-                                <td class="table_content_td_rtp"> {{ form.mol }}</td>
-
+                                <td class="table_content_td_rtp">{{form.type_of_analysis}}</td>
+                                <td class="table_content_td_rtp">{{form.v_pr}}</td>
+                                <td class="table_content_td_rtp">{{form.p_pr}}</td>
+                                <td class="table_content_td_rtp">{{form.t_pr}}</td>
+                                <td class="table_content_td_rtp">{{form.z_pr}}</td>
+                                <td class="table_content_td_rtp">{{form.b}}</td>
+                                <td class="table_content_td_rtp">{{form.ni}}</td>
+                                <td class="table_content_td_rtp">{{form.xr_prod}}</td>
+                                <td class="table_content_td_rtp">{{form.pr_op}}</td>
+                                <td class="table_content_td_rtp">{{form.device}}</td>
+                                <td class="table_content_td_rtp">{{form.v_p}}</td>
+                                <td class="table_content_td_rtp">{{form.tau}}</td>
+                                <td class="table_content_td_rtp">{{form.xrr_prod}}</td>
+                                <td class="table_content_td_rtp">{{form.n}}</td>
+                                <td class="table_content_td_rtp">{{form.pr_pot}}</td>
+                                <td class="table_content_td_rtp">{{form.pr_pr}}</td>
                             </tr>
                         {% endfor %}
-
                     </tbody>
                 </table>
-
                 <a href="#" id="add-item" type="button" style="text-decoration: none;" >
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(0,58,255);transform: ;msFilter:;"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg>
                 </a>
@@ -97,13 +99,9 @@
                 <a href="#" id="delete-item" type="button" style="text-decoration: none;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(253,2,2);transform: ;msFilter:;"><path d="M5 11h14v2H5z"></path></svg>
                 </a>
-
-                <script type="text/javascript" src="{% static 'js/rtp/rtp-1.js'%}" ></script>
-{#                <script type="text/javascript" src="{% static 'js/rtp/rtp-add-item.js'%}" ></script>#}
-
             </form>
         </div>
     </div>
+
+
 {% endblock %}
-
-

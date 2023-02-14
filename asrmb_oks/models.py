@@ -190,3 +190,15 @@ class P10ProtokolKGN(models.Model):
     class Meta:
         managed = False
         db_table = 'p10_protokol_kng'
+
+
+class NrProd(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    nr_prod_c1_c4_p4 = models.FloatField()
+    nk_prod_c5_c6 = models.FloatField()
+    date_create = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        managed = False
+        db_table = 'nr_prod'

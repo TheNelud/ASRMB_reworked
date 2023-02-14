@@ -125,12 +125,25 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
+,
+    'rp_p_result_constant': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'OPTIONS': {
+            'options': '-c search_path=rp_p_result_constant,public'
+        },
+        'NAME': 'asrmb',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 
 }
 
 
 DATABASE_ROUTERS = ('asrmb_raports.db_router.Raport_db_router',
                     'asrmb_oks.db_router.Rp_p_component_composition_db_router',
+                    'asrmb_oks.db_router.Rp_p_result_constant_db_router',
                     'asrmb_rtp.db_router.Rp_p_calc_gas_and_cond_losses_db_router',
                     )
 

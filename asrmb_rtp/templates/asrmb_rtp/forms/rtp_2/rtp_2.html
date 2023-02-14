@@ -25,12 +25,12 @@
                 </a>
             </li>
             <li>
-                <a href="{% url 'rtp_2_create' %}">
+                <a href="{% url 'rtp_2_create' url_rtp_2 %}">
                     <svg width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M5 21h14a2 2 0 0 0 2-2V8a1 1 0 0 0-.29-.71l-4-4A1 1 0 0 0 16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm10-2H9v-5h6zM13 7h-2V5h2zM5 5h2v4h8V5h.59L19 8.41V19h-2v-5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v5H5z"></path></svg>
                     <span class="link_name" style="color:#000;">Добавить</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{% url 'rtp_2_create' %}">Добавить</a></li>
+                    <li><a class="link_name" href="{% url 'rtp_2_create' url_rtp_2 %}">Добавить</a></li>
                 </ul>
             </li>
             <li>
@@ -95,21 +95,21 @@
                     {% for rtp_item in rtp_2_items%}
                         <tr>
                             <td class="table_content_td_rtp"><span>{{rtp_item.name|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.qgr_sh|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span class="js-qgr_sh">{{rtp_item.qgr_sh|default_if_none:"-"}}</span></td>
                             <td class="table_content_td_rtp"><span>{{rtp_item.ng_prod|default_if_none:"-"}}</span></td>
                             <td class="table_content_td_rtp"><span>{{rtp_item.ng_pl|default_if_none:"-"}}</span></td>
                             <td class="table_content_td_rtp"><span>{{rtp_item.xg_prod|default_if_none:"-"}}</span></td>
-                            <td class="table_content_td_rtp"><span>{{rtp_item.pgr_sh|default_if_none:"-"}}</span></td>
+                            <td class="table_content_td_rtp"><span class="js-pgr_sh">{{rtp_item.pgr_sh|default_if_none:"-"}}</span></td>
                         </tr>
                     {% endfor %}
 
                     <tr>
                         <td class="table_content_th_rtp"><span>Итог : </span></td>
+                        <td class="table_content_th_rtp"><span class="js-qgr_sh"> </span></td>
                         <td class="table_content_th_rtp"><span> </span></td>
                         <td class="table_content_th_rtp"><span> </span></td>
                         <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
-                        <td class="table_content_th_rtp"><span> </span></td>
+                        <td class="table_content_th_rtp"><span class="js-pgr_sh"> </span></td>
                     </tr>
                 </tbody>
             </table>
@@ -123,6 +123,6 @@
              </form>
          </div>
     </div>
+    <script type="text/javascript" src="{% static 'js/rtp/rtp-2-summa.js'%}" ></script>
 
-    <script type="text/javascript" src="{% static 'js/rtp/rtp-add-item.js'%}" ></script>
 {% endblock %}

@@ -33,6 +33,13 @@ def rtp_1(request):
 
 def rtp_1_create(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
+    TeclossesOneModelFormSet = modelformset_factory(model=TeclossesOne,
+                                                    form=TeclossesOneForm,
+                                                    fields=(
+                                                        'name', 'v', 'pn', 'tn', 'zn', 'press_pk', 'tk', 'zk', 'v_op',
+                                                        'ng_prod', 'ng_nl', 'xg_prod', 'n', 'pn_op', 'mol'),
+                                                    extra=1)
+
     form_set = TeclossesOneModelFormSet(queryset=TeclossesOne.objects.none())
     if request.method == 'POST':
         form_set = TeclossesOneModelFormSet(data=request.POST)
@@ -51,24 +58,24 @@ def rtp_1_create(request):
 def rtp_1_edit(request, date_rtp_1):
     rtp_1_items = TeclossesOne.objects.filter(
         date_create__contains=date_rtp_1).order_by('date_update')
-
+    TeclossesOneModelFormSet = modelformset_factory(model=TeclossesOne,
+                                                    form=TeclossesOneForm,
+                                                    fields=(
+                                                        'name', 'v', 'pn', 'tn', 'zn', 'press_pk', 'tk', 'zk', 'v_op',
+                                                        'ng_prod', 'ng_nl', 'xg_prod', 'n', 'pn_op', 'mol'),
+                                                    extra=0)
 
     if not rtp_1_items:
         raise Http404("Нет данных")
 
     if request.method == 'POST':
         form_set = TeclossesOneModelFormSet(request.POST)
-
         print('Форма валидна: ' + str(form_set.is_valid()))
-        print(form_set.as_table())
         if form_set.is_valid():
             form_set.save()
             return redirect('rtp_1')
-
     else:
         form_set = TeclossesOneModelFormSet(queryset=rtp_1_items)
-
-        print(form_set.as_table())
 
     context = {
         'just_day': date_rtp_1,

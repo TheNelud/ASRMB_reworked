@@ -9,15 +9,19 @@ from ..models import *
 from ..forms import *
 
 
+
 def oks_p4(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
     oks_p4_items = P4GasCompositionToTheProtocol.objects.filter(
         date_create__contains=max_date_now).order_by('date_update')[:12]
+    ng_prod_items = NrProd.objects.filter(date_create__contains=max_date_now).order_by('date_update')[:1]
 
     url_oks_p4 = max_date_now
     if request.method == "POST":
         oks_p4_items = P4GasCompositionToTheProtocol.objects.filter(
             date_create__contains=request.POST.get('date_create', '')).order_by('date_update')[:12]
+        ng_prod_items = NrProd.objects.filter(
+            date_create__contains=request.POST.get('date_create', '')).order_by('date_update')[:1]
         url_oks_p4 = request.POST.get('date_create', '')
     if oks_p4_items.values():
         just_day = oks_p4_items.values()[0]['date_create']
@@ -27,6 +31,7 @@ def oks_p4(request):
     context = {
         'max_date_now': max_date_now,
         'oks_p4_items': oks_p4_items,
+        'ng_prod_items': ng_prod_items,
         'just_day': just_day,
         'url_oks_p4': url_oks_p4,
     }
@@ -36,10 +41,14 @@ def oks_p4(request):
 def oks_p4_create(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
     form_set = P4GasCompositionToTheProtocolFormSet()
+    form_ng_prod = NrProdForm()
+    print(form_ng_prod.as_p())
     if request.method == 'POST':
         form_set = P4GasCompositionToTheProtocolFormSet(request.POST)
-        print('Форма валидна: ' + str(form_set.is_valid()))
-        if form_set.is_valid():
+        form_ng_prod = NrProdForm(request.POST)
+        print('Форма валидна: ' + str(form_set.is_valid()) + str(form_ng_prod.is_valid()))
+        if form_set.is_valid() and form_ng_prod.is_valid():
+            form_ng_prod.save()
             for form in form_set:
                 form.save()
             return redirect('oks_p4')
@@ -47,6 +56,7 @@ def oks_p4_create(request):
     context = {
         'max_date_now': max_date_now,
         'form_set': form_set,
+        'form_ng_prod': form_ng_prod
     }
     return render(request, 'asrmb_oks/forms/oks_p4/form_create.html', context)
 

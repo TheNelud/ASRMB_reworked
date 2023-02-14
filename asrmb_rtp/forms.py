@@ -3,6 +3,7 @@ from .models import *
 from django.forms import ModelForm, modelformset_factory, formset_factory
 from django import forms
 
+
 ''' 1. Технологические потери природного газа по итогам опорожнения технологического
  оборудования и трубопроводов перед проведением ремонтных работ, м3 (п.4.2.)';
  '''
@@ -53,11 +54,11 @@ class TeclossesOneForm(ModelForm):
                   'ng_prod', 'ng_nl', 'xg_prod', 'n', 'pn_op', 'mol']
 
 
-TeclossesOneModelFormSet = modelformset_factory(model=TeclossesOne,
-                                                form=TeclossesOneForm,
-                                                fields=('name', 'v', 'pn', 'tn', 'zn', 'press_pk', 'tk', 'zk', 'v_op',
-                                                        'ng_prod', 'ng_nl', 'xg_prod', 'n', 'pn_op', 'mol'),
-                                                extra=1)
+# TeclossesOneModelFormSet = modelformset_factory(model=TeclossesOne,
+#                                                 form=TeclossesOneForm,
+#                                                 fields=('name', 'v', 'pn', 'tn', 'zn', 'press_pk', 'tk', 'zk', 'v_op',
+#                                                         'ng_prod', 'ng_nl', 'xg_prod', 'n', 'pn_op', 'mol'),
+#                                                 extra=0)
 
 ''' 
 2. Технологические потери природного газа при регенерации технических жидкостей (МЭГа), м3 (п. 4.3.2)';
@@ -92,10 +93,10 @@ class TeclossesTwoForm(ModelForm):
 
 # TeclossesTwoFormSet = formset_factory(form=TeclossesTwoForm,
 #                                       extra=1)
-TeclossesTwoModelFormSet = modelformset_factory(model=TeclossesTwo,
-                                                form=TeclossesTwoForm,
-                                                fields=('name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh'),
-                                                extra=1)
+# TeclossesTwoModelFormSet = modelformset_factory(model=TeclossesTwo,
+#                                                 form=TeclossesTwoForm,
+#                                                 fields=('name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh'),
+#                                                 extra=1)
 
 ''' 
 показания счетчиков 30Р-1
@@ -126,7 +127,7 @@ MeterReading30P1ModelFormSet = modelformset_factory(model=MeterReading30P1,
 
 
 class TeclossesTreeForm(ModelForm):
-    name = forms.CharField(label="Вид анализа", max_length=255, required=False)
+    type_of_analysis = forms.CharField(label="Вид анализа", max_length=255, required=False)
     v_pr = forms.FloatField(label="Vпр - геометрический объем пробоотборника для анализа i-го вида", required=False)
     p_pr = forms.FloatField(label="Рпр - давление в пробоотборнике для анализа i-го вида", required=False)
     t_pr = forms.FloatField(label="Tпр - температура в пробоотборнике для анализа i-го вида", required=False)
@@ -150,5 +151,5 @@ class TeclossesTreeForm(ModelForm):
 
     class Meta:
         model = TeclossesTree
-        fields = ['name', 'v_pr', 'p_pr', 't_pr', 'z_pr', 'b', 'ni',
+        fields = ['type_of_analysis', 'v_pr', 'p_pr', 't_pr', 'z_pr', 'b', 'ni',
                   'xr_prod', 'device', 'tau', 'xrr_prod', 'n']

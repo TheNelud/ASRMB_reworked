@@ -1,6 +1,6 @@
 from .models import *
 from django import forms
-from django.forms import ModelForm, TextInput, inlineformset_factory
+from django.forms import ModelForm
 from django.forms import formset_factory, modelformset_factory
 
 
@@ -290,3 +290,17 @@ P10ProtokolKGNFormSet = formset_factory(P10ProtokolKGNForm,
 P10ModelFormSet = modelformset_factory(model=P10ProtokolKGN,
                                        form=P10ProtokolKGNForm,
                                        extra=42)
+
+
+class NrProdForm(ModelForm):
+    nr_prod_c1_c4_p4 = forms.FloatField(required=False,
+                                        widget=forms.NumberInput(attrs={'class': 'js-nr_prod'}))
+    nk_prod_c5_c6 = forms.FloatField(required=False,
+                                     widget=forms.NumberInput(attrs={'class': 'js-nk_prod'}))
+
+    date_create = forms.DateTimeField(label='Дата создания', required=False)
+    date_update = forms.DateTimeField(label='Дата обновления', required=False)
+
+    class Meta:
+        model = NrProd
+        fields = ['nr_prod_c1_c4_p4', 'nk_prod_c5_c6']

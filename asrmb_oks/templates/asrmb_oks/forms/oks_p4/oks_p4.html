@@ -96,6 +96,16 @@
                 </tbody>
             </table>
         </div>
+
+        <div>
+            {% for ng_prod_item in ng_prod_items %}
+            <span>nr.прод = </span><span>{{ ng_prod_item.nr_prod_c1_c4_p4 }}</span>
+            <br><span>nk.прод = </span><span> {{ ng_prod_item.nk_prod_c5_c6 }}</span>
+            {% endfor %}
+        </div>
+
+
+
         <div id="delete_oks">
             <a href="#" class="close_okno">x</a><br>
             Удалить запись
