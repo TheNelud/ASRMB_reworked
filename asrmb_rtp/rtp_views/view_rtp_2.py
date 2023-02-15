@@ -69,7 +69,10 @@ def rtp_2_create(request, date_rtp_2):
 def rtp_2_edit(request, date_rtp_2):
     rtp_2_items = TeclossesTwo.objects.filter(
         date_create__contains=date_rtp_2).order_by('date_update')
-
+    TeclossesTwoModelFormSet = modelformset_factory(model=TeclossesTwo,
+                                                    form=TeclossesTwoForm,
+                                                    fields=('name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh'),
+                                                    extra=0)
     if not rtp_2_items:
         raise Http404("Нет данных")
 
@@ -84,12 +87,14 @@ def rtp_2_edit(request, date_rtp_2):
 
     else:
         form_set = TeclossesTwoModelFormSet(queryset=rtp_2_items)
-
+        meter_reading_form = MeterReading30P1ModelFormSet(queryset=MeterReading30P1.objects.filter(
+            date_create__contains=date_rtp_2).order_by('date_update'))
         print(form_set.as_table())
 
     context = {
         'just_day': date_rtp_2,
         'form_set': form_set,
+        'meter_reading_form':meter_reading_form,
     }
     return render(request, 'asrmb_rtp/forms/rtp_2/form_edit.html', context)
 

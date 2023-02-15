@@ -34,13 +34,13 @@ def rtp_3(request):
 
 def rtp_3_create(request):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
-
     TeclossesTreeModelFormSet = modelformset_factory(model=TeclossesTree,
                                                      form=TeclossesTreeForm,
                                                      fields=(
-                                                         'type_of_analysis', 'v_pr', 'p_pr', 't_pr', 'z_pr', 'b', 'ni',
-                                                         'xr_prod', 'device', 'tau', 'xrr_prod', 'n'),
-                                                     extra=2)
+                                                        'type_of_analysis', 'v_pr', 'p_pr', 't_pr','z_pr', 'b', 'ni',
+                                                        'xr_prod', 'pr_op', 'device', 'v_p', 'tau', 'xrr_prod', 'n',
+                                                        'pr_pot', 'pr_pr'),
+                                                     extra=1)
     form_set = TeclossesTreeModelFormSet(queryset=TeclossesTree.objects.none())
 
     if request.method == 'POST':

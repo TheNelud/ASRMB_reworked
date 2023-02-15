@@ -1,0 +1,122 @@
+{%extends 'asrmb_main/base.html' %}
+{% load static %}
+{% block sidebar %}
+
+    <div class="tabs">
+<input type="radio" name="tab-btn" id="tab-btn-1" value="" checked>
+<label for="tab-btn-1">Функционал</label>
+<input type="radio" name="tab-btn" id="tab-btn-2" value="">
+<label for="tab-btn-2">Таблицы</label>
+
+
+    <div id="content-1">
+        <ul class="nav-links">
+            <li>
+                <a href="#"  onclick="document.getElementById('form_rtp_2').submit()" >
+                    <svg  width="60" height="60" viewBox="0 0 24 24" style="fill:rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M10 11H7.101l.001-.009a4.956 4.956 0 0 1 .752-1.787 5.054 5.054 0 0 1 2.2-1.811c.302-.128.617-.226.938-.291a5.078 5.078 0 0 1 2.018 0 4.978 4.978 0 0 1 2.525 1.361l1.416-1.412a7.036 7.036 0 0 0-2.224-1.501 6.921 6.921 0 0 0-1.315-.408 7.079 7.079 0 0 0-2.819 0 6.94 6.94 0 0 0-1.316.409 7.04 7.04 0 0 0-3.08 2.534 6.978 6.978 0 0 0-1.054 2.505c-.028.135-.043.273-.063.41H2l4 4 4-4zm4 2h2.899l-.001.008a4.976 4.976 0 0 1-2.103 3.138 4.943 4.943 0 0 1-1.787.752 5.073 5.073 0 0 1-2.017 0 4.956 4.956 0 0 1-1.787-.752 5.072 5.072 0 0 1-.74-.61L7.05 16.95a7.032 7.032 0 0 0 2.225 1.5c.424.18.867.317 1.315.408a7.07 7.07 0 0 0 2.818 0 7.031 7.031 0 0 0 4.395-2.945 6.974 6.974 0 0 0 1.053-2.503c.027-.135.043-.273.063-.41H22l-4-4-4 4z"></path></svg>
+                    <span class="link_name" style="color:#000;">Сохранить</span>
+                    <ul class="sub-menu blank">
+                        <li><a class="link_name" href="#" onclick="document.getElementById('form_rtp_2').submit()" >Сохранить</a></li>
+                    </ul>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'rtp_2' %}">
+                    <svg  width="60" height="60" viewBox="0 0 24 24" style="fill: rgba(0, 113, 185, 255);transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg><span class="link_name" style="color:#000;">Назад</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="{% url 'rtp_2' %}">Назад</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    {% include 'asrmb_rtp/sidebar_tables.html' %}
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="base_content print" id='print'>
+        <div class="table_content_rtp">
+        <p class="title_form">Редактировать запись</p>
+        <form action="" method="post" id="form_rtp_2">
+            {% csrf_token %}
+            <table>
+                    <thead>
+                        <tr>
+                            <th class="table_content_th_rtp" colspan="4">показания счетчиков 30Р-1</th>
+                        </tr>
+                        <tr>
+                            <th class="table_content_th_rtp">Дата</th>
+                            <th class="table_content_th_rtp">№1</th>
+                            <th class="table_content_th_rtp">№2</th>
+                            <th class="table_content_th_rtp"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+{#                        {% for form in meter_reading_form %}#}
+                            <tr>
+                                <td class="table_content_td_rtp" ><input type="date" class="js-date" name="form-0-num_one" step="any" id="id_form-0-date"></td>
+                                <td class="table_content_td_rtp"><input type="number" class="js-num_one" name="form-0-num_one" step="any" id="id_form-0-num_one"></td>
+                                <td class="table_content_td_rtp"><input type="number" class="js-num_two" name="form-0-num_one" step="any" id="id_form-0-num_two"></td>
+                                <td class="table_content_td_rtp"></td>
+                            </tr>
+                            <tr>
+                                <td class="table_content_td_rtp"><input type="date"  class="js-date" name="form-1-num_one" step="any" id="id_form-1-date"></td>
+                                <td class="table_content_td_rtp"><input type="number" class="js-num_one" name="form-1-num_one" step="any" id="id_form-1-num_one"></td>
+                                <td class="table_content_td_rtp"><input type="number" class="js-num_two" name="form-1-num_one" step="any" id="id_form-1-num_two"></td>
+                                <td class="table_content_td_rtp"></td>
+                            </tr>
+{#                        {% endfor %}#}
+                        <tr>
+                            <td class="table_content_th_rtp">Итог:</td>
+                            <td class="table_content_th_rtp "><input type="number" class="js-num_one" name="form-2-num_one" step="any" id="id_form-2-num_one"></td>
+                            <td class="table_content_th_rtp "><input type="number" class="js-num_two" name="form-2-num_one" step="any" id="id_form-2-num_two"></td>
+                            <td class="table_content_th_rtp "><span class=js-summa-meter_reading></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+             <table class="table_content_header" >
+                 <thead>
+
+                        <tr>
+
+                        <th class="table_content_th_rtp" colspan="6">2. Технологические потери природного газа при регенерации технических жидкостей (МЭГа), м3 (п. 4.3.2)</th>
+                    </tr>
+
+                    <tr>
+
+                        <th class="table_content_th_rtp">Оборудование</th>
+                        <th class="table_content_th_rtp">Qг.р.ж.</th>
+                        <th class="table_content_th_rtp">nг.прод</th>
+                        <th class="table_content_th_rtp">nг.пл</th>
+                        <th class="table_content_th_rtp">Xг.прод</th>
+                        <th class="table_content_th_rtp">Пг.р.ж.</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody id="items-form-container">
+                        {{ form_set.management_form }}
+                        {% for form in form_set %}
+
+                            <tr class="items-form">
+                                <td class="table_content_td_rtp"> {{ form.name }}</td>
+                                <td class="table_content_td_rtp"> {{ form.qgr_sh }}</td>
+                                <td class="table_content_td_rtp"> {{ form.ng_prod }}</td>
+                                <td class="table_content_td_rtp"> {{ form.ng_pl }}</td>
+                                <td class="table_content_td_rtp"> {{ form.xg_prod }}</td>
+                                <td class="table_content_td_rtp"> {{ form.pgr_sh }}</td>
+                            </tr>
+
+                        {% endfor %}
+                    </tbody>
+
+
+             </table>
+        </form>
+        </div>
+</div>
+{% endblock %}

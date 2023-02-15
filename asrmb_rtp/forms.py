@@ -127,29 +127,46 @@ MeterReading30P1ModelFormSet = modelformset_factory(model=MeterReading30P1,
 
 
 class TeclossesTreeForm(ModelForm):
-    type_of_analysis = forms.CharField(label="Вид анализа", max_length=255, required=False)
-    v_pr = forms.FloatField(label="Vпр - геометрический объем пробоотборника для анализа i-го вида", required=False)
-    p_pr = forms.FloatField(label="Рпр - давление в пробоотборнике для анализа i-го вида", required=False)
-    t_pr = forms.FloatField(label="Tпр - температура в пробоотборнике для анализа i-го вида", required=False)
-    z_pr = forms.FloatField(label="Zпр - коэффициент сжимаемости газа", required=False)
+    type_of_analysis = forms.CharField(label="Вид анализа", max_length=255, required=False,
+                                       widget=forms.TextInput(attrs={'class': 'table_content_rd_rtp_input'}))
+    v_pr = forms.FloatField(label="Vпр - геометрический объем пробоотборника для анализа i-го вида", required=False,
+                            widget=forms.NumberInput(attrs={'class': 'js-v_pr table_content_rd_rtp_input'}))
+    p_pr = forms.FloatField(label="Рпр - давление в пробоотборнике для анализа i-го вида", required=False,
+                            widget=forms.NumberInput(attrs={'class': 'js-p_pr table_content_rd_rtp_input'}))
+    t_pr = forms.FloatField(label="Tпр - температура в пробоотборнике для анализа i-го вида", required=False,
+                            widget=forms.NumberInput(attrs={'class': 'js-t_pr table_content_rd_rtp_input'}))
+    z_pr = forms.FloatField(label="Zпр - коэффициент сжимаемости газа", required=False,
+                            widget=forms.NumberInput(attrs={'class': 'js-z_pr table_content_rd_rtp_input'}))
     b = forms.FloatField(label="b -кратность продувки, т.е. отношение объема (при условии отбора) газа,",
-                         required=False)
-    ni = forms.FloatField(label="ni", required=False)
-    xr_prod = forms.FloatField(label="Xг.прод - мольная доля добываемой продукции в газе", required=False)
+                         required=False,widget=forms.NumberInput(attrs={'class': 'js-b table_content_rd_rtp_input'}))
+    ni = forms.FloatField(label="ni", required=False,
+                          widget=forms.NumberInput(attrs={'class': 'js-ni table_content_rd_rtp_input'}))
+    xr_prod = forms.FloatField(label="Xг.прод - мольная доля добываемой продукции в газе", required=False,
+                               widget=forms.NumberInput(attrs={'class': 'js-xr_prod table_content_rd_rtp_input'}))
     pr_op = forms.FloatField(label="Пг.оп - потери природного газа при периодическом отборе проб для разовых",
-                             required=False)
-    device = forms.CharField(label="Приборы", max_length=255, required=False)
-    v_p = forms.FloatField(label="Vр.- расход газа на i-й прибор", required=False)
-    tau = forms.FloatField(label="τр - время работы i-го прибора в расчетный период", required=False)
-    xrr_prod = forms.FloatField(label="Xг.прод - мольная доля добываемой продукции в газе", required=False)
-    n = forms.FloatField(label="n - число видов анализов", required=False)
+                             required=False,
+                             widget=forms.NumberInput(attrs={'class': 'js-pr_op table_content_rd_rtp_input'}))
+    device = forms.CharField(label="Приборы", max_length=255, required=False,
+                             widget=forms.TextInput(attrs={'class': ' table_content_rd_rtp_input'}))
+    v_p = forms.FloatField(label="Vр.- расход газа на i-й прибор", required=False,
+                           widget=forms.NumberInput(attrs={'class': 'js-v_p table_content_rd_rtp_input'}))
+    tau = forms.FloatField(label="τр - время работы i-го прибора в расчетный период", required=False,
+                           widget=forms.NumberInput(attrs={'class': 'js-tau table_content_rd_rtp_input'}))
+    xrr_prod = forms.FloatField(label="Xг.прод - мольная доля добываемой продукции в газе", required=False,
+                                widget=forms.NumberInput(attrs={'class': 'js-xrr_prod table_content_rd_rtp_input'}))
+    n = forms.FloatField(label="n - число видов анализов", required=False,
+                         widget=forms.NumberInput(attrs={'class': 'js-n table_content_rd_rtp_input'}))
     pr_pot = forms.FloatField(label="Пг.пот.i - потери природного газа при работе i-го прибора на потоке",
-                              required=False)
-    pr_pr = forms.FloatField(label="Пг.пр - соответственно число молей пластового газа и газа", required=False)
-    date_create = forms.DateTimeField(label='Дата создания', required=False)
-    date_update = forms.DateTimeField(label='Дата обновления', required=False)
+                              required=False,
+                              widget=forms.NumberInput(attrs={'class': 'js-pr_pot table_content_rd_rtp_input'}))
+    pr_pr = forms.FloatField(label="Пг.пр - соответственно число молей пластового газа и газа", required=False,
+                             widget=forms.NumberInput(attrs={'class': 'js-pr_pr table_content_rd_rtp_input'}))
+    date_create = forms.DateTimeField(label='Дата создания', required=False,
+                                      widget=forms.NumberInput(attrs={'style': 'display: None'}))
+    date_update = forms.DateTimeField(label='Дата обновления', required=False,
+                                      widget=forms.NumberInput(attrs={'style': 'display: None'}))
 
     class Meta:
         model = TeclossesTree
-        fields = ['type_of_analysis', 'v_pr', 'p_pr', 't_pr', 'z_pr', 'b', 'ni',
-                  'xr_prod', 'device', 'tau', 'xrr_prod', 'n']
+        fields = ['type_of_analysis', 'v_pr', 'p_pr', 't_pr','z_pr', 'b', 'ni',
+                  'xr_prod', 'pr_op', 'device', 'v_p', 'tau', 'xrr_prod', 'n', 'pr_pot', 'pr_pr']
