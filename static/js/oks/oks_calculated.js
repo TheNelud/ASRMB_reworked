@@ -34,6 +34,7 @@ function update_result(){
     calculated_calc();
     calculated_coc();
     calculated_poc();
+    calulated_nr();
 
 }
 
@@ -73,6 +74,10 @@ function summa_mcc() {
         Number(in_mcc[6].value) + Number(in_mcc[7].value) +
         Number(in_mcc[8].value) + Number(in_mcc[9].value) + Number(in_mcc[10].value);
 
+
+}
+
+function calulated_nr(){
     in_nr_prod[0].value = Number(in_mcc[0].value) +Number(in_mcc[1].value) +
         Number(in_mcc[2].value) + Number(in_mcc[3].value) + Number(in_mcc[4].value);
     //

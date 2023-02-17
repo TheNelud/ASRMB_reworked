@@ -35,16 +35,21 @@ def rtp_2(request):
 
 def rtp_2_create(request, date_rtp_2):
     max_date_now = datetime.now().strftime("%Y-%m-%d")
+
+    MeterReading30P1ModelFormSet = modelformset_factory(model=MeterReading30P1,
+                                                        form=MeterReading30P1Form,
+                                                        extra=2)
     meter_reading_form = MeterReading30P1ModelFormSet(queryset=MeterReading30P1.objects.none())
+
     TeclossesTwoModelFormSet = modelformset_factory(model=TeclossesTwo,
                                                     form=TeclossesTwoForm,
                                                     fields=('name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh'),
                                                     extra=2)
+
     form_set = TeclossesTwoModelFormSet(queryset=TeclossesTwo.objects.none())
     items_nr_prod = NrProd.objects.filter(date_create__contains=date_rtp_2)
 
     print(items_nr_prod.values())
-
 
     if request.method == 'POST':
 
@@ -61,7 +66,7 @@ def rtp_2_create(request, date_rtp_2):
         'max_date_now': max_date_now,
         'form_set': form_set,
         'meter_reading_form': meter_reading_form,
-        'items_nr_prod':items_nr_prod,
+        'items_nr_prod': items_nr_prod,
     }
     return render(request, 'asrmb_rtp/forms/rtp_2/form_create.html', context)
 
@@ -73,15 +78,20 @@ def rtp_2_edit(request, date_rtp_2):
                                                     form=TeclossesTwoForm,
                                                     fields=('name', 'qgr_sh', 'ng_prod', 'ng_pl', 'xg_prod', 'pgr_sh'),
                                                     extra=0)
+    MeterReading30P1ModelFormSet = modelformset_factory(model=MeterReading30P1,
+                                                        form=MeterReading30P1Form,
+                                                        extra=0)
+
     if not rtp_2_items:
         raise Http404("Нет данных")
 
     if request.method == 'POST':
         form_set = TeclossesTwoModelFormSet(request.POST)
-
-        print('Форма валидна: ' + str(form_set.is_valid()))
+        meter_reading_form = MeterReading30P1ModelFormSet(request.POST)
+        print('Форма валидна: ' + str(form_set.is_valid()) + str(form_set.is_valid()))
         print(form_set.as_table())
-        if form_set.is_valid():
+        if form_set.is_valid() and meter_reading_form.is_valid():
+            meter_reading_form.save()
             form_set.save()
             return redirect('rtp_2')
 
@@ -94,12 +104,14 @@ def rtp_2_edit(request, date_rtp_2):
     context = {
         'just_day': date_rtp_2,
         'form_set': form_set,
-        'meter_reading_form':meter_reading_form,
+        'meter_reading_form': meter_reading_form,
     }
     return render(request, 'asrmb_rtp/forms/rtp_2/form_edit.html', context)
 
 
 def rtp_2_delete(request, date_rtp_2):
+    meter_items = MeterReading30P1.objects.filter(
+        date_create__contains=date_rtp_2).order_by('date_update').values_list('id', flat=True)
     rtp_2_items = TeclossesTwo.objects.filter(
         date_create__contains=date_rtp_2).order_by('date_update').values_list('id', flat=True)
     print(rtp_2_items)
@@ -108,5 +120,6 @@ def rtp_2_delete(request, date_rtp_2):
         raise Http404("Нет данных")
 
     if request.method == 'POST':
+        MeterReading30P1.objects.filter(pk__in=list(meter_items)).delete()
         TeclossesTwo.objects.filter(pk__in=list(rtp_2_items)).delete()
         return redirect('rtp_2')

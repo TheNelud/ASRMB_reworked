@@ -3,7 +3,6 @@ from .models import *
 from django.forms import ModelForm, modelformset_factory, formset_factory
 from django import forms
 
-
 ''' 1. Технологические потери природного газа по итогам опорожнения технологического
  оборудования и трубопроводов перед проведением ремонтных работ, м3 (п.4.2.)';
  '''
@@ -104,9 +103,12 @@ class TeclossesTwoForm(ModelForm):
 
 
 class MeterReading30P1Form(ModelForm):
-    date = forms.DateTimeField(required=False)
-    num_one = forms.FloatField(required=False)
-    num_two = forms.FloatField(required=False)
+    date = forms.DateTimeField(required=False,
+                               widget=forms.DateTimeInput(attrs={'class': 'js-date', 'type': 'date'}))
+    num_one = forms.FloatField(required=False,
+                               widget=forms.NumberInput(attrs={'class': 'js-num_one'}))
+    num_two = forms.FloatField(required=False,
+                               widget=forms.NumberInput(attrs={'class': 'js-num_two'}))
     date_create = forms.DateTimeField(label='Дата создания', required=False, )
     date_update = forms.DateTimeField(label='Дата обновления', required=False, )
 
@@ -115,11 +117,18 @@ class MeterReading30P1Form(ModelForm):
         fields = '__all__'
 
 
-MeterReading30P1FormSet = formset_factory(form=MeterReading30P1Form,
-                                          extra=3)
-MeterReading30P1ModelFormSet = modelformset_factory(model=MeterReading30P1,
-                                                    form=MeterReading30P1Form,
-                                                    extra=2)
+class MeterReadingAllForm(ModelForm):
+    meter_p34 = forms.FloatField(required=False, widget=forms.DateTimeInput(attrs={'class': 'js-meter_p34'}))
+    meter_30p1 = forms.FloatField(required=False, widget=forms.DateTimeInput(attrs={'class': 'js-meter_30p1'}))
+    meter_10c1 = forms.FloatField(required=False, widget=forms.DateTimeInput(attrs={'class': 'js-meter_10c1'}))
+    meter_10c4 = forms.FloatField(required=False, widget=forms.DateTimeInput(attrs={'class': 'js-meter_10c4'}))
+    date_create = forms.DateTimeField(required=False)
+    date_update = forms.DateTimeField(required=False)
+
+    class Meta:
+        model = MeterReadingAll
+        fields = '__all__'
+
 
 ''' 
  3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)';
@@ -138,7 +147,7 @@ class TeclossesTreeForm(ModelForm):
     z_pr = forms.FloatField(label="Zпр - коэффициент сжимаемости газа", required=False,
                             widget=forms.NumberInput(attrs={'class': 'js-z_pr table_content_rd_rtp_input'}))
     b = forms.FloatField(label="b -кратность продувки, т.е. отношение объема (при условии отбора) газа,",
-                         required=False,widget=forms.NumberInput(attrs={'class': 'js-b table_content_rd_rtp_input'}))
+                         required=False, widget=forms.NumberInput(attrs={'class': 'js-b table_content_rd_rtp_input'}))
     ni = forms.FloatField(label="ni", required=False,
                           widget=forms.NumberInput(attrs={'class': 'js-ni table_content_rd_rtp_input'}))
     xr_prod = forms.FloatField(label="Xг.прод - мольная доля добываемой продукции в газе", required=False,
@@ -168,5 +177,5 @@ class TeclossesTreeForm(ModelForm):
 
     class Meta:
         model = TeclossesTree
-        fields = ['type_of_analysis', 'v_pr', 'p_pr', 't_pr','z_pr', 'b', 'ni',
+        fields = ['type_of_analysis', 'v_pr', 'p_pr', 't_pr', 'z_pr', 'b', 'ni',
                   'xr_prod', 'pr_op', 'device', 'v_p', 'tau', 'xrr_prod', 'n', 'pr_pot', 'pr_pr']

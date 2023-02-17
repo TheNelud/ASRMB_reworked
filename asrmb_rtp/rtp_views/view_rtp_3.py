@@ -33,6 +33,8 @@ def rtp_3(request):
 
 
 def rtp_3_create(request):
+
+
     max_date_now = datetime.now().strftime("%Y-%m-%d")
     TeclossesTreeModelFormSet = modelformset_factory(model=TeclossesTree,
                                                      form=TeclossesTreeForm,
@@ -41,6 +43,11 @@ def rtp_3_create(request):
                                                         'xr_prod', 'pr_op', 'device', 'v_p', 'tau', 'xrr_prod', 'n',
                                                         'pr_pot', 'pr_pr'),
                                                      extra=1)
+    MeterReadingAllModelFormSet = modelformset_factory(model=MeterReadingAll,
+                                                       form=MeterReadingAllForm,
+                                                       fields=('meter_p34', 'meter_30p1', 'meter_10c1', 'meter_10c4'),
+                                                       extra=3)
+    form_meter = MeterReadingAllModelFormSet(queryset=MeterReadingAll.objects.none())
     form_set = TeclossesTreeModelFormSet(queryset=TeclossesTree.objects.none())
 
     if request.method == 'POST':
@@ -52,5 +59,6 @@ def rtp_3_create(request):
     context = {
         'max_date_now': max_date_now,
         'form_set': form_set,
+        'form_meter': form_meter,
     }
     return render(request, 'asrmb_rtp/forms/rtp_3/form_create.html', context)

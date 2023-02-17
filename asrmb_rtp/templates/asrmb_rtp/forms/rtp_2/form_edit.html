@@ -55,20 +55,15 @@
                         </tr>
                     </thead>
                     <tbody>
-{#                        {% for form in meter_reading_form %}#}
+                        {% for form in meter_reading_form %}
                             <tr>
-                                <td class="table_content_td_rtp" ><input type="date" class="js-date" name="form-0-num_one" step="any" id="id_form-0-date"></td>
-                                <td class="table_content_td_rtp"><input type="number" class="js-num_one" name="form-0-num_one" step="any" id="id_form-0-num_one"></td>
-                                <td class="table_content_td_rtp"><input type="number" class="js-num_two" name="form-0-num_one" step="any" id="id_form-0-num_two"></td>
+                                <td class="table_content_td_rtp">{{ form.date }}</td>
+                                <td class="table_content_td_rtp">{{ form.num_one }}</td>
+                                <td class="table_content_td_rtp">{{ form.num_two }}</td>
                                 <td class="table_content_td_rtp"></td>
                             </tr>
-                            <tr>
-                                <td class="table_content_td_rtp"><input type="date"  class="js-date" name="form-1-num_one" step="any" id="id_form-1-date"></td>
-                                <td class="table_content_td_rtp"><input type="number" class="js-num_one" name="form-1-num_one" step="any" id="id_form-1-num_one"></td>
-                                <td class="table_content_td_rtp"><input type="number" class="js-num_two" name="form-1-num_one" step="any" id="id_form-1-num_two"></td>
-                                <td class="table_content_td_rtp"></td>
-                            </tr>
-{#                        {% endfor %}#}
+
+                        {% endfor %}
                         <tr>
                             <td class="table_content_th_rtp">Итог:</td>
                             <td class="table_content_th_rtp "><input type="number" class="js-num_one" name="form-2-num_one" step="any" id="id_form-2-num_one"></td>
@@ -114,7 +109,7 @@
                         {% endfor %}
                     </tbody>
 
-
+                    <script type="text/javascript" src="{% static 'js/rtp/rtp-2.js'%}" ></script>
              </table>
         </form>
         </div>

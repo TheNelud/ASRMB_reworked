@@ -2,6 +2,7 @@ from .models import *
 
 ROUTED_MODELS_GASCALC = [
     MeterReading30P1,
+    MeterReadingAll,
     TeclossesOne,
     TeclossesTwo,
     TeclossesTree,

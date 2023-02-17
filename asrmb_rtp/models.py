@@ -73,6 +73,18 @@ class MeterReading30P1(models.Model):
         db_table = 'meter_readings_30P_1'
 
 
+class MeterReadingAll(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    meter_p34 = models.FloatField()
+    meter_30p1 = models.FloatField()
+    meter_10c1 = models.FloatField()
+    meter_10c4 = models.FloatField()
+    date_create = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        managed = False
+        db_table = 'meter_readings_all'
 ''' 
  3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)';
 '''

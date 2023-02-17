@@ -43,6 +43,46 @@
 
                 <table class="table_content_header">
                     <thead>
+                        <tr>
+                            <th class="table_content_th_rtp" ></th>
+                            <th class="table_content_th_rtp" >п.34</th>
+                            <th class="table_content_th_rtp" >30Р-1</th>
+                            <th class="table_content_th_rtp" >10С-1</th>
+                            <th class="table_content_th_rtp" >10С-4</th>
+                            <th class="table_content_th_rtp" ></th>
+                        </tr>
+                        <tr>
+                            <th class="table_content_th_rtp">nг.прод=</th>
+                            <td class="table_content_th_rtp" colspan="4" rowspan="3">
+                                <table>
+                                    <tbody>
+                                    {% for form in form_meter %}
+                                        <tr>
+                                            <td class="table_content_td_rtp">{{ form.meter_p34 }}</td>
+                                            <td class="table_content_td_rtp">{{ form.meter_30p1 }}</td>
+                                            <td class="table_content_td_rtp">{{ form.meter_10c1 }}</td>
+                                            <td class="table_content_td_rtp">{{ form.meter_10c4 }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </td>
+                            <th class="table_content_th_rtp">%</th>
+                        </tr>
+                        <tr>
+                            <th class="table_content_th_rtp">nг.пл =</th>
+                            <th class="table_content_th_rtp">%</th>
+                        </tr>
+                        <tr>
+                            <th class="table_content_th_rtp">Xг.прод=</th>
+                            <td class="table_content_th_rtp"></td>
+                        </tr>
+                    </thead>
+                </table>
+
+                <br>
+                <table class="table_content_header">
+                    <thead>
                     <tr>
                         <th class="table_content_th_rtp" colspan="17">3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)</th>
                     </tr>

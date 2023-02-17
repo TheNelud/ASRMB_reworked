@@ -11,7 +11,7 @@ let in_xg_prod = document.querySelectorAll('.js-xg_prod');
 let in_pgr_sh = document.querySelectorAll('.js-pgr_sh');
 
 let in_nr_prod_const = document.querySelectorAll(".js-nr_prod_const");
-console.log(in_nr_prod_const[0].textContent)
+
 
 let date = new Date();
 let firstDay = new Date(date.getFullYear(), date.getMonth(), 2);
