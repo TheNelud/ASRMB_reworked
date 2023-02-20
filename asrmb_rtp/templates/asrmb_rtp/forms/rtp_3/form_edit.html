@@ -37,10 +37,8 @@
 {% block content %}
     <div class="base_content print" id='print'>
         <div class="table_content_rtp" style="left: 0%">
-            <p class="title_form">Создать запись</p>
+            <p class="title_form">Редактировать запись</p>
             <form action="" method="post" id="form_rtp_1" >
-                {% csrf_token %}
-
                 <table class="table_content_header">
                     <thead>
                         <tr>
@@ -131,18 +129,11 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                <a href="#" id="add-item" type="button" style="text-decoration: none;" >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(0,58,255);transform: ;msFilter:;"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg>
-                </a>
 
-                <a href="#" id="delete-item" type="button" style="text-decoration: none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(253,2,2);transform: ;msFilter:;"><path d="M5 11h14v2H5z"></path></svg>
-                </a>
-                <script type="text/javascript" src="{% static 'js/rtp/rtp-3.js'%}" ></script>
-                <script type="text/javascript" src="{% static 'js/rtp/rtp-3-meter.js'%}" ></script>
             </form>
         </div>
     </div>
+
 
 
 {% endblock %}

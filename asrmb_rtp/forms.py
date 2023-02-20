@@ -118,10 +118,10 @@ class MeterReading30P1Form(ModelForm):
 
 
 class MeterReadingAllForm(ModelForm):
-    meter_p34 = forms.FloatField(required=False, widget=forms.DateTimeInput(attrs={'class': 'js-meter_p34'}))
-    meter_30p1 = forms.FloatField(required=False, widget=forms.DateTimeInput(attrs={'class': 'js-meter_30p1'}))
-    meter_10c1 = forms.FloatField(required=False, widget=forms.DateTimeInput(attrs={'class': 'js-meter_10c1'}))
-    meter_10c4 = forms.FloatField(required=False, widget=forms.DateTimeInput(attrs={'class': 'js-meter_10c4'}))
+    meter_p34 = forms.FloatField(required=False, widget=forms.NumberInput(attrs={'class': 'js-meter_p34'}))
+    meter_30p1 = forms.FloatField(required=False, widget=forms.NumberInput(attrs={'class': 'js-meter_30p1'}))
+    meter_10c1 = forms.FloatField(required=False, widget=forms.NumberInput(attrs={'class': 'js-meter_10c1'}))
+    meter_10c4 = forms.FloatField(required=False, widget=forms.NumberInput(attrs={'class': 'js-meter_10c4'}))
     date_create = forms.DateTimeField(required=False)
     date_update = forms.DateTimeField(required=False)
 

@@ -58,6 +58,31 @@ function calculated() {
                 * (Number(in_b[i].value) + 1) * Number(in_ni[i].value) * Number(in_xr_prod[i].value)).toFixed(3);
         }
     }
+// ______
+    for(let i=0; i<in_v_p.length; i++){
+        in_v_p[i].value = 0.000025 * 20;
+        console.log(in_v_p[i].value);
+    }
+    for(let i=0; i<in_tau.length; i++){
+        in_tau[i].addEventListener('input',function (){
+        calculated_pr_pot();
+        })
+    }
+    for(let i=0; i<in_n.length; i++){
+        in_n[i].addEventListener('input',function (){
+        calculated_pr_pot();
+        })
+    }
+
+    function calculated_pr_pot(){
+        for(let i=0; i<in_pr_pot.length; i++){
+            in_pr_pot[i].value = (Number(in_v_p[i].value) * Number(in_tau[i].value) * Number(in_xrr_prod[i].value) * Number(in_n[i].value)).toFixed(3);
+        }
+        for (let i=0; i<in_pr_pr.length; i++){
+        in_pr_pr[i].value = (Number(in_pr_pot[i].value) + Number(in_pr_op[i].value)).toFixed(3);
+        }
+    }
+    calculated_pr_pot();
 
 
 }
@@ -100,3 +125,4 @@ function deleteForm(e){
     formNum--;
     totalForms.setAttribute('value', `${formNum}`);
 }
+
