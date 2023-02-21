@@ -1,6 +1,7 @@
 from .rtp_views.view_rtp_1 import *
 from .rtp_views.view_rtp_2 import *
 from .rtp_views.view_rtp_3 import *
+from .rtp_views.view_rtp_4 import *
 
 from . import views
 from django.urls import path
@@ -20,4 +21,7 @@ urlpatterns = [
     path('rtp_3/', rtp_3, name='rtp_3'),
     path('rtp_3/create/', rtp_3_create, name='rtp_3_create'),
     path('rtp_3/edit/<slug:date_rtp_3>', rtp_3_edit, name='rtp_3_edit'),
+    path('rtp_3/delete/<slug:date_rtp_3>', rtp_3_delete, name='rtp_3_delete'),
+
+    path('rtp_4/', rtp_4, name='rtp_4'),
 ]

@@ -85,6 +85,8 @@ class MeterReadingAll(models.Model):
     class Meta:
         managed = False
         db_table = 'meter_readings_all'
+
+
 ''' 
  3. Технологические потери природного газа при отборе проб, м3 (п. 4.5)';
 '''
@@ -114,3 +116,31 @@ class TeclossesTree(models.Model):
     class Meta:
         managed = False
         db_table = 'teclosses_three'
+
+
+# 'Расчет потерь при Переработке**
+# 1. Потери природного газа через неплотности соединений и уплотнений ЗРА, м3. (п.5.1.3)';
+
+class RecyclingcalcOne(models.Model):
+    id = models.SmallAutoField(primary_key=True)
+    type = models.CharField(max_length=255)
+    aij = models.FloatField()
+    bij = models.FloatField()
+    tauij = models.FloatField()
+    a_ij = models.FloatField()
+    mi = models.FloatField()
+    q_yp = models.FloatField()
+    t_type = models.CharField(max_length=255)
+    t_aij = models.FloatField()
+    t_bij = models.FloatField()
+    t_tauij = models.FloatField()
+    t_a_ij = models.FloatField()
+    t_mi = models.FloatField()
+    t_q_yp = models.FloatField()
+    date_create = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now=True)
+
+    class Meta:
+
+        managed = False
+        db_table = 'recyclingcalc_one'

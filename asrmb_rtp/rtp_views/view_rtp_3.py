@@ -68,7 +68,7 @@ def rtp_3_create(request):
     return render(request, 'asrmb_rtp/forms/rtp_3/form_create.html', context)
 
 
-def rtp_3_edit(request,date_rtp_3):
+def rtp_3_edit(request, date_rtp_3):
     rtp_3_items = TeclossesTree.objects.filter(
         date_create__contains=date_rtp_3).order_by('date_update')
 
@@ -102,4 +102,19 @@ def rtp_3_edit(request,date_rtp_3):
         'form_set': form_set,
         'meter_reading_form': meter_reading_form,
     }
-    return render(request,'asrmb_rtp/forms/rtp_3/form_edit.html', context)
+    return render(request, 'asrmb_rtp/forms/rtp_3/form_edit.html', context)
+
+
+def rtp_3_delete(request, date_rtp_3):
+    meter_items = MeterReadingAll.objects.filter(
+        date_create__contains=date_rtp_3).order_by('date_update').values_list('id', flat=True)
+    rtp_3_items = TeclossesTree.objects.filter(
+        date_create__contains=date_rtp_3).order_by('date_update').values_list('id', flat=True)
+
+    if not rtp_3_items:
+        raise Http404("Нет данных")
+
+    if request.method == 'POST':
+        MeterReadingAll.objects.filter(pk__in=list(meter_items)).delete()
+        TeclossesTree.objects.filter(pk__in=list(rtp_3_items)).delete()
+        return redirect('rtp_3')

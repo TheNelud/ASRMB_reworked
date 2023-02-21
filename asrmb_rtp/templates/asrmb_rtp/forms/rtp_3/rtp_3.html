@@ -147,14 +147,14 @@
 
             </table>
 
-{#            <div id="delete_rtp">#}
-{#            <a href="#" class="close_okno">x</a><br>#}
-{#            Удалить запись#}
-{#             <form action="{% url 'rtp_3_delete' url_rtp_3 %}" method="post">#}
-{#                 {% csrf_token %}#}
-{#                 <button type="submit" > Удалить</button>#}
-{#             </form>#}
-{#            </div>#}
+            <div id="delete_rtp">
+            <a href="#" class="close_okno">x</a><br>
+            Удалить запись
+             <form action="{% url 'rtp_3_delete' url_rtp_3 %}" method="post">
+                 {% csrf_token %}
+                 <button type="submit" > Удалить</button>
+             </form>
+            </div>
         </div>
         <script type="text/javascript" src="{% static 'js/rtp/rtp-3-summa.js'%}" ></script>
     </div>
