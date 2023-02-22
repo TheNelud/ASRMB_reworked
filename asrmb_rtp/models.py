@@ -122,7 +122,7 @@ class TeclossesTree(models.Model):
 # 1. Потери природного газа через неплотности соединений и уплотнений ЗРА, м3. (п.5.1.3)';
 
 class RecyclingcalcOne(models.Model):
-    id = models.SmallAutoField(primary_key=True)
+    id = models.BigAutoField(primary_key=True)
     type = models.CharField(max_length=255)
     aij = models.FloatField()
     bij = models.FloatField()
@@ -141,6 +141,17 @@ class RecyclingcalcOne(models.Model):
     date_update = models.DateTimeField(auto_now=True)
 
     class Meta:
-
         managed = False
         db_table = 'recyclingcalc_one'
+
+
+class RecyclingcalcOneTime(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    type = models.CharField(max_length=255)
+    time = models.IntegerField()
+    date_create = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        managed = False
+        db_table = 'recyclingcalc_one_time'

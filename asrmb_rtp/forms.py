@@ -179,3 +179,40 @@ class TeclossesTreeForm(ModelForm):
         model = TeclossesTree
         fields = ['type_of_analysis', 'v_pr', 'p_pr', 't_pr', 'z_pr', 'b', 'ni',
                   'xr_prod', 'pr_op', 'device', 'v_p', 'tau', 'xrr_prod', 'n', 'pr_pot', 'pr_pr']
+
+
+# 'Расчет потерь при Переработке**
+# 1. Потери природного газа через неплотности соединений и уплотнений ЗРА, м3. (п.5.1.3)';
+
+class RecyclingcalcOneForm(models.Model):
+    type = forms.CharField(required=False, )
+    aij = forms.FloatField(required=False, )
+    bij = forms.FloatField(required=False, )
+    tauij = forms.FloatField(required=False, )
+    a_ij = forms.FloatField(required=False, )
+    mi = forms.FloatField(required=False, )
+    q_yp = forms.FloatField(required=False, )
+    t_type = forms.CharField(required=False, )
+    t_aij = forms.FloatField(required=False, )
+    t_bij = forms.FloatField(required=False, )
+    t_tauij = forms.FloatField(required=False, )
+    t_a_ij = forms.FloatField(required=False, )
+    t_mi = forms.FloatField(required=False, )
+    t_q_yp = forms.FloatField(required=False, )
+    date_create = forms.DateTimeField(required=False, )
+    date_update = forms.DateTimeField(required=False, )
+
+    class Meta:
+        model = RecyclingcalcOne
+        fields = '__all__'
+
+
+class RecyclingcalcOneTimeForm(models.Model):
+    type = forms.CharField(required=False, )
+    time = forms.IntegerField(required=False, )
+    date_create = forms.DateTimeField(required=False, )
+    date_update = forms.DateTimeField(required=False, )
+
+    class Meta:
+        model = RecyclingcalcOneTime
+        fields = '__all__'

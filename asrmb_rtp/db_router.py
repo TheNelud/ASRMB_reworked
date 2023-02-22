@@ -7,7 +7,7 @@ ROUTED_MODELS_GASCALC = [
     TeclossesTwo,
     TeclossesTree,
     RecyclingcalcOne,
-
+    RecyclingcalcOneTime,
 ]
 
 
