@@ -50,7 +50,7 @@ def rtp_4_create(request):
     RecyclingcalcOneTimeModelFormSet = modelformset_factory(model=RecyclingcalcOneTime,
                                                             form=RecyclingcalcOneTimeForm,
                                                             fields=('type', 'time'),
-                                                            extra=4)
+                                                            extra=5)
     form_set_ro = RecyclingcalcOneModelFormSet(queryset=RecyclingcalcOne.objects.none())
     form_set_ro_time = RecyclingcalcOneTimeModelFormSet(queryset=RecyclingcalcOneTime.objects.none())
 
@@ -60,11 +60,11 @@ def rtp_4_create(request):
         if form_set_ro.is_valid() and form_set_ro_time.is_valid():
             form_set_ro.save()
             form_set_ro_time.save()
-            return redirect ('rtp_4')
+            return redirect('rtp_4')
     context = {
         'max_date_now': max_date_now,
         'form_set_ro': form_set_ro,
         'form_set_ro_time': form_set_ro_time
     }
 
-    return render(request, 'asrmb_rtp/forms/rtp_4/form_edit.html', context)
+    return render(request, 'asrmb_rtp/forms/rtp_4/form_create.html', context)

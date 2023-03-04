@@ -1,10 +1,11 @@
 from datetime import datetime
 
+from django.forms import modelformset_factory
 from django.http import Http404
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 
-from ..models import *
-from ..forms import *
+from asrmb_rtp.models import *
+from asrmb_rtp.forms import *
 
 
 def rtp_1(request):

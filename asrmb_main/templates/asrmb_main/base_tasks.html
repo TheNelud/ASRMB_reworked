@@ -1,0 +1,68 @@
+{%extends 'asrmb_main/base.html' %}
+{% load static %}
+
+
+{% block sidebar %}
+
+{% endblock %}
+
+{% block content %}
+<div class="base_content print" id='print' style="width: 85%;height: 90%" >
+    <div class = tasks>
+        <div class="tasks_days">
+            <p>Задачи на день</p>
+            <ul class="list_tasks">
+                <li>
+                    <a>Определение компонентного состава
+                        <span>(0/10)</span>
+                    </a>
+                </li>
+                <li>
+                    <a>Расчет технологических потерь
+                        <span>(0/30)</span>
+                    </a>
+                </li>
+                <li>
+                    <a>Расчет массы
+                        <span>(0/4)</span>
+                    </a>
+                </li>
+                <li>
+                    <a>Суточный рапорт УКПГ
+                        <span>(0/1)</span>
+                    </a>
+                </li>
+                <li>
+                    <a>Суточный рапорт Киринского ГКМ
+                        <span>(0/1)</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <br>
+        <div class="tasks_month">
+            <p>Задачи на месяц</p>
+            <ul class="list_tasks">
+                <li>
+                    <a>
+                        Ежемесячный эксплуатационный рапорт
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="timedate">
+        <a id="mon">Январь</a>&nbsp<a id="d">1</a>,&nbsp<a id="y">0</a><br>
+        <a id="h">12</a>:<a id="m">00</a>:<a id="s">00</a>
+    </div>
+
+    <div class="tasks_caledar">
+        {% include 'asrmb_main/calendar.html'%}
+    </div>
+
+</div>
+    <script type="text/javascript" src="{% static 'js/calendar.js'%}" ></script>
+    <script type="text/javascript" src="{% static 'js/clock.js'%}" ></script>
+{% endblock %}

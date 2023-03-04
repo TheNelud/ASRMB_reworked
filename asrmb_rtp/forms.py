@@ -184,7 +184,7 @@ class TeclossesTreeForm(ModelForm):
 # 'Расчет потерь при Переработке**
 # 1. Потери природного газа через неплотности соединений и уплотнений ЗРА, м3. (п.5.1.3)';
 
-class RecyclingcalcOneForm(models.Model):
+class RecyclingcalcOneForm(ModelForm):
     type = forms.CharField(required=False, )
     aij = forms.FloatField(required=False, )
     bij = forms.FloatField(required=False, )
@@ -207,8 +207,16 @@ class RecyclingcalcOneForm(models.Model):
         fields = '__all__'
 
 
-class RecyclingcalcOneTimeForm(models.Model):
-    type = forms.CharField(required=False, )
+class RecyclingcalcOneTimeForm(ModelForm):
+    type = forms.CharField(required=False, widget=forms.Select(
+        choices=(
+            ('1', 'КУ-1 '),
+            ('2', 'КУ-2 '),
+            ('3', '1 т.н. УСК'),
+            ('4', '2 т.н. УСК'),
+            ('5', '3 т.н. УСК'),
+        ))
+                           )
     time = forms.IntegerField(required=False, )
     date_create = forms.DateTimeField(required=False, )
     date_update = forms.DateTimeField(required=False, )

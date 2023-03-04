@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>АСРМБ</title>
+    <link rel="stylesheet" href="{% static 'css/base_tasks.css'  %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/clock.css'  %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/calendar.css'  %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/sidebar.css'  %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/rp_g.css'  %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/rp_rtp.css'  %}" type="text/css">
@@ -18,10 +21,10 @@
 <body>
     
     <div class="sidebar"> <!--Можно будет убрать close и допменю будет в баре -->
-        <div class="logo-details">
+        <a class="logo-details" href="{% url 'base' %}">
             <img  class='logo_site' src="{% static 'images/logo.png' %}"/>
             <span class="logo_name">AСРМБ</span>
-        </div>
+        </a>
         {%block sidebar%}
     
         {%endblock%}
