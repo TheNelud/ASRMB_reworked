@@ -99,6 +99,7 @@ body{
     width: 100%;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 .sidebar .logo-details svg
 {
@@ -114,6 +115,7 @@ body{
 .sidebar .logo-details .logo_site{
     width: 64px;
     height: 64px;
+
 }
 .sidebar.close .logo-details .logo_site{
     width: 64px;
@@ -127,6 +129,7 @@ body{
    color: #fff; 
    font-weight: 600;
    transition: 0.3s ease;
+    text-decoration: none;
    
 }
 .sidebar.close .logo-details .logo_name
