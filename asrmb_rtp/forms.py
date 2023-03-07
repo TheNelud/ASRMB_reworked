@@ -185,20 +185,50 @@ class TeclossesTreeForm(ModelForm):
 # 1. Потери природного газа через неплотности соединений и уплотнений ЗРА, м3. (п.5.1.3)';
 
 class RecyclingcalcOneForm(ModelForm):
-    type = forms.CharField(required=False, )
-    aij = forms.FloatField(required=False, )
-    bij = forms.FloatField(required=False, )
-    tauij = forms.FloatField(required=False, )
-    a_ij = forms.FloatField(required=False, )
-    mi = forms.FloatField(required=False, )
-    q_yp = forms.FloatField(required=False, )
-    t_type = forms.CharField(required=False, )
-    t_aij = forms.FloatField(required=False, )
-    t_bij = forms.FloatField(required=False, )
-    t_tauij = forms.FloatField(required=False, )
-    t_a_ij = forms.FloatField(required=False, )
-    t_mi = forms.FloatField(required=False, )
-    t_q_yp = forms.FloatField(required=False, )
+    type = forms.CharField(required=False,
+                           widget=forms.TextInput(attrs={'class': 'js-type table_content_rd_rtp_input'},
+                                               ))
+    aij = forms.FloatField(required=False,
+                           widget=forms.NumberInput(attrs={'class': 'js-aij table_content_rd_rtp_input'})
+                           )
+    bij = forms.FloatField(required=False,
+                           widget=forms.NumberInput(attrs={'class': 'js-bij table_content_rd_rtp_input'})
+                           )
+    tauij = forms.FloatField(required=False,
+                             widget=forms.NumberInput(attrs={'class': 'js-tauij table_content_rd_rtp_input'})
+                             )
+    a_ij = forms.FloatField(required=False,
+                            widget=forms.NumberInput(attrs={'class': 'js-a_ij table_content_rd_rtp_input'})
+                            )
+    mi = forms.FloatField(required=False,
+                          widget=forms.NumberInput(attrs={'class': 'js-mi table_content_rd_rtp_input'})
+                          )
+    q_yp = forms.FloatField(required=False,
+                            widget=forms.NumberInput(attrs={'class': 'js-q_yp table_content_rd_rtp_input'})
+                            )
+    t_type = forms.CharField(required=False,
+                             widget=forms.TextInput(attrs={'class': 'js-t_type table_content_rd_rtp_input'},
+
+                                                 )
+                             )
+    t_aij = forms.FloatField(required=False,
+                             widget=forms.NumberInput(attrs={'class': 'js-t_aij table_content_rd_rtp_input'})
+                             )
+    t_bij = forms.FloatField(required=False,
+                             widget=forms.NumberInput(attrs={'class': 'js-t_bij table_content_rd_rtp_input'})
+                             )
+    t_tauij = forms.FloatField(required=False,
+                               widget=forms.NumberInput(attrs={'class': 'js-t_tauij table_content_rd_rtp_input'})
+                               )
+    t_a_ij = forms.FloatField(required=False,
+                              widget=forms.NumberInput(attrs={'class': 'js-t_a_ij table_content_rd_rtp_input'})
+                              )
+    t_mi = forms.FloatField(required=False,
+                            widget=forms.NumberInput(attrs={'class': 'js-t_mi table_content_rd_rtp_input'})
+                            )
+    t_q_yp = forms.FloatField(required=False,
+                              widget=forms.NumberInput(attrs={'class': 'js-t_q_yp table_content_rd_rtp_input'})
+                              )
     date_create = forms.DateTimeField(required=False, )
     date_update = forms.DateTimeField(required=False, )
 
@@ -208,16 +238,12 @@ class RecyclingcalcOneForm(ModelForm):
 
 
 class RecyclingcalcOneTimeForm(ModelForm):
-    type = forms.CharField(required=False, widget=forms.Select(
-        choices=(
-            ('1', 'КУ-1 '),
-            ('2', 'КУ-2 '),
-            ('3', '1 т.н. УСК'),
-            ('4', '2 т.н. УСК'),
-            ('5', '3 т.н. УСК'),
-        ))
-                           )
-    time = forms.IntegerField(required=False, )
+    type = forms.CharField(required=False, widget=forms.TextInput(attrs={'class': 'js-type_time '
+                                                                                  'table_content_rd_rtp_input'},
+                           ))
+    time = forms.IntegerField(required=False,widget=forms.NumberInput(attrs={'class': 'js-time '
+                                                                                      'table_content_rd_rtp_input'})
+                               )
     date_create = forms.DateTimeField(required=False, )
     date_update = forms.DateTimeField(required=False, )
 

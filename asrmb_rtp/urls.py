@@ -25,4 +25,6 @@ urlpatterns = [
 
     path('rtp_4/', rtp_4, name='rtp_4'),
     path('rtp_4/create/', rtp_4_create, name='rtp_4_create'),
+    path('rtp_4/edit/<slug:date_rtp_4>', rtp_4_edit, name='rtp_4_edit'),
+    path('rtp_4/delete/<slug:date_rtp_4>', rtp_4_delete, name='rtp_4_delete'),
 ]
